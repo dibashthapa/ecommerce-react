@@ -1,6 +1,13 @@
 import React from 'react';
+import { Grid   } from "@material-ui/core";
 const Register = () => {
-  return <div>This is Register page</div>;
+  return (
+    <Grid container>
+      <Grid xs item={6}>
+        
+      </Grid>
+    </Grid>
+  )
 };
 
 export default Register;
