@@ -1,8 +1,11 @@
+import React, { useState } from 'react';
+
 import { InputLabel, makeStyles } from '@material-ui/core';
-import React from 'react';
+
 import Box from '../../UI/Login-SignupBox/Box';
 import MuiButton from '../../UI/Button/Button';
 import MuiInput from '../../UI/Input/Input';
+
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -34,17 +37,31 @@ const useStyles = makeStyles(theme => ({
 }))
 
 const Login = () => {
+  let initialState = {
+    email: '',
+    password: ''
+  }
+
+  const [form, setForm] = useState(initialState)
+
+  const onChange = (e) => {
+    const { name, value } = e.target
+    setForm({
+      ...form,
+      [name]: value
+    })
+  }
 
   const classes = useStyles()
   return (
     <Box>
       <form className={classes.root}>
         <InputLabel className={classes.fonts} htmlFor='email'>Email</InputLabel>
-        <MuiInput className={classes.fonts} fullWidth placeholder="email" type="email" name="email" />
+        <MuiInput changed={onChange} value={form.email} className={classes.fonts} fullWidth placeholder="email" type="email" name="email" />
         <br />
         <InputLabel className={classes.fonts} htmlFor='password'>Password</InputLabel>
         <InputLabel className={classes.left} htmlFor='password'>forgot password?</InputLabel>
-        <MuiInput className={classes.fonts} fullWidth placeholder="password" type="password" name="password" />
+        <MuiInput changed={onChange} value={form.password} className={classes.fonts} fullWidth placeholder="password" type="password" name="password" />
         <MuiButton type='submit'>Submit</MuiButton>
         <br />
         <br />

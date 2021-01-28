@@ -9,22 +9,21 @@ const useStyles = makeStyles(theme => ({
     }
 }))
 
-function MuiInput(props) {
-
+const MuiInput = props => {
     const classes = useStyles()
+    const { value, changed, name, size, type, variant } = props
     return (
-        <div>
-            <TextField
-                name={props.name}
-                autoComplete='off'
-                size={props.size || 'small'}
-                className={classes.input}
-                id="outlined-basic"
-                type={props.type}
-                variant={props.variant || "outlined"}
-                {...props}
-            />
-        </div>
+        <TextField
+            value={value}
+            onChange={changed}
+            name={name}
+            autoComplete='off'
+            size={size || 'small'}
+            className={classes.input}
+            type={type || 'button'}
+            variant={variant || "outlined"}
+            {...props}
+        />
     )
 }
 

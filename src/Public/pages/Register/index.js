@@ -1,6 +1,11 @@
 import React from 'react';
+import Box from '../../UI/Login-SignupBox/Box';
 const Register = () => {
-  return <div>This is Register page</div>;
+  return (
+    <Box>
+
+    </Box>
+  )
 };
 
 export default Register;
