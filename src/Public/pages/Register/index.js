@@ -1,11 +1,7 @@
 import React from 'react';
-import { Grid } from '@material-ui/core';
+import Box from '../../UI/Login-SignupBox/Box';
 const Register = () => {
-  return (
-    <Grid container>
-      <Grid xs item={6}></Grid>
-    </Grid>
-  );
+  return <Box></Box>;
 };
 
 export default Register;
