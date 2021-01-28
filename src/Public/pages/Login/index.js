@@ -54,7 +54,6 @@ const Login = () => {
             value={values.password}
             onChange={handleChange}
             name={'password'}
-            autoComplete="off"
             className={classes.input}
             fullWidth
             size="small"
