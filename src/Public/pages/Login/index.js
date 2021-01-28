@@ -1,11 +1,15 @@
 import React from 'react';
-import { Typography } from "@material-ui/core"
+import { Grid } from '@material-ui/core';
+import useStyles from './index.style';
 const Login = () => {
+  const classes = useStyles();
   return (
-    <Typography>
-      Hello this is login page
-    </Typography>
-  )
+    <Grid container>
+      <Grid item xs={3}>
+        <input type="text" />
+      </Grid>
+    </Grid>
+  );
 };
 
 export default Login;
