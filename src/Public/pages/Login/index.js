@@ -57,7 +57,7 @@ const Login = () => {
     <Box>
       <form className={classes.root}>
         <InputLabel className={classes.fonts} htmlFor='email'>Email</InputLabel>
-        <MuiInput changed={onChange} value={form.email} className={classes.fonts} fullWidth placeholder="email" type="email" name="email" />
+        <MuiInput autoFocus changed={onChange} value={form.email} className={classes.fonts} fullWidth placeholder="email" type="email" name="email" />
         <br />
         <InputLabel className={classes.fonts} htmlFor='password'>Password</InputLabel>
         <InputLabel className={classes.left} htmlFor='password'>forgot password?</InputLabel>
