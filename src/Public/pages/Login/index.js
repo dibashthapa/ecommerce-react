@@ -1,74 +1,82 @@
 import React, { useState } from 'react';
-
-import { InputLabel, makeStyles } from '@material-ui/core';
-
-import Box from '../../UI/Login-SignupBox/Box';
-import MuiButton from '../../UI/Button/Button';
-import MuiInput from '../../UI/Input/Input';
-
-
-const useStyles = makeStyles(theme => ({
-  root: {
-    position: 'relative'
-  },
-  fonts: {
-    fontSize: theme.overrides.s6Default.fontSize,
-    fontWeight: theme.overrides.s6Default.fontWeight,
-    lineHeight: theme.overrides.s6Default.lineHeight,
-    color: 'black',
-    display: 'inline'
-  },
-  left: {
-    fontSize: theme.overrides.s6Default.fontSize,
-    fontWeight: theme.overrides.s6Default.fontWeight,
-    lineHeight: theme.overrides.s6Default.lineHeight,
-    color: '#9C9C9C',
-    position: 'absolute',
-    display: 'inline',
-    right: 0,
-    textDecoration: 'underline',
-    cursor: 'pointer',
-  },
-  link: {
-    textDecoration: 'underline',
-    cursor: 'pointer',
-    fontWeight: 'bold'
-  }
-}))
-
+import {
+  Button,
+  Grid,
+  InputLabel,
+  TextField,
+  Typography,
+} from '@material-ui/core';
+import useStyles from './index.style';
 const Login = () => {
-  let initialState = {
-    email: '',
-    password: ''
-  }
+  const [values, setValue] = useState('');
 
-  const [form, setForm] = useState(initialState)
+  const handleChange = e => {
+    const { name, value } = e.target;
+    setValue({
+      ...values,
+      [name]: value,
+    });
+  };
 
-  const onChange = (e) => {
-    const { name, value } = e.target
-    setForm({
-      ...form,
-      [name]: value
-    })
-  }
-
-  const classes = useStyles()
+  const classes = useStyles();
   return (
-    <Box>
-      <form className={classes.root}>
-        <InputLabel className={classes.fonts} htmlFor='email'>Email</InputLabel>
-        <MuiInput autoFocus changed={onChange} value={form.email} className={classes.fonts} fullWidth placeholder="email" type="email" name="email" />
-        <br />
-        <InputLabel className={classes.fonts} htmlFor='password'>Password</InputLabel>
-        <InputLabel className={classes.left} htmlFor='password'>forgot password?</InputLabel>
-        <MuiInput changed={onChange} value={form.password} className={classes.fonts} fullWidth placeholder="password" type="password" name="password" />
-        <MuiButton type='submit'>Submit</MuiButton>
-        <br />
-        <br />
-        <InputLabel htmlFor='password'>Don't have an account? <span className={classes.link}>Create</span></InputLabel>
-      </form>
-    </Box>
-  )
+    <Grid
+      container
+      justify="center"
+      alignItems="center"
+      className={classes.loginContainer}
+    >
+      <Grid xs={12} lg={3} item className="loginForm">
+        <div className="emailSection">
+          <InputLabel className={classes.fonts} htmlFor="email">
+            Email
+          </InputLabel>
+          <TextField
+            onChange={handleChange}
+            name={'email'}
+            value={values.email}
+            type="email"
+            size="small"
+            className={classes.input}
+            fullWidth
+            variant={'outlined'}
+          />
+        </div>
+        <Typography className={classes.left} htmlFor="password">
+          forgot password?
+        </Typography>
+        <div className="passwordSection">
+          <InputLabel className={classes.fonts} htmlFor="password">
+            Password
+          </InputLabel>
+
+          <TextField
+            value={values.password}
+            onChange={handleChange}
+            name={'password'}
+            className={classes.input}
+            fullWidth
+            size="small"
+            type="password"
+            variant={'outlined'}
+          />
+        </div>
+
+        <Button
+          className={classes.loginButton}
+          variant={'contained'}
+          size={'small'}
+          color={'primary'}
+          type={'submit'}
+        >
+          Login
+        </Button>
+        <Typography>
+          Don't have an account? <span className={classes.link}>Create</span>
+        </Typography>
+      </Grid>
+    </Grid>
+  );
 };
 
 export default Login;

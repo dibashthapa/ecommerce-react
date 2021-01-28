@@ -1,10 +1,7 @@
 import React from 'react';
-import Box from '../../UI/Login-SignupBox/Box';
 const Register = () => {
   return (
-    <Box>
-
-    </Box>
+    <h1>register form</h1>
   )
 };
 
