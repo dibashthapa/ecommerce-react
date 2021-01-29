@@ -16,7 +16,6 @@ import useStyles from './index.style';
 import { useFormik } from 'formik';
 
 const Login = () => {
-
   const [values, setValue] = useState({
     showPassword: false
   });
@@ -61,11 +60,11 @@ const Login = () => {
           </div>
           <Typography className={classes.left} htmlFor="password">
             forgot password?
-        </Typography>
+          </Typography>
           <div className="passwordSection">
             <InputLabel className={classes.fonts} htmlFor="password">
               Password
-        </InputLabel>
+            </InputLabel>
 
             <TextField
               name={'password'}
@@ -79,13 +78,17 @@ const Login = () => {
               error={formik.touched.password && Boolean(formik.errors.password)}
               helperText={formik.touched.password && formik.errors.password}
               InputProps={{
-                endAdornment: <InputAdornment position="end" >
-                  <IconButton
-                    onClick={() => setValue({ ...values, showPassword: !values.showPassword })}
-                  >
-                    {values.showPassword ? <VisibilityIcon /> : <VisibilityOffIcon />}
-                  </IconButton>
-                </InputAdornment>
+                endAdornment: (
+                  <InputAdornment position="end">
+                    <IconButton onClick={() => setValue(!values.showPassword)}>
+                      {values.showPassword ? (
+                        <VisibilityIcon />
+                      ) : (
+                          <VisibilityOffIcon />
+                        )}
+                    </IconButton>
+                  </InputAdornment>
+                ),
               }}
             />
           </div>
@@ -98,7 +101,7 @@ const Login = () => {
             type={'submit'}
           >
             Login
-        </Button>
+          </Button>
         </form>
         <Typography>
           Don't have an account? <span className={classes.link}>Create</span>
