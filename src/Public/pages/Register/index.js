@@ -1,7 +1,6 @@
 import React from 'react';
-import Box from '../../UI/Login-SignupBox/Box';
 const Register = () => {
-  return <Box></Box>;
+  return <h1>Hello Dibash</h1>;
 };
 
 export default Register;
