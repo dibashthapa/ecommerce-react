@@ -10,24 +10,27 @@ import {
 } from '@material-ui/core';
 import VisibilityIcon from '@material-ui/icons/Visibility';
 import VisibilityOffIcon from '@material-ui/icons/VisibilityOff';
+import { loginSchema } from './loginValidation';
+
 import useStyles from './index.style';
+import { useFormik } from 'formik';
 
 const Login = () => {
 
   const [values, setValue] = useState({
-    email: '',
-    password: '',
     showPassword: false
   });
 
-
-  const handleChange = e => {
-    const { name, value } = e.target;
-    setValue({
-      ...values,
-      [name]: value,
-    });
-  };
+  const formik = useFormik({
+    initialValues: {
+      email: '',
+      password: '',
+    },
+    validationSchema: loginSchema,
+    onSubmit: (values) => {
+      alert(JSON.stringify(values));
+    },
+  });
 
   const classes = useStyles();
   return (
@@ -38,23 +41,24 @@ const Login = () => {
       className={classes.loginContainer}
     >
       <Grid xs={12} lg={3} item className="loginForm">
-        <form noValidate><div className="emailSection">
-          <InputLabel className={classes.fonts} htmlFor="email">
-            Email
-        </InputLabel>
-          <TextField
-            // error={!isEmailValid}
-            // helperText={!isEmailValid ? "Email is not valid" : null}
-            onChange={handleChange}
-            name={'email'}
-            value={values.email}
-            type="email"
-            size="small"
-            className={classes.input}
-            fullWidth
-            variant={'outlined'}
-          />
-        </div>
+        <form noValidate onSubmit={formik.handleSubmit}>
+          <div className="emailSection">
+            <InputLabel className={classes.fonts} htmlFor="email">
+              Email
+          </InputLabel>
+            <TextField
+              name='email'
+              type="email"
+              size="small"
+              fullWidth
+              variant={'outlined'}
+              className={classes.input}
+              value={formik.values.email}
+              onChange={formik.handleChange}
+              error={formik.touched.email && Boolean(formik.errors.email)}
+              helperText={formik.touched.email && formik.errors.email}
+            />
+          </div>
           <Typography className={classes.left} htmlFor="password">
             forgot password?
         </Typography>
@@ -64,9 +68,16 @@ const Login = () => {
         </InputLabel>
 
             <TextField
-              // error={!isPasswordValid}
-              // helperText={!isPasswordValid ? "Password must be greater than 8 character" : null}
-              value={values.password}
+              name={'password'}
+              fullWidth
+              size="small"
+              className={classes.input}
+              type={values.showPassword ? 'text' : 'password'}
+              variant='outlined'
+              value={formik.values.password}
+              onChange={formik.handleChange}
+              error={formik.touched.password && Boolean(formik.errors.password)}
+              helperText={formik.touched.password && formik.errors.password}
               InputProps={{
                 endAdornment: <InputAdornment position="end" >
                   <IconButton
@@ -76,18 +87,10 @@ const Login = () => {
                   </IconButton>
                 </InputAdornment>
               }}
-              onChange={handleChange}
-              name={'password'}
-              className={classes.input}
-              fullWidth
-              size="small"
-              type={values.showPassword ? 'text' : 'password'}
-              variant='outlined'
             />
           </div>
 
           <Button
-            // disabled={isPasswordValid && isEmailValid ? false : true}
             className={classes.loginButton}
             variant={'contained'}
             size={'small'}
