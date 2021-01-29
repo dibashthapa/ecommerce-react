@@ -32,6 +32,15 @@ const Login = () => {
   });
 
   const classes = useStyles();
+
+  const renderShowPassword = (
+    <InputAdornment position="end">
+      <IconButton onClick={() => setShowPassword(!showPassword)}>
+        {showPassword ? <VisibilityIcon /> : <VisibilityOffIcon />}
+      </IconButton>
+    </InputAdornment>
+  );
+
   return (
     <Grid
       container
