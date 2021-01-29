@@ -16,10 +16,9 @@ import useStyles from './index.style';
 import { useFormik } from 'formik';
 
 const Login = () => {
-  const [values, setValue] = useState({
-    showPassword: false
-  });
+  const [values, setValue] = useState("");
 
+  const [showPassword, setShowPassword] = useState(false)
   const formik = useFormik({
     initialValues: {
       email: '',
@@ -80,24 +79,14 @@ const Login = () => {
               fullWidth
               size="small"
               className={classes.input}
-              type={values.showPassword ? 'text' : 'password'}
+              type={showPassword ? 'text' : 'password'}
               variant='outlined'
               value={formik.values.password}
               onChange={formik.handleChange}
               error={formik.touched.password && Boolean(formik.errors.password)}
               helperText={formik.touched.password && formik.errors.password}
               InputProps={{
-                endAdornment: (
-                  <InputAdornment position="end">
-                    <IconButton onClick={() => setValue(!values.showPassword)}>
-                      {values.showPassword ? (
-                        <VisibilityIcon />
-                      ) : (
-                          <VisibilityOffIcon />
-                        )}
-                    </IconButton>
-                  </InputAdornment>
-                ),
+                endAdornment: renderShowPassword
               }}
             />
           </div>
