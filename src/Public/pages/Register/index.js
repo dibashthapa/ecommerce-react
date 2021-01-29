@@ -1,6 +1,6 @@
 import React from 'react';
 const Register = () => {
-  return <h1>Hello Dibash</h1>;
+  return <h1>register form</h1>;
 };
 
 export default Register;

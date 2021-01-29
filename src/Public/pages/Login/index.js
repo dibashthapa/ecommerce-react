@@ -2,13 +2,24 @@ import React, { useState } from 'react';
 import {
   Button,
   Grid,
+  IconButton,
+  InputAdornment,
   InputLabel,
   TextField,
   Typography,
 } from '@material-ui/core';
+import {
+  Visibility as VisibilityIcon,
+  VisibilityOff as VisibilityOffIcon,
+} from '@material-ui/icons';
 import useStyles from './index.style';
+
 const Login = () => {
-  const [values, setValue] = useState('');
+  const [values, setValue] = useState({
+    email: '',
+    password: '',
+  });
+  const [showPassword, setShowPassword] = useState(false);
 
   const handleChange = e => {
     const { name, value } = e.target;
@@ -16,6 +27,10 @@ const Login = () => {
       ...values,
       [name]: value,
     });
+  };
+
+  const handleSubmit = e => {
+    e.preventDefault();
   };
 
   const classes = useStyles();
@@ -27,50 +42,65 @@ const Login = () => {
       className={classes.loginContainer}
     >
       <Grid xs={12} lg={3} item className="loginForm">
-        <div className="emailSection">
-          <InputLabel className={classes.fonts} htmlFor="email">
-            Email
-          </InputLabel>
-          <TextField
-            onChange={handleChange}
-            name={'email'}
-            value={values.email}
-            type="email"
-            size="small"
-            className={classes.input}
-            fullWidth
-            variant={'outlined'}
-          />
-        </div>
-        <Typography className={classes.left} htmlFor="password">
-          forgot password?
-        </Typography>
-        <div className="passwordSection">
-          <InputLabel className={classes.fonts} htmlFor="password">
-            Password
-          </InputLabel>
+        <form noValidate onSubmit={handleSubmit}>
+          <div className="emailSection">
+            <InputLabel className={classes.fonts} htmlFor="email">
+              Email
+            </InputLabel>
+            <TextField
+              onChange={handleChange}
+              name={'email'}
+              value={values.email}
+              type="email"
+              size="small"
+              className={classes.input}
+              fullWidth
+              variant={'outlined'}
+            />
+          </div>
+          <Typography className={classes.left} htmlFor="password">
+            forgot password?
+          </Typography>
+          <div className="passwordSection">
+            <InputLabel className={classes.fonts} htmlFor="password">
+              Password
+            </InputLabel>
 
-          <TextField
-            value={values.password}
-            onChange={handleChange}
-            name={'password'}
-            className={classes.input}
-            fullWidth
-            size="small"
-            type="password"
-            variant={'outlined'}
-          />
-        </div>
+            <TextField
+              value={values.password}
+              InputProps={{
+                endAdornment: (
+                  <InputAdornment position="end">
+                    <IconButton onClick={() => setShowPassword(!showPassword)}>
+                      {showPassword ? (
+                        <VisibilityIcon />
+                      ) : (
+                        <VisibilityOffIcon />
+                      )}
+                    </IconButton>
+                  </InputAdornment>
+                ),
+              }}
+              onChange={handleChange}
+              name={'password'}
+              className={classes.input}
+              fullWidth
+              size="small"
+              type={showPassword ? 'text' : 'password'}
+              variant="outlined"
+            />
+          </div>
 
-        <Button
-          className={classes.loginButton}
-          variant={'contained'}
-          size={'small'}
-          color={'primary'}
-          type={'submit'}
-        >
-          Login
-        </Button>
+          <Button
+            className={classes.loginButton}
+            variant={'contained'}
+            size={'small'}
+            color={'primary'}
+            type={'submit'}
+          >
+            Login
+          </Button>
+        </form>
         <Typography>
           Don't have an account? <span className={classes.link}>Create</span>
         </Typography>

@@ -5,13 +5,6 @@ const theme = createMuiTheme({
   palette: ColorPalette,
   typography: {
     fontFamily: ['Poppins', 'sans-serif'].join(','),
-  },
-  overrides: {
-    s6Default: {
-      fontSize: '12px',
-      lineHeight: '18px',
-      fontWeight: '600'
-    },
   }
 });
 
