@@ -21,7 +21,7 @@ const Login = () => {
   });
   const [showPassword, setShowPassword] = useState(false);
 
-  const handleChange = e => {
+  const handleChange = (e) => {
     const { name, value } = e.target;
     setValue({
       ...values,
@@ -29,11 +29,20 @@ const Login = () => {
     });
   };
 
-  const handleSubmit = e => {
+  const handleSubmit = (e) => {
     e.preventDefault();
   };
 
   const classes = useStyles();
+
+  const renderShowPassword = (
+    <InputAdornment position="end">
+      <IconButton onClick={() => setShowPassword(!showPassword)}>
+        {showPassword ? <VisibilityIcon /> : <VisibilityOffIcon />}
+      </IconButton>
+    </InputAdornment>
+  );
+
   return (
     <Grid
       container
@@ -69,17 +78,7 @@ const Login = () => {
             <TextField
               value={values.password}
               InputProps={{
-                endAdornment: (
-                  <InputAdornment position="end">
-                    <IconButton onClick={() => setShowPassword(!showPassword)}>
-                      {showPassword ? (
-                        <VisibilityIcon />
-                      ) : (
-                        <VisibilityOffIcon />
-                      )}
-                    </IconButton>
-                  </InputAdornment>
-                ),
+                endAdornment: renderShowPassword,
               }}
               onChange={handleChange}
               name={'password'}
