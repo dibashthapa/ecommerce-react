@@ -16,8 +16,6 @@ import useStyles from './index.style';
 import { useFormik } from 'formik';
 
 const Login = () => {
-  const [values, setValue] = useState("");
-
   const [showPassword, setShowPassword] = useState(false)
   const formik = useFormik({
     initialValues: {
@@ -47,7 +45,7 @@ const Login = () => {
       alignItems="center"
       className={classes.loginContainer}
     >
-      <Grid xs={12} lg={3} item className="loginForm">
+      <Grid xs={12} sm={3} lg={3} item className="loginForm">
         <form noValidate onSubmit={formik.handleSubmit}>
           <div className="emailSection">
             <InputLabel className={classes.fonts} htmlFor="email">
