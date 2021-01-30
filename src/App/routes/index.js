@@ -1,10 +1,8 @@
 import React from 'react';
 import { Route, Switch, BrowserRouter } from 'react-router-dom';
-import Topbar from '../../Components/TopBar/Topbar';
 import publicRoutes from '../../Public/config/routes';
 const Routes = () => (
   <BrowserRouter>
-    <Route path="/" component={Topbar} />
     <Switch>
       {publicRoutes.map(route => (
         <Route
