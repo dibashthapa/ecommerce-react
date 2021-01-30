@@ -15,7 +15,7 @@ import { RegisterSchema } from './registerValidation';
 import useStyles from './index.style';
 import { useFormik } from 'formik';
 
-const Register = () => {
+const Register = (props) => {
 
   const [showPassword, setShowPassword] = useState(false)
   const [showConfirmPassword, SetshowConfirmPassword] = useState(false)
@@ -51,7 +51,7 @@ const Register = () => {
       className={classes.loginContainer}
     >
       <Grid xs={10} sm={6} lg={3} item className="loginForm">
-        <form noValidate onSubmit={formik.handleSubmit}>
+        <form noValidate onSubmit={formik.handleSubmit} autoComplete="off">
           <div className="emailSection">
             <InputLabel className={classes.fonts} htmlFor="email">
               Email
@@ -119,9 +119,10 @@ const Register = () => {
               control={
                 <Checkbox
                   name="acceptTerms"
-                  checked={true}
+                  checked={formik.values.acceptTerms}
                   color="primary"
                   value={formik.values.acceptTerms}
+                  onChange={formik.handleChange}
                 />
               }
             />
@@ -133,12 +134,16 @@ const Register = () => {
             size={'small'}
             color={'primary'}
             type='submit'
+            disabled={!formik.values.acceptTerms}
           >
             Register
           </Button>
         </form>
         <Typography>
-          Already have an account? <span className={classes.link}>Login</span>
+          Already have an account?
+          <span className={classes.link} onClick={() => props.history.push('/login')}>
+            Login
+          </span>
         </Typography>
       </Grid>
     </Grid >

@@ -15,7 +15,7 @@ import { loginSchema } from './loginValidation';
 import useStyles from './index.style';
 import { useFormik } from 'formik';
 
-const Login = () => {
+const Login = (props) => {
   const [showPassword, setShowPassword] = useState(false)
   const formik = useFormik({
     initialValues: {
@@ -100,7 +100,10 @@ const Login = () => {
           </Button>
         </form>
         <Typography>
-          Don't have an account? <span className={classes.link}>Create</span>
+          Don't have an account?
+          <span className={classes.link} onClick={() => props.history.push('/register')}>
+            Create
+            </span>
         </Typography>
       </Grid>
     </Grid>
