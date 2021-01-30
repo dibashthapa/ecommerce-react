@@ -45,7 +45,7 @@ const Login = () => {
       alignItems="center"
       className={classes.loginContainer}
     >
-      <Grid xs={12} sm={3} lg={3} item className="loginForm">
+      <Grid xs={10} sm={6} lg={3} item className="loginForm">
         <form noValidate onSubmit={formik.handleSubmit}>
           <div className="emailSection">
             <InputLabel className={classes.fonts} htmlFor="email">
