@@ -26,20 +26,14 @@ const useStyles = makeStyles((theme) => ({
         fontWeight: 700,
         color: 'black',
     },
-    left: {
-        color: '#9C9C9C',
-        textAlign: 'right',
-        textDecoration: 'underline',
-        cursor: 'pointer',
-    },
     link: {
         textDecoration: 'underline',
         cursor: 'pointer',
         fontWeight: 'bold',
     },
-    confirmPasswordSection: {
-        marginTop: theme.spacing(1),
-    },
+    paper: {
+        padding: theme.spacing(3)
+    }
 }));
 
 export default useStyles;

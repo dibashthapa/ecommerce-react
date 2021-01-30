@@ -37,6 +37,9 @@ const useStyles = makeStyles(theme => ({
     cursor: 'pointer',
     fontWeight: 'bold',
   },
+  paper: {
+    padding: theme.spacing(3)
+  }
 }));
 
 export default useStyles;
