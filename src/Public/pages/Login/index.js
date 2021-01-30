@@ -64,7 +64,7 @@ const Login = (props) => {
               helperText={formik.touched.email && formik.errors.email}
             />
           </div>
-          <Typography className={classes.left} htmlFor="password">
+          <Typography className={classes.left} htmlFor="password" onClick={() => props.history.push('/forgot-password')}>
             forgot password?
           </Typography>
           <div className="passwordSection">

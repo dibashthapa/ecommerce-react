@@ -45,7 +45,6 @@ const Register = (props) => {
     </InputAdornment>
   );
 
-  console.log(formik);
   return (
     <Grid
       container
@@ -146,7 +145,7 @@ const Register = (props) => {
             color={'primary'}
             type="submit"
           >
-            Register
+            Create
           </Button>
         </form>
         <Typography>
