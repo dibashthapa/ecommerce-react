@@ -6,7 +6,9 @@ import {
   InputAdornment,
   InputLabel,
   TextField,
-  Typography, Checkbox, FormControlLabel,
+  Typography,
+  Checkbox,
+  FormControlLabel,
 } from '@material-ui/core';
 import VisibilityIcon from '@material-ui/icons/Visibility';
 import VisibilityOffIcon from '@material-ui/icons/VisibilityOff';
@@ -16,9 +18,8 @@ import useStyles from './index.style';
 import { useFormik } from 'formik';
 
 const Register = () => {
-
-  const [showPassword, setShowPassword] = useState(false)
-  const [showConfirmPassword, SetshowConfirmPassword] = useState(false)
+  const [showPassword, setShowPassword] = useState(false);
+  const [showConfirmPassword, SetshowConfirmPassword] = useState(false);
 
   const formik = useFormik({
     initialValues: {
@@ -43,6 +44,7 @@ const Register = () => {
     </InputAdornment>
   );
 
+  console.log(formik);
   return (
     <Grid
       container
@@ -55,9 +57,9 @@ const Register = () => {
           <div className="emailSection">
             <InputLabel className={classes.fonts} htmlFor="email">
               Email
-          </InputLabel>
+            </InputLabel>
             <TextField
-              name='email'
+              name="email"
               type="email"
               size="small"
               fullWidth
@@ -78,7 +80,7 @@ const Register = () => {
               name={'password'}
               fullWidth
               size="small"
-              variant='outlined'
+              variant="outlined"
               className={classes.input}
               type={showPassword ? 'text' : 'password'}
               value={formik.values.password}
@@ -86,12 +88,12 @@ const Register = () => {
               error={formik.touched.password && Boolean(formik.errors.password)}
               helperText={formik.touched.password && formik.errors.password}
               InputProps={{
-                endAdornment: renderShowPassword(showPassword, setShowPassword)
+                endAdornment: renderShowPassword(showPassword, setShowPassword),
               }}
             />
           </div>
           {/* Confirm passowrd */}
-          <div className={classes.Confirm__Password__Section}>
+          <div className={classes.confirmPasswordSection}>
             <InputLabel className={classes.fonts} htmlFor="confirmPassword">
               Confirm Password
             </InputLabel>
@@ -100,15 +102,23 @@ const Register = () => {
               name={'confirmPassword'}
               fullWidth
               size="small"
-              variant='outlined'
+              variant="outlined"
               className={classes.input}
               type={showConfirmPassword ? 'text' : 'password'}
               value={formik.values.confirmPassword}
               onChange={formik.handleChange}
-              error={formik.touched.confirmPassword && Boolean(formik.errors.confirmPassword)}
-              helperText={formik.touched.confirmPassword && formik.errors.confirmPassword}
+              error={
+                formik.touched.confirmPassword &&
+                Boolean(formik.errors.confirmPassword)
+              }
+              helperText={
+                formik.touched.confirmPassword && formik.errors.confirmPassword
+              }
               InputProps={{
-                endAdornment: renderShowPassword(showConfirmPassword, SetshowConfirmPassword)
+                endAdornment: renderShowPassword(
+                  showConfirmPassword,
+                  SetshowConfirmPassword
+                ),
               }}
             />
           </div>
@@ -132,7 +142,7 @@ const Register = () => {
             variant={'contained'}
             size={'small'}
             color={'primary'}
-            type='submit'
+            type="submit"
           >
             Register
           </Button>
@@ -141,7 +151,7 @@ const Register = () => {
           Already have an account? <span className={classes.link}>Login</span>
         </Typography>
       </Grid>
-    </Grid >
+    </Grid>
   );
 };
 
