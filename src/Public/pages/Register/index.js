@@ -25,6 +25,7 @@ const Register = () => {
       email: '',
       password: '',
       confirmPassword: '',
+      acceptTerms: true,
     },
     validationSchema: RegisterSchema,
     onSubmit: (values) => {
@@ -120,6 +121,7 @@ const Register = () => {
                   name="acceptTerms"
                   checked={true}
                   color="primary"
+                  value={formik.values.acceptTerms}
                 />
               }
             />
@@ -130,7 +132,7 @@ const Register = () => {
             variant={'contained'}
             size={'small'}
             color={'primary'}
-            type={'submit'}
+            type='submit'
           >
             Register
           </Button>
