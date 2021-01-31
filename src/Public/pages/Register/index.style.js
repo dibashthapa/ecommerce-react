@@ -40,6 +40,9 @@ const useStyles = makeStyles((theme) => ({
   confirmPasswordSection: {
     marginTop: theme.spacing(1),
   },
+  paper: {
+    padding: theme.spacing(3)
+  }
 }));
 
 export default useStyles;
