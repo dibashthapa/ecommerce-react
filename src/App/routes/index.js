@@ -1,12 +1,12 @@
 import React from 'react';
 import { Route, Switch, BrowserRouter } from 'react-router-dom';
-import Topbar from '../../Components/TopBar/Topbar';
+import Topbar from '../../Dashboard/components/TopBar';
 import publicRoutes from '../../Public/config/routes';
 const Routes = () => (
   <BrowserRouter>
-    <Route path="/" component={Topbar} />
+    <Route exact path="/" component={Topbar} />
     <Switch>
-      {publicRoutes.map(route => (
+      {publicRoutes.map((route) => (
         <Route
           exact
           path={route.path}
