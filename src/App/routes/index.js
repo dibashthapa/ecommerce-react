@@ -3,6 +3,7 @@ import { Route, Switch, BrowserRouter } from 'react-router-dom';
 
 import Dashboard from '../../Dashboard';
 import publicRoutes from '../../Public/config/routes';
+
 const Routes = () => (
   <BrowserRouter>
     <Route exact path="/" component={Dashboard} />
