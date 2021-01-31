@@ -1,10 +1,10 @@
 import React from 'react';
 import { Route, Switch, BrowserRouter } from 'react-router-dom';
 import publicRoutes from '../../Public/config/routes';
-const Routes = ({ history }) => (
+const Routes = () => (
   <BrowserRouter>
     <Switch>
-      {publicRoutes.map((route) => (
+      {publicRoutes.map(route => (
         <Route
           exact
           path={route.path}
