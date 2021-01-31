@@ -1,18 +1,24 @@
 import { makeStyles } from '@material-ui/core';
 
 const useStyles = makeStyles((theme) => ({
-  topBarActionBtn: {
-    display: 'inline',
-    margin: `0px ${theme.spacing(2)}px`,
-    cursor: 'pointer',
+  root: {
+    display: 'none',
+    [theme.breakpoints.up('md')]: {
+  display: 'block'
+}
   },
-  topBarLinkBtn: {
-    display: 'inline',
+topBarActionBtn: {
+  display: 'inline',
     margin: `0px ${theme.spacing(2)}px`,
-    cursor: 'pointer',
+      cursor: 'pointer',
   },
-  topBarWrappingContainer: {
-    padding: `${theme.spacing(1)}px ${theme.spacing(2)}px `,
+topBarLinkBtn: {
+  display: 'inline',
+    margin: `0px ${theme.spacing(2)}px`,
+      cursor: 'pointer',
+  },
+topBarWrappingContainer: {
+  padding: `${theme.spacing(1)}px ${theme.spacing(2)}px `,
     borderBottom: '2px solid #f5f5f5',
   },
 }));

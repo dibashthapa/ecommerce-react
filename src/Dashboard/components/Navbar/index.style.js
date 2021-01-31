@@ -11,13 +11,20 @@ const useStyles = makeStyles(theme => ({
     },
     logo: {
         fontWeight: "bold",
-        fontSize: '1.8rem'
+        fontSize: '1.8rem',
+        display: 'none',
+        [theme.breakpoints.up('md')]: {
+            display: 'block'
+        }
     },
     sortingBox: {
         backgroundColor: '#f9f9f9',
         border: '1px solid #D1D1D1',
         borderRadius: '12px',
         width: 500,
+        [theme.breakpoints.up('sm')]: {
+            fontSize: '12px'
+        }
     },
     select: {
         width: '30%'
