@@ -1,13 +1,11 @@
 import React from 'react';
 import { Route, Switch, BrowserRouter } from 'react-router-dom';
 
-import Navbar from '../../Dashboard/components/Navbar';
-import Topbar from '../../Dashboard/components/TopBar';
+import Dashboard from '../../Dashboard';
 import publicRoutes from '../../Public/config/routes';
 const Routes = () => (
   <BrowserRouter>
-    <Route exact path="/" component={Topbar} />
-    <Route exact path="/" component={Navbar} />
+    <Route exact path="/" component={Dashboard} />
     <Switch>
       {publicRoutes.map((route) => (
         <Route
