@@ -18,14 +18,14 @@ function Navbar() {
             <Grid container alignItems="center">
 
                 {/* Hamburger icon to show in small screens */}
-                {/* <IconButton
+                <IconButton
                     edge="start"
                     className={classes.menuButton}
                     color="inherit"
                     aria-label="open drawer"
                 >
                     <MenuIcon />
-                </IconButton> */}
+                </IconButton>
 
                 {/* Logo */}
                 <Grid item>
@@ -35,7 +35,7 @@ function Navbar() {
                 </Grid>
 
                 {/* center search and sorting category */}
-                <Grid xs={12} container item sm justify='center' alignItems='center'>
+                <Grid container item xs={12} sm={12} md justify='center' alignItems='center'>
                     <div className={classes.sortingBox}>
                         {/* select dropdown */}
                         <TextField
@@ -65,7 +65,7 @@ function Navbar() {
                         />
                     </div>
                 </Grid>
-                <Toolbar>
+                <Toolbar className={classes.toolbar}>
                     <IconButton>
                         <PersonIcon />
                     </IconButton>
