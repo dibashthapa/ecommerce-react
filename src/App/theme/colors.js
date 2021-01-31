@@ -6,7 +6,7 @@ const colors = {
   },
   secondary: {
     main: '#fff'
-  }
+  },
 };
 
 export default colors;

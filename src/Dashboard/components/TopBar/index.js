@@ -5,7 +5,7 @@ import useStyles from './index.style';
 const Topbar = () => {
   const classes = useStyles();
   return (
-    <AppBar color="default" elevation={0}>
+    <AppBar color="secondary" elevation={0} position="static">
       <Grid container className={classes.topBarWrappingContainer}>
         <Grid item xs={12} lg={6}>
           <Typography className={classes.topBarLinkBtn} color="primary">
