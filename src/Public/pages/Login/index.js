@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import {
   Button,
   Grid,
@@ -12,12 +12,12 @@ import {
 import VisibilityIcon from '@material-ui/icons/Visibility';
 import VisibilityOffIcon from '@material-ui/icons/VisibilityOff';
 import { loginSchema } from './loginValidation';
-
+import { AuthContext } from '../../../App/auth';
 import useStyles from './index.style';
 import { useFormik } from 'formik';
 
 const Login = (props) => {
-  const [showPassword, setShowPassword] = useState(false)
+  const [showPassword, setShowPassword] = useState(false);
   const formik = useFormik({
     initialValues: {
       email: '',
@@ -25,10 +25,24 @@ const Login = (props) => {
     },
     validationSchema: loginSchema,
     onSubmit: (values) => {
-      alert(JSON.stringify(values));
+      handleLogin(values);
     },
   });
+  const context = useContext(AuthContext);
 
+  const handleLogin = async (values) => {
+    //  this.setState({ loading: true });
+    try {
+      const loginRes = await context.loginUser(values);
+      if (loginRes.data) {
+        const res = await this.context.fetchLoggedInUser(loginRes.data.token);
+        this.context.setToken(res.token);
+        this.context.setUserData(res.user);
+      }
+    } catch (err) {
+      console.log(err);
+    }
+  };
   const classes = useStyles();
 
   const renderShowPassword = (
@@ -52,9 +66,9 @@ const Login = (props) => {
             <div className="emailSection">
               <InputLabel className={classes.fonts} htmlFor="email">
                 Email
-        </InputLabel>
+              </InputLabel>
               <TextField
-                name='email'
+                name="email"
                 type="email"
                 size="small"
                 fullWidth
@@ -66,13 +80,17 @@ const Login = (props) => {
                 helperText={formik.touched.email && formik.errors.email}
               />
             </div>
-            <Typography className={classes.left} htmlFor="password" onClick={() => props.history.push('/forgot-password')}>
+            <Typography
+              className={classes.left}
+              htmlFor="password"
+              onClick={() => props.history.push('/forgot-password')}
+            >
               forgot password?
-        </Typography>
+            </Typography>
             <div className="passwordSection">
               <InputLabel className={classes.fonts} htmlFor="password">
                 Password
-        </InputLabel>
+              </InputLabel>
 
               <TextField
                 name={'password'}
@@ -80,13 +98,15 @@ const Login = (props) => {
                 size="small"
                 className={classes.input}
                 type={showPassword ? 'text' : 'password'}
-                variant='outlined'
+                variant="outlined"
                 value={formik.values.password}
                 onChange={formik.handleChange}
-                error={formik.touched.password && Boolean(formik.errors.password)}
+                error={
+                  formik.touched.password && Boolean(formik.errors.password)
+                }
                 helperText={formik.touched.password && formik.errors.password}
                 InputProps={{
-                  endAdornment: renderShowPassword
+                  endAdornment: renderShowPassword,
                 }}
               />
             </div>
@@ -99,13 +119,16 @@ const Login = (props) => {
               type={'submit'}
             >
               Login
-        </Button>
+            </Button>
           </form>
           <Typography>
             Don't have an account?
-        <span className={classes.link} onClick={() => props.history.push('/register')}>
+            <span
+              className={classes.link}
+              onClick={() => props.history.push('/register')}
+            >
               Create
-        </span>
+            </span>
           </Typography>
         </Paper>
       </Grid>
