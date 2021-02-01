@@ -1,7 +1,6 @@
 import React, { createContext, useContext, Component } from 'react';
 import Cookies from 'js-cookie';
 import authService from './authService';
-import Api from '../services/api';
 
 const initialState = {
   isUserLoggedIn: false,
@@ -16,9 +15,9 @@ const initialState = {
       throw err.message;
     }
   },
-  fetchLoggedInUser: async (token) => {
+  fetchLoggedInUser: async () => {
     try {
-      const res = await authService.fetchLoggedInUser(token);
+      const res = await authService.fetchLoggedInUser();
       return res;
     } catch (err) {
       throw err.message;
@@ -37,7 +36,7 @@ const initialState = {
   getToken: () => {
     return Cookies.get('token');
   },
-  setUserData: () => {},
+  setUserData: (data) => {},
 };
 
 export const AuthContext = createContext(initialState);
@@ -62,28 +61,9 @@ export default class AuthProvider extends Component {
         isUserLoggedIn: false,
         currentUser: {},
       });
+      console.log(this.state);
     } else {
-      await this.verifyToken(token);
-    }
-  };
-
-  verifyToken = async (token) => {
-    const api = new Api(false);
-    try {
-      const res = await api.post('auth/token/verify', { token });
-      const { setToken } = this.state;
-      setToken(res.token);
-      this.setState({
-        authStatusReported: true,
-        isUserLoggedIn: true,
-        currentUser: res.user,
-      });
-    } catch (err) {
-      this.setState({
-        authStatusReported: true,
-        isUserLoggedIn: false,
-        currentUser: {},
-      });
+      // await this.verifyToken(token);
       Cookies.remove('token');
     }
   };

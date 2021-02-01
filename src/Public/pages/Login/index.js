@@ -34,10 +34,10 @@ const Login = (props) => {
     //  this.setState({ loading: true });
     try {
       const loginRes = await context.loginUser(values);
-      if (loginRes.data) {
-        const res = await this.context.fetchLoggedInUser(loginRes.data.token);
-        this.context.setToken(res.token);
-        this.context.setUserData(res.user);
+      if (loginRes.token) {
+        context.setToken(loginRes.token);
+        const res = await context.fetchLoggedInUser();
+        context.setUserData(res);
       }
     } catch (err) {
       console.log(err);

@@ -47,12 +47,10 @@ const Navbar = () => {
           <MenuIcon />
         </IconButton>
 
-        {/* Logo */}
         <Grid item>
           <Typography className={classes.logo}>Freshnesecom</Typography>
         </Grid>
 
-        {/* center search and sorting category */}
         <Grid
           container
           item
@@ -63,20 +61,6 @@ const Navbar = () => {
           alignItems="center"
         >
           <div className={classes.sortingBox}>
-            {/* select dropdown */}
-            {/* <TextField
-              className={classes.select}
-              select
-              value={selectCategory}
-              onChange={(e) => setSelectCategory(e.target.value)}
-            >
-              {category.map((option) => (
-                <MenuItem key={option.value} value={option.value}>
-                  {option.label}
-                </MenuItem>
-              ))}
-            </TextField> */}
-
             <Select
               value={selectCategory}
               disableUnderline
@@ -96,7 +80,6 @@ const Navbar = () => {
               className={classes.search}
               InputProps={{
                 disableUnderline: true,
-
                 endAdornment: (
                   <InputAdornment position="end">
                     <SearchIcon />

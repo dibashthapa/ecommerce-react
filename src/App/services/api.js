@@ -14,7 +14,7 @@ export default class Api {
   setToken = () => {
     this.axiosFunction.interceptors.request.use(
       (config) => {
-        config.headers['Authorization'] = 'JWT ' + Cookies.get('token');
+        config.headers['Authorization'] = 'Bearer ' + Cookies.get('token');
         return config;
       },
       (error) => {
