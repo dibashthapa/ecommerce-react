@@ -4,19 +4,19 @@ import {
   Badge,
   Grid,
   IconButton,
-  InputAdornment,
+  InputBase,
   MenuItem,
-  TextField,
   Select,
   Toolbar,
   Typography,
 } from '@material-ui/core';
 import ShoppingBasketIcon from '@material-ui/icons/ShoppingBasket';
 import PersonIcon from '@material-ui/icons/Person';
-import SearchIcon from '@material-ui/icons/Search';
 import MenuIcon from '@material-ui/icons/Menu';
+import SearchIcon from '@material-ui/icons/Search';
 
 import useStyles from './index.style';
+import { ClassSharp } from '@material-ui/icons';
 
 const category = [
   { value: 'all', label: 'All Category' },
@@ -36,8 +36,7 @@ const Navbar = () => {
       elevation={0}
       className={classes.root}
     >
-      <Grid container alignItems="center">
-        {/* Hamburger icon to show in small screens */}
+      <Grid container alignItems="center" className={classes.container}>
         <IconButton
           edge="start"
           className={classes.menuButton}
@@ -47,58 +46,62 @@ const Navbar = () => {
           <MenuIcon />
         </IconButton>
 
-        <Grid item>
+        <Grid item lg={2}>
           <Typography className={classes.logo}>Freshnesecom</Typography>
         </Grid>
 
-        <Grid
-          container
-          item
-          xs={12}
-          sm={12}
-          md
-          justify="center"
-          alignItems="center"
-        >
-          <div className={classes.sortingBox}>
-            <Select
-              value={selectCategory}
-              disableUnderline
-              className={classes.select}
-              onChange={(e) => setSelectCategory(e.target.value)}
-            >
-              {category.map((option) => (
-                <MenuItem key={option.value} value={option.value}>
-                  {option.label}
-                </MenuItem>
-              ))}
-            </Select>
+        <Grid item lg={6}>
+          <Grid container justify="center">
+            <Grid item lg={2}>
+              <Select
+                value={selectCategory}
+                disableUnderline
+                className={classes.select}
+                classes={{
+                  select: classes.selectInput,
+                }}
+                onChange={(e) => setSelectCategory(e.target.value)}
+              >
+                {category.map((option) => (
+                  <MenuItem key={option.value} value={option.value}>
+                    {option.label}
+                  </MenuItem>
+                ))}
+              </Select>
+            </Grid>
 
-            {/* searchfeild */}
-            <TextField
-              placeholder="Search Products, Categories..."
-              className={classes.search}
-              InputProps={{
-                disableUnderline: true,
-                endAdornment: (
-                  <InputAdornment position="end">
+            <Grid item lg={6}>
+              <div className={classes.searchBar}>
+                <div className={classes.search}>
+                  <div className={classes.searchIcon}>
                     <SearchIcon />
-                  </InputAdornment>
-                ),
-              }}
-            />
-          </div>
+                  </div>
+                  <InputBase
+                    placeholder="Search here"
+                    classes={{
+                      root: classes.inputRoot,
+                      input: classes.inputInput,
+                    }}
+                  />
+                </div>
+              </div>
+            </Grid>
+          </Grid>
         </Grid>
-        <Toolbar className={classes.toolbar}>
-          <IconButton>
-            <PersonIcon />
-          </IconButton>
-          <IconButton>
-            <Badge badgeContent={6} color="error">
-              <ShoppingBasketIcon />
-            </Badge>
-          </IconButton>
-        </Toolbar>
+        <Grid item lg={4} className={classes.iconSection}>
+          <Grid container justify="flex-end">
+            <Toolbar className={classes.toolbar}>
+              <IconButton>
+                <PersonIcon />
+              </IconButton>
+              <IconButton>
+                <Badge badgeContent={6} color="error">
+                  <ShoppingBasketIcon />
+                </Badge>
+              </IconButton>
+            </Toolbar>
+          </Grid>
+        </Grid>
       </Grid>
     </AppBar>
   );
