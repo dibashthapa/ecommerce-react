@@ -60,7 +60,7 @@ function Body() {
                     >More Categories</MainBtn>
                 </Grid>
             </Grid>
-            <Grid item container xs={10}>
+            <Grid item container xs={8}>
                 <Grid item container row="true" flex="true" justify='space-between'>
                     <Grid item xs={6}>
                         <BannerSubFocus></BannerSubFocus>
