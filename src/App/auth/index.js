@@ -10,6 +10,7 @@ const initialState = {
   loginUser: async (credentials) => {
     try {
       const res = await authService.signIn(credentials);
+      window.location.reload();
       return res;
     } catch (err) {
       throw err.message;
@@ -36,7 +37,6 @@ const initialState = {
   getToken: () => {
     return Cookies.get('token');
   },
-  setUserData: (data) => {},
 };
 
 export const AuthContext = createContext(initialState);
@@ -44,27 +44,18 @@ export const AuthContext = createContext(initialState);
 export default class AuthProvider extends Component {
   state = initialState;
 
-  componentDidMount = async () => {
-    this.setState({
-      setUserData: (data) => {
-        this.setState({
-          authStatusReported: true,
-          isUserLoggedIn: true,
-          currentUser: data,
-        });
-      },
-    });
+  componentDidMount = () => {
     const token = Cookies.get('token');
-    if (token === 'undefined' || token === undefined) {
+
+    if (token) {
       this.setState({
         authStatusReported: true,
-        isUserLoggedIn: false,
-        currentUser: {},
+        isUserLoggedIn: true,
       });
-      console.log(this.state);
     } else {
-      // await this.verifyToken(token);
-      Cookies.remove('token');
+      this.setState({
+        authStatusReported: true,
+      });
     }
   };
 

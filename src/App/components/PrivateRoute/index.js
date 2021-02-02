@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Switch, Redirect, Route } from 'react-router-dom';
-import { AuthConsumer } from '../../auth';
+import { AuthConsumer, AuthContext } from '../../auth';
+import DashboardLayout from '../../layouts/DashboardLayout';
 import dashboardRoutes from '../../../Dashboard/config/routes';
 
 class PrivateRoute extends Component {
@@ -8,17 +9,19 @@ class PrivateRoute extends Component {
     return (
       <AuthConsumer>
         {(authContext) =>
-          authContext && authContext.isUserLoggedIn ? (
-            <Switch>
-              {dashboardRoutes.map((route) => (
-                <Route
-                  key={route.name}
-                  exact={true}
-                  path={route.path}
-                  component={route.component}
-                />
-              ))}
-            </Switch>
+          authContext?.isUserLoggedIn ? (
+            <DashboardLayout>
+              <Switch>
+                {dashboardRoutes.map((route) => (
+                  <Route
+                    key={route.name}
+                    exact={true}
+                    path={route.path}
+                    component={route.component}
+                  />
+                ))}
+              </Switch>
+            </DashboardLayout>
           ) : (
             <Redirect to="/login" />
           )
@@ -27,5 +30,5 @@ class PrivateRoute extends Component {
     );
   }
 }
-
+PrivateRoute.contextType = AuthContext;
 export default PrivateRoute;

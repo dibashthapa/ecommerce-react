@@ -4,16 +4,16 @@ import publicRoutes from '../../Public/config/routes';
 import PrivateRoute from '../components/PrivateRoute';
 const Routes = () => (
   <BrowserRouter>
-    <Route exact path="/" component={PrivateRoute} />
     <Switch>
       {publicRoutes.map((route) => (
         <Route
-          exact
           path={route.path}
           component={route.component}
+          exact
           key={route.path}
         />
       ))}
+      <Route path="/" exact component={PrivateRoute} />
     </Switch>
   </BrowserRouter>
 );
