@@ -7,7 +7,7 @@ import Product from '../../../App/components/Product/Product';
 import TextSubtitle from '../../../App/components/TextSubtitle/TextSubtitle';
 import GreenLink from '../../../App/components/GreenLink/GreenLink';
 import MainBtn from '../../../App/components/MainBtn/MainBtn';
-import useStyles from './index.styles.js'
+import useStyles from './index.styles.js';
 
 function Body() {
     const classes = useStyles();
