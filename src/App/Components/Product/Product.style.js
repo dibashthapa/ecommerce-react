@@ -7,6 +7,7 @@ const useStyles = makeStyles(theme => ({
         borderRadius: '12px',
         padding: '16px',
         position: 'relative',
+        margin: '10px'
     },
     media: {
         height: 180,
@@ -40,11 +41,7 @@ const useStyles = makeStyles(theme => ({
         fontWeight: 700,
         textAlign: 'left'
     },
-    button: {
-        color: theme.palette.secondary.main,
-        fontWeight: 700,
-        borderRadius: '12px'
-    }
+
 
 }))
 

@@ -1,7 +1,8 @@
 import React from 'react';
-import { Button, Card, CardMedia, Typography } from '@material-ui/core';
+import { Card, CardMedia, Typography } from '@material-ui/core';
 
 import useStyles from './Product.style'
+import MainBtn from '../MainBtn/MainBtn';
 
 const productDetail = {
     title: 'Product Name',
@@ -34,9 +35,9 @@ function Product() {
                 <Typography className={classes.price}>
                     {productDetail.price + ' USD'}
                 </Typography>
-                <Button size="small" color="primary" variant="contained" className={classes.button}>
+                <MainBtn className={classes.button}>
                     Buy now
-                </Button>
+                </MainBtn>
             </div>
             <Typography variant="body2" color="textSecondary" className={classes.previousPrice}>
                 {productDetail.previous_price + ' $'}
