@@ -1,11 +1,10 @@
 import React from 'react';
 import { Paper, Typography, Button } from '@material-ui/core';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
-
 import useStyles from './BannerSubFocus.style';
 import GreenLink from '../GreenLink/GreenLink';
 
-function BannerSubFocus() {
+const BannerSubFocus = () => {
   const classes = useStyles();
   return (
     <Paper className={classes.root}>
@@ -24,6 +23,6 @@ function BannerSubFocus() {
       </Button>
     </Paper>
   );
-}
+};
 
 export default BannerSubFocus;

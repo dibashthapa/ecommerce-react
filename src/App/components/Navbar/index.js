@@ -49,31 +49,34 @@ const Navbar = () => {
           <Typography className={classes.logo}>Freshnesecom</Typography>
         </Grid>
 
-        <Grid item lg={6}>
+        <Grid item lg={8}>
           <Grid container justify="center">
-            <Grid item lg={2}>
-              <Select
-                value={selectCategory}
-                disableUnderline
-                className={classes.select}
-                classes={{
-                  select: classes.selectInput,
-                }}
-                onChange={(e) => setSelectCategory(e.target.value)}
-              >
-                {category.map((option) => (
-                  <MenuItem key={option.value} value={option.value}>
-                    {option.label}
-                  </MenuItem>
-                ))}
-              </Select>
-            </Grid>
-
-            <Grid item lg={6}>
+            <Grid item lg={7}>
               <div className={classes.searchBar}>
                 <div className={classes.search}>
-                  <div className={classes.searchIcon}>
-                    <SearchIcon />
+                  <div className={classes.searchSection}>
+                    <Grid container spacing={2}>
+                      <Grid item xs={8}>
+                        <Select
+                          value={selectCategory}
+                          disableUnderline
+                          className={classes.select}
+                          classes={{
+                            select: classes.selectInput,
+                          }}
+                          onChange={(e) => setSelectCategory(e.target.value)}
+                        >
+                          {category.map((option) => (
+                            <MenuItem key={option.value} value={option.value}>
+                              {option.label}
+                            </MenuItem>
+                          ))}
+                        </Select>
+                      </Grid>
+                      <Grid item xs={4} className={classes.iconContainer}>
+                        <SearchIcon className={classes.searchIcon} />
+                      </Grid>
+                    </Grid>
                   </div>
                   <InputBase
                     placeholder="Search here"
@@ -87,7 +90,7 @@ const Navbar = () => {
             </Grid>
           </Grid>
         </Grid>
-        <Grid item lg={4} className={classes.iconSection}>
+        <Grid item lg={2} className={classes.iconSection}>
           <Grid container justify="flex-end">
             <Toolbar className={classes.toolbar}>
               <IconButton>
