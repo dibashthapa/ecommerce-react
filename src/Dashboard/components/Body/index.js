@@ -13,7 +13,7 @@ function Body() {
     const classes = useStyles();
     return (
         <Grid container className={classes.root} justify="center">
-            <Grid item container xs={2} column flex>
+            <Grid item container xs={2} column="true" flex="true">
                 <Grid className={classes.sideCategoryContainer}>
                     <TextSubtitle>Category Menu</TextSubtitle>
                     <div className={classes.links}>
@@ -24,8 +24,8 @@ function Body() {
                         <GreenLink>Kitchen</GreenLink>
                     </div>
                     <MainBtn
-                        variant="default"
-                        textColor="#000000"
+                        variant="outlined"
+                        textcolor="#000000"
                         endIcon={<ChevronRight />}
                     >More Categories</MainBtn>
                 </Grid>
@@ -39,8 +39,8 @@ function Body() {
                         <GreenLink>Kitchen</GreenLink>
                     </div>
                     <MainBtn
-                        variant="default"
-                        textColor="#000000"
+                        variant="outlined"
+                        textcolor="#000000"
                         endIcon={<ChevronRight />}
                     >More Categories</MainBtn>
                 </Grid>
@@ -54,40 +54,38 @@ function Body() {
                         <GreenLink>Kitchen</GreenLink>
                     </div>
                     <MainBtn
-                        variant="default"
-                        textColor="#000000"
+                        variant="outlined"
+                        textcolor="#000000"
                         endIcon={<ChevronRight />}
                     >More Categories</MainBtn>
                 </Grid>
             </Grid>
             <Grid item container xs={8}>
-                <Grid item container row flex justify='space-between'>
-                    <BannerSubFocus></BannerSubFocus>
-                    <BannerSubFocus></BannerSubFocus>
+                <Grid item container row="true" flex="true" justify='space-between'>
+                    <Grid item xs={6}>
+                        <BannerSubFocus></BannerSubFocus>
+                    </Grid>
+                    <Grid item xs={6}>
+                        <BannerSubFocus></BannerSubFocus>
+                    </Grid>
                 </Grid>
-                <Grid item container row flex>
-                    <Grid xs={3}>
+                <Grid item container row="true" flex="true">
+                    <Grid item xs={4}>
                         <Product />
                     </Grid>
-                    <Grid xs={3}>
+                    <Grid item xs={4}>
                         <Product />
                     </Grid>
-                    <Grid xs={3}>
+                    <Grid item xs={4}>
                         <Product />
                     </Grid>
-                    <Grid xs={3}>
+                    <Grid item xs={4}>
                         <Product />
                     </Grid>
-                    <Grid xs={3}>
+                    <Grid item xs={4}>
                         <Product />
                     </Grid>
-                    <Grid xs={3}>
-                        <Product />
-                    </Grid>
-                    <Grid xs={3}>
-                        <Product />
-                    </Grid>
-                    <Grid xs={3}>
+                    <Grid item xs={4}>
                         <Product />
                     </Grid>
                 </Grid>

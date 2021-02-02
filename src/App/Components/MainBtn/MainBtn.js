@@ -6,13 +6,13 @@ import theme from '../../../App/theme/theme'
 
 function MainBtn(props) {
     const classes = useStyles()
-    const textColor = props.textColor ? props.textColor : theme.palette.secondary.main
+    const textcolor = props.textcolor ? props.textcolor : theme.palette.secondary.main
     return (
         <Button
             size={props.size || 'small'}
             color={props.color || 'primary'}
             variant={props.variant || "contained"}
-            style={{ color: textColor }}
+            style={{ color: textcolor }}
             className={classes.button}
             {...props}
         >
