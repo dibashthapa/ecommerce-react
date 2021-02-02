@@ -2,11 +2,11 @@ import React from 'react';
 import { Grid } from '@material-ui/core';
 import { ChevronRight } from '@material-ui/icons';
 
-import BannerSubFocus from '../../../App/Components/BannerSubFocus/BannerSubFocus'
-import Product from '../../../App/Components/Product/Product';
-import TextSubtitle from '../../../App/Components/TextSubtitle/TextSubtitle';
-import GreenLink from '../../../App/Components/GreenLink/GreenLink';
-import MainBtn from '../../../App/Components/MainBtn/MainBtn';
+import BannerSubFocus from '../../../App/components/BannerSubFocus/BannerSubFocus'
+import Product from '../../../App/components/Product/Product';
+import TextSubtitle from '../../../App/components/TextSubtitle/TextSubtitle';
+import GreenLink from '../../../App/components/GreenLink/GreenLink';
+import MainBtn from '../../../App/components/MainBtn/MainBtn';
 import useStyles from './index.styles.js'
 
 function Body() {
@@ -60,7 +60,7 @@ function Body() {
                     >More Categories</MainBtn>
                 </Grid>
             </Grid>
-            <Grid item container xs={8}>
+            <Grid item container xs={10}>
                 <Grid item container row="true" flex="true" justify='space-between'>
                     <Grid item xs={6}>
                         <BannerSubFocus></BannerSubFocus>

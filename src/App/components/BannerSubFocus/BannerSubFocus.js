@@ -11,7 +11,7 @@ function BannerSubFocus() {
     <Paper className={classes.root}>
       <div>
         <GreenLink disableUnderline>Banner Subfocus</GreenLink>
-        <Typography className={classes.heading}>Space for Heading</Typography>
+        <Typography classNa same={classes.heading}>Space for Heading</Typography>
       </div>
       <Button
         size="large"
