@@ -1,11 +1,13 @@
 import React from 'react';
-import { CssBaseline, ThemeProvider } from '@material-ui/core';
+import { ThemeProvider } from '@material-ui/core';
 import Routes from './routes';
 import theme from './theme/theme';
+import AuthProvider from './auth';
 const App = () => (
   <ThemeProvider theme={theme}>
-    <Routes />
-    <CssBaseline />
+    <AuthProvider>
+      <Routes />
+    </AuthProvider>
   </ThemeProvider>
 );
 
