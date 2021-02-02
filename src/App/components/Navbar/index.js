@@ -16,7 +16,6 @@ import MenuIcon from '@material-ui/icons/Menu';
 import SearchIcon from '@material-ui/icons/Search';
 
 import useStyles from './index.style';
-import { ClassSharp } from '@material-ui/icons';
 
 const category = [
   { value: 'all', label: 'All Category' },
