@@ -12,9 +12,10 @@ import {
 import VisibilityIcon from '@material-ui/icons/Visibility';
 import VisibilityOffIcon from '@material-ui/icons/VisibilityOff';
 import { loginSchema } from './loginValidation';
+import { useFormik } from 'formik';
 
 import useStyles from './index.style';
-import { useFormik } from 'formik';
+import axios from '../../../axios';
 
 const Login = (props) => {
   const [showPassword, setShowPassword] = useState(false)
@@ -25,7 +26,8 @@ const Login = (props) => {
     },
     validationSchema: loginSchema,
     onSubmit: (values) => {
-      alert(JSON.stringify(values));
+      axios.post('/api/v1/auth/login', values)
+        .then(res => console.log(res))
     },
   });
 
