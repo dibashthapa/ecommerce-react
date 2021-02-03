@@ -1,8 +1,10 @@
 import React from 'react';
-import { Card, CardMedia, Typography } from '@material-ui/core';
+import { Card, CardMedia, IconButton, Typography } from '@material-ui/core';
 
 import useStyles from './Product.style'
 import MainBtn from '../MainBtn/MainBtn';
+import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
+import FavoriteIcon from '@material-ui/icons/Favorite';
 
 const productDetail = {
     title: 'Product Name',
@@ -42,6 +44,14 @@ function Product() {
             <Typography variant="body2" color="textSecondary" className={classes.previousPrice}>
                 {productDetail.previous_price + ' $'}
             </Typography>
+            <Card className={classes.hooverButtons}>
+                <IconButton>
+                    <ShoppingCartIcon />
+                </IconButton>
+                <IconButton>
+                    <FavoriteIcon />
+                </IconButton>
+            </Card>
         </Card >
     )
 }

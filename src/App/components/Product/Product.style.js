@@ -2,15 +2,24 @@ import { makeStyles } from "@material-ui/core";
 
 const useStyles = makeStyles(theme => ({
     root: {
-        maxWidth: 270,
+        maxWidth: 200,
         border: '1px solid #D1D1D1',
         borderRadius: '12px',
         padding: '16px',
         position: 'relative',
-        margin: '10px'
+        margin: '10px',
+        cursor: 'pointer',
+        "&:hover": {
+            "& $hooverButtons": {
+                display: 'flex',
+            }
+        }
     },
     media: {
         height: 180,
+        margin: (10, 0),
+        objectFit: 'cover',
+
     },
     discountPercentage: {
         position: 'absolute',
@@ -41,6 +50,17 @@ const useStyles = makeStyles(theme => ({
         fontWeight: 700,
         textAlign: 'left'
     },
+    hooverButtons: {
+        transition: 'display 1s ease-out',
+        backgroundColor: '#f9f9f9',
+        height: '70px',
+        width: '100%',
+        display: 'none',
+        justifyContent: 'space-evenly',
+        position: 'absolute',
+        bottom: 0,
+        right: 0,
+    }
 
 
 }))
