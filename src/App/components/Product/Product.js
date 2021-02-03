@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Card, CardMedia, IconButton, Typography } from '@material-ui/core';
 
 import useStyles from './Product.style'
@@ -16,6 +16,7 @@ const productDetail = {
 }
 
 function Product() {
+    const [favourite, setFavourite] = useState(false)
     const classes = useStyles()
     return (
         <Card className={classes.root} elevation={0}>
@@ -48,8 +49,12 @@ function Product() {
                 <IconButton>
                     <ShoppingCartIcon />
                 </IconButton>
-                <IconButton>
-                    <FavoriteIcon />
+                <IconButton
+                    onClick={() => setFavourite(!favourite)}
+                >
+                    <FavoriteIcon
+                        color={favourite ? 'primary' : 'default'}
+                    />
                 </IconButton>
             </Card>
         </Card >

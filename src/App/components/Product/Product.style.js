@@ -51,7 +51,9 @@ const useStyles = makeStyles(theme => ({
         textAlign: 'left'
     },
     hooverButtons: {
-        transition: 'display 1s ease-out',
+        transition: 'all',
+        transitionDuration: 1000,
+
         backgroundColor: '#f9f9f9',
         height: '70px',
         width: '100%',
