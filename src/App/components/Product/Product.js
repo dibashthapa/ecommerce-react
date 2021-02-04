@@ -47,7 +47,7 @@ function Product() {
       >
         {productDetail.previous_price + ' $'}
       </Typography>
-      <Card className={classes.hooverButtons} color='none'>
+      <Card className={classes.hooverButtons} elevation={0}>
         <IconButton>
           <ShoppingCartIcon color="primary" />
         </IconButton>

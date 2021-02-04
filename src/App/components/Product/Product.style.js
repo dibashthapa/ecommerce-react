@@ -9,7 +9,12 @@ const useStyles = makeStyles(theme => ({
         position: 'relative',
         margin: '10px',
         cursor: 'pointer',
+        transition: 'all 0.4s ease',
         "&:hover": {
+            transform: 'scale(1.09)',
+            '& $media': {
+                transform: 'scale(1.09)',
+            },
             "& $hooverButtons": {
                 transform: 'translateX(0)',
             }
@@ -17,9 +22,9 @@ const useStyles = makeStyles(theme => ({
     },
     media: {
         height: 180,
-        margin: (10, 0),
+        margin: '10px 0px',
         objectFit: 'cover',
-
+        transition: 'all 0.4s ease',
     },
     discountPercentage: {
         position: 'absolute',
@@ -58,7 +63,7 @@ const useStyles = makeStyles(theme => ({
         position: 'absolute',
         top: 0,
         right: 0,
-        transform: 'translateX(50px)'
+        // transform: 'translateX(50px)'
     }
 
 
