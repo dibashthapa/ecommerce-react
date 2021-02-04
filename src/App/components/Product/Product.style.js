@@ -11,7 +11,7 @@ const useStyles = makeStyles(theme => ({
         cursor: 'pointer',
         "&:hover": {
             "& $hooverButtons": {
-                display: 'flex',
+                transform: 'translateX(0)',
             }
         }
     },
@@ -51,17 +51,14 @@ const useStyles = makeStyles(theme => ({
         textAlign: 'left'
     },
     hooverButtons: {
-        transition: 'all',
-        transitionDuration: 1000,
-
-        backgroundColor: '#f9f9f9',
-        height: '70px',
-        width: '100%',
-        display: 'none',
+        transition: 'all 0.5s ease',
+        display: 'flex',
+        flexDirection: 'column',
         justifyContent: 'space-evenly',
         position: 'absolute',
-        bottom: 0,
+        top: 0,
         right: 0,
+        transform: 'translateX(50px)'
     }
 
 

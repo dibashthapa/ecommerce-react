@@ -47,12 +47,12 @@ function Product() {
       >
         {productDetail.previous_price + ' $'}
       </Typography>
-      <Card className={classes.hooverButtons}>
+      <Card className={classes.hooverButtons} color='none'>
         <IconButton>
-          <ShoppingCartIcon />
+          <ShoppingCartIcon color="primary" />
         </IconButton>
         <IconButton onClick={() => setFavourite(!favourite)}>
-          <FavoriteIcon color={favourite ? 'primary' : 'inherit'} />
+          <FavoriteIcon color={favourite ? 'error' : 'primary'} />
         </IconButton>
       </Card>
     </Card>
