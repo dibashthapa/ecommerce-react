@@ -65,7 +65,7 @@ export default class AuthProvider extends Component {
     return authStatusReported ? (
       <AuthContext.Provider value={this.state}>{children}</AuthContext.Provider>
     ) : (
-      <></>
+      <div></div>
     );
   }
 }
