@@ -1,4 +1,3 @@
-
 language: node_js
 node_js: 12.16.1
 
@@ -8,19 +7,17 @@ addons:
       - libgconf-2-4
 
 install:
-  - npm install 
-cache:  
+  - npm install
+cache:
   npm: true
   directories:
-    - ~/.npm 
+    - ~/.npm
+
 script:
-  - yarn build
-script:
- 
   - npm run build
 
 deploy:
-  provider: netlify 
+  provider: netlify
   site: 6a440021-50a5-4e6a-ab41-39106fdcc18d
   auth: ie1lOnuqWU-yzmAO5diN9L1cXOdrmG4ocYQE439PjrY
   edge: true
