@@ -54,9 +54,8 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
     bottom: 0,
     top: 0,
-    borderRadius: '0px 20px 20px 0px',
+
     alignItems: 'center',
-    backgroundColor: theme.palette.primary.dark,
   },
   iconContainer: {
     display: 'flex',
@@ -65,6 +64,12 @@ const useStyles = makeStyles((theme) => ({
   searchIcon: {
     fill: '#fff',
     height: '100%',
+    backgroundColor: theme.palette.primary.dark,
+    position: 'absolute',
+    top: 0,
+    right: 0,
+    borderRadius: '0px 20px 20px 0px',
+    padding: '0 10px',
   },
   inputRoot: {
     width: '100%',
@@ -82,8 +87,9 @@ const useStyles = makeStyles((theme) => ({
     borderRadius: 20,
   },
   select: {
-    color: '#fff',
     fontWeight: 'bold',
+    background: '#fff',
+    marginRight: theme.spacing(2),
     [theme.breakpoints.down('xs')]: {
       width: '90%',
     },

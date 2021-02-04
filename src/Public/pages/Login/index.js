@@ -21,6 +21,7 @@ const Login = (props) => {
     <PublicLayout>
       <Form
         showPassword={showPassword}
+        history={props.history}
         renderShowPassword={renderShowPassword}
       />
     </PublicLayout>
