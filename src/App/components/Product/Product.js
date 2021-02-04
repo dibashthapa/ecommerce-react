@@ -53,7 +53,7 @@ function Product() {
                     onClick={() => setFavourite(!favourite)}
                 >
                     <FavoriteIcon
-                        color={favourite ? 'primary' : 'default'}
+                        color={favourite ? 'primary' : 'inherit'}
                     />
                 </IconButton>
             </Card>
