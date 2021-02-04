@@ -1,7 +1,6 @@
 import React, { createContext, useContext, Component } from 'react';
 import Cookies from 'js-cookie';
 import authService from './authService';
-
 const initialState = {
   isUserLoggedIn: false,
   isUserVerified: false,
@@ -65,7 +64,7 @@ export default class AuthProvider extends Component {
     return authStatusReported ? (
       <AuthContext.Provider value={this.state}>{children}</AuthContext.Provider>
     ) : (
-      <></>
+      <div></div>
     );
   }
 }

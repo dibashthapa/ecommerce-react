@@ -25,12 +25,7 @@ const useStyles = makeStyles((theme) => ({
       fontSize: '1.1rem',
     },
   },
-  selectInput: {
-    backgroundColor: '#f9f9f9',
-    border: '1px solid #D1D1D1',
-    padding: 10,
-    borderRadius: 5,
-  },
+
   search: {
     position: 'relative',
     margin: '8px 10px',
@@ -50,13 +45,31 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: 'center',
     marginTop: theme.spacing(2),
   },
-  searchIcon: {
-    padding: '12px 4px',
-    height: '100%',
+  searchSection: {
+    padding: '12px 15px',
     position: 'absolute',
     right: 0,
     zIndex: 1,
     color: '#959595',
+    display: 'flex',
+    bottom: 0,
+    top: 0,
+
+    alignItems: 'center',
+  },
+  iconContainer: {
+    display: 'flex',
+    justifyContent: 'flex-end',
+  },
+  searchIcon: {
+    fill: '#fff',
+    height: '100%',
+    backgroundColor: theme.palette.primary.dark,
+    position: 'absolute',
+    top: 0,
+    right: 0,
+    borderRadius: '0px 20px 20px 0px',
+    padding: '0 10px',
   },
   inputRoot: {
     width: '100%',
@@ -69,25 +82,25 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.up('md')]: {
       width: '100%',
     },
-    padding: '12px',
-    border: '1px solid #D0D3D5',
-    borderRadius: '5px',
+    padding: 12,
+    border: `2px solid ${theme.palette.primary.dark}`,
+    borderRadius: 20,
   },
   select: {
-    display: 'flex',
-    alignItems: 'center',
-    height: '100%',
+    fontWeight: 'bold',
+    background: '#fff',
+    marginRight: theme.spacing(2),
     [theme.breakpoints.down('xs')]: {
       width: '90%',
     },
   },
-
+  selectInput: { width: '100%' },
   toolbar: {
     display: 'block',
     [theme.breakpoints.down('sm')]: {
-      display: 'block',
+      display: 'flex',
       position: 'absolute',
-      top: 0,
+      top: 15,
       right: 0,
       fontSize: 12,
     },
