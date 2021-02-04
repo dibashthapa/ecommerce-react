@@ -49,9 +49,9 @@ const Navbar = () => {
           <Typography className={classes.logo}>Freshnesecom</Typography>
         </Grid>
 
-        <Grid item lg={8}>
+        <Grid item xs={12} sm={12} md lg={8}>
           <Grid container justify="center">
-            <Grid item lg={7}>
+            <Grid item xs={12} sm md={10} lg={10}>
               <div className={classes.searchBar}>
                 <div className={classes.search}>
                   <div className={classes.searchSection}>
@@ -73,18 +73,20 @@ const Navbar = () => {
                           ))}
                         </Select>
                       </Grid>
-                      <Grid item xs={4} className={classes.iconContainer}>
+                      <Grid item xs={2} sm={2} className={classes.iconContainer}>
                         <SearchIcon className={classes.searchIcon} />
                       </Grid>
                     </Grid>
                   </div>
-                  <InputBase
-                    placeholder="Search here"
-                    classes={{
-                      root: classes.inputRoot,
-                      input: classes.inputInput,
-                    }}
-                  />
+                  <Grid item xs={12}>
+                    <InputBase
+                      placeholder="Search here"
+                      classes={{
+                        root: classes.inputRoot,
+                        input: classes.inputInput,
+                      }}
+                    />
+                  </Grid>
                 </div>
               </div>
             </Grid>
@@ -105,7 +107,7 @@ const Navbar = () => {
           </Grid>
         </Grid>
       </Grid>
-    </AppBar>
+    </AppBar >
   );
 };
 

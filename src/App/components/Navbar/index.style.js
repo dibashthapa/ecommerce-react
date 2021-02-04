@@ -95,6 +95,7 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   selectInput: { width: '100%' },
+
   toolbar: {
     display: 'block',
     [theme.breakpoints.down('sm')]: {
@@ -109,6 +110,7 @@ const useStyles = makeStyles((theme) => ({
   iconSection: {
     display: 'flex',
     justifyContent: 'end',
+    alignItems: 'center'
   },
 }));
 
