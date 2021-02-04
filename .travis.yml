@@ -23,3 +23,5 @@ deploy:
   edge: true
   dir: build
   prod: true
+  on:
+    branch: master
