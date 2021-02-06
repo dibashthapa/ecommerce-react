@@ -11,10 +11,7 @@ const useStyles = makeStyles(theme => ({
         cursor: 'pointer',
         transition: 'all 0.4s ease',
         "&:hover": {
-            transform: 'scale(1.09)',
-            '& $media': {
-                transform: 'scale(1.09)',
-            },
+            transform: 'scale(1.095)',
             "& $hooverButtons": {
                 transform: 'translateX(0)',
             }
@@ -63,7 +60,7 @@ const useStyles = makeStyles(theme => ({
         position: 'absolute',
         top: 0,
         right: 0,
-        // transform: 'translateX(50px)'
+        transform: 'translateX(50px)'
     }
 
 
