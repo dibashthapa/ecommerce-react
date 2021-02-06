@@ -9,17 +9,19 @@ const useStyles = makeStyles(theme => ({
         position: 'relative',
         margin: '10px',
         cursor: 'pointer',
+        transition: 'all 0.4s ease',
         "&:hover": {
+            transform: 'scale(1.095)',
             "& $hooverButtons": {
-                display: 'flex',
+                transform: 'translateX(0)',
             }
         }
     },
     media: {
         height: 180,
-        margin: (10, 0),
+        margin: '10px 0px',
         objectFit: 'cover',
-
+        transition: 'all 0.4s ease',
     },
     discountPercentage: {
         position: 'absolute',
@@ -51,17 +53,14 @@ const useStyles = makeStyles(theme => ({
         textAlign: 'left'
     },
     hooverButtons: {
-        transition: 'all',
-        transitionDuration: 1000,
-
-        backgroundColor: '#f9f9f9',
-        height: '70px',
-        width: '100%',
-        display: 'none',
+        transition: 'all 0.5s ease',
+        display: 'flex',
+        flexDirection: 'column',
         justifyContent: 'space-evenly',
         position: 'absolute',
-        bottom: 0,
+        top: 0,
         right: 0,
+        transform: 'translateX(50px)'
     }
 
 
