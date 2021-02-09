@@ -1,15 +1,12 @@
 import React, { useState } from 'react';
 import { Card, CardMedia, IconButton, Typography } from '@material-ui/core';
-
 import useStyles from './Product.style';
 import MainBtn from '../MainBtn/MainBtn';
-import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
-import FavoriteIcon from '@material-ui/icons/Favorite';
+import { ShoppingCart as ShoppingCartIcon, Favorite as FavoriteIcon } from '@material-ui/icons/';
 
 const productDetail = {
   title: 'Product Name',
-  description:
-    'This is long long long long long long long long long long long long long long long long long long long long long long Description',
+  description: 'This is a description',
   price: 12.3,
   discount_percentage: 40,
   image_url:
@@ -17,7 +14,7 @@ const productDetail = {
   previous_price: 40,
 };
 
-function Product() {
+const Product = () => {
   const [favourite, setFavourite] = useState(false);
   const classes = useStyles();
   return (
@@ -28,24 +25,18 @@ function Product() {
         title={productDetail.title}
       />
       <Typography className={classes.discountPercentage}>
-        {'-' + productDetail.discount_percentage + '%'}
+        {`-${productDetail.discount_percentage}%`}
       </Typography>
       <Typography className={classes.title}>{productDetail.title}</Typography>
       <Typography variant="body2" color="textSecondary" component="p">
         {productDetail.description.substring(0, 30) + '...'}
       </Typography>
       <div className={classes.actions}>
-        <Typography className={classes.price}>
-          {productDetail.price + ' USD'}
-        </Typography>
+        <Typography className={classes.price}>{productDetail.price + ' USD'}</Typography>
         <MainBtn className={classes.button}>Buy now</MainBtn>
       </div>
-      <Typography
-        variant="body2"
-        color="textSecondary"
-        className={classes.previousPrice}
-      >
-        {productDetail.previous_price + ' $'}
+      <Typography variant="body2" color="textSecondary" className={classes.previousPrice}>
+        {`${productDetail.previous_price} $`}
       </Typography>
       <Card className={classes.hooverButtons} elevation={0}>
         <IconButton>
@@ -57,6 +48,6 @@ function Product() {
       </Card>
     </Card>
   );
-}
+};
 
 export default Product;
