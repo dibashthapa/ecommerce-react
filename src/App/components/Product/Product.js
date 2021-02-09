@@ -8,8 +8,7 @@ import FavoriteIcon from '@material-ui/icons/Favorite';
 
 const productDetail = {
   title: 'Product Name',
-  description:
-    'This is long long long long long long long long long long long long long long long long long long long long long long Description',
+  description: 'This is a description',
   price: 12.3,
   discount_percentage: 40,
   image_url:
@@ -35,16 +34,10 @@ function Product() {
         {productDetail.description.substring(0, 30) + '...'}
       </Typography>
       <div className={classes.actions}>
-        <Typography className={classes.price}>
-          {productDetail.price + ' USD'}
-        </Typography>
+        <Typography className={classes.price}>{productDetail.price + ' USD'}</Typography>
         <MainBtn className={classes.button}>Buy now</MainBtn>
       </div>
-      <Typography
-        variant="body2"
-        color="textSecondary"
-        className={classes.previousPrice}
-      >
+      <Typography variant="body2" color="textSecondary" className={classes.previousPrice}>
         {productDetail.previous_price + ' $'}
       </Typography>
       <Card className={classes.hooverButtons}>
