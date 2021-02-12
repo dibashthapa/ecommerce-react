@@ -4,7 +4,7 @@ import {
    Badge,
    Grid,
    IconButton,
-   InputBase,
+
    // MenuItem,
    // Select,
    Toolbar,
@@ -13,15 +13,8 @@ import {
 import { Menu as MenuIcon } from '@material-ui/icons';
 import PersonIcon from '../../../../../Assets/Icons/ic-actions-user.png';
 import ShoppingBasketIcon from '../../../../../Assets/Icons/ic-ecommerce-basket.png';
-import SearchIcon from '../../../../../Assets/Icons/ic-actions-search.png';
 import useStyles from './index.style';
-
-// const category = [
-//    { value: 'all', label: 'All Category' },
-//    { value: 'fruits', label: 'Fruits' },
-//    { value: 'meats', label: 'Meats and Fishes' },
-//    { value: 'electronics', label: 'Electronics' },
-// ];
+import SearchBar from './components/SearchBar';
 
 const Header = () => {
    const classes = useStyles();
@@ -46,46 +39,7 @@ const Header = () => {
             <Grid item lg={8}>
                <Grid container justify="center">
                   <Grid item lg={7}>
-                     <div className={classes.searchBar}>
-                        <div className={classes.search}>
-                           <div className={classes.searchSection}>
-                              <Grid container spacing={2}>
-                                 {/* <Grid item xs={8}>
-                                    <Select
-                                       value={selectCategory}
-                                       disableUnderline
-                                       className={classes.select}
-                                       classes={{
-                                          select: classes.selectInput,
-                                       }}
-                                       onChange={(e) => setSelectCategory(e.target.value)}
-                                    >
-                                       {category.map((option) => (
-                                          <MenuItem
-                                             key={option.value}
-                                             value={option.value}
-                                          >
-                                             {option.label}
-                                          </MenuItem>
-                                       ))}
-                                    </Select>
-                                 </Grid> */}
-                                 <Grid item xs={4} className={classes.iconContainer}>
-                                    <div className={classes.searchIcon}>
-                                       <img src={SearchIcon} alt="" />
-                                    </div>
-                                 </Grid>
-                              </Grid>
-                           </div>
-                           <InputBase
-                              placeholder="Search here"
-                              classes={{
-                                 root: classes.inputRoot,
-                                 input: classes.inputInput,
-                              }}
-                           />
-                        </div>
-                     </div>
+                     <SearchBar />
                   </Grid>
                </Grid>
             </Grid>
