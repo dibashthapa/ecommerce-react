@@ -1,7 +1,6 @@
 import React, { createContext, useContext, Component } from 'react';
 import Cookies from 'js-cookie';
 import authService from './authService';
-
 const initialState = {
   isUserLoggedIn: false,
   isUserVerified: false,
