@@ -2,7 +2,8 @@ import { makeStyles } from '@material-ui/core';
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    maxWidth: 200,
+    width: 269,
+    height: 332,
     border: '1px solid #D1D1D1',
     borderRadius: '12px',
     padding: '16px',
@@ -10,10 +11,13 @@ const useStyles = makeStyles((theme) => ({
     margin: '10px',
     cursor: 'pointer',
     transition: 'all 0.4s ease',
-    '&:hover': {
-      transform: 'scale(1.095)',
-      '& $hooverButtons': {
-        transform: 'translateX(0)',
+    //Only add hover in computer screen which is bigger than 960px
+    [theme.breakpoints.up('md')]: {
+      '&:hover': {
+        transform: 'scale(1.055)',
+        '& $hooverButtons': {
+          transform: 'translateX(0)',
+        },
       },
     },
   },
