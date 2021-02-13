@@ -2,22 +2,31 @@
 
 [Live Demo ](https://ecommerce-react12.netlify.app/login).
 
-## Contributors
+| Stack    | -                                                                                                  | -                                                                                                 | -                                                                                                | -                                                                                                  | -   |
+| -------- | -------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------- | --- |
+| FrontEnd | <p align="center"><img src="./assets/reactjs_logo.png" width="100" height="100"> <br />Reactjs</p> | <p align="center"><img src="./assets/redux_logo.png" width="100" height="100"> <br />Redux</p>    |
+| BackEnd  | <p align="center"><img src="./assets/nodejs_logo.png" width="100" height="100"> <br />Nodejs</p>   | <p align="center"><img src="./assets/mongo_logo2.png" width="100" height="100"> <br />MongoDB</p> | <p align="center"><img src="./assets/heroku_logo.png" width="100" height="100"> <br />Heroku</p> | <p align="center"><img src="./assets/express_logo.png" width="100" height="100"> <br />Express</p> |
 
-#### Dibash Thapa "Frontend and Backend" [LinkedIn](https://www.linkedin.com/in/dibash-thapa-9758a8111/).
+## Installation
 
-#### Saurav Gami "Frontend" [LinkedIn](https://www.linkedin.com/in/saurav-gami-08618b1a0/).
+### Step 1: Clone the repo
 
-## Tools used
+Fork the repository. then clone the repo locally by doing -
 
-#### React.JS
+```sh
+git clone https://github.com/dibashthapa/ecommerce-react.git
+```
 
-#### Node.js
+### Step 2: Install Dependencies
 
-#### Redux.JS
+cd into the directory
 
-#### Redux-saga
+```sh
+cd ecommerce-react
+```
 
-#### Netlify CDN
+In the root folder do npm install.
 
-#### Material-UI
+```sh
+npm install
+```
