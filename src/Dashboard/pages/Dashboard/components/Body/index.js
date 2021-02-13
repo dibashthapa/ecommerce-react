@@ -5,7 +5,7 @@ import { ChevronRight } from '@material-ui/icons';
 import BannerSubFocus from '../../../../../App/components/BannerSubFocus/BannerSubFocus';
 import Product from '../../../../../App/components/Product/Product';
 import TextSubtitle from '../../../../../App/components/TextSubtitle/TextSubtitle';
-import GreenLink from '../../../../../App/components/GreenLink/GreenLink';
+import { GreenLink } from '../../../../../App/components/Link';
 import MainBtn from '../../../../../App/components/MainBtn/MainBtn';
 import useStyles from './index.styles.js';
 
