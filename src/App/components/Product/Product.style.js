@@ -65,6 +65,14 @@ const useStyles = makeStyles((theme) => ({
       right: 0,
       transform: 'translateX(50px)',
    },
+   heart: {
+      height: 20,
+      width: 20,
+   },
+   cart: {
+      height: 20,
+      width: 20,
+   }
 }));
 
 export default useStyles;

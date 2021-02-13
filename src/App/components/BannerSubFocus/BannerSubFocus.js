@@ -7,7 +7,7 @@ import { GreenLink } from '../Link';
 const BannerSubFocus = () => {
    const classes = useStyles();
    return (
-      <Paper className={classes.root}>
+      <Paper className={classes.root} elevation={0}>
          <div>
             <GreenLink disableUnderline>Banner Subfocus</GreenLink>
             <Typography className={classes.heading}>Space for Heading</Typography>
