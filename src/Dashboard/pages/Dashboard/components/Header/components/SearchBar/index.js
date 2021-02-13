@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import useStyles from './index.style';
-import { Grid, InputBase, MenuItem, Select } from '@material-ui/core';
+import useStyles, { BootstrapInput } from './index.style';
+import { Grid, InputBase, NativeSelect } from '@material-ui/core';
 import SearchIcon from '../../../../../../../Assets/Icons/ic-actions-search.png';
 
 const SearchBar = () => {
@@ -13,27 +13,24 @@ const SearchBar = () => {
    ];
 
    const [selectCategory, setSelectCategory] = useState(category[0].value);
+
    return (
       <div>
          <div className={classes.searchBar}>
             <Grid container>
                <Grid item lg={3}>
                   <div className={classes.selectSection}>
-                     <Select
+                     <NativeSelect
                         value={selectCategory}
-                        className={classes.select}
-                        classes={{
-                           select: classes.selectInput,
-                        }}
-                        variant="outlined"
                         onChange={(e) => setSelectCategory(e.target.value)}
+                        input={<BootstrapInput />}
                      >
                         {category.map((option) => (
-                           <MenuItem key={option.value} value={option.value}>
+                           <option key={option.value} value={option.value}>
                               {option.label}
-                           </MenuItem>
+                           </option>
                         ))}
-                     </Select>
+                     </NativeSelect>
                   </div>
                </Grid>
                <Grid item lg={8}>
