@@ -1,13 +1,8 @@
 import React, { useState } from 'react';
 import { Card, CardMedia, IconButton, Typography } from '@material-ui/core';
-import {
-   ShoppingCart as ShoppingCartIcon,
-} from '@material-ui/icons/';
 
 import useStyles from './Product.style';
 import MainBtn from '../MainBtn/MainBtn';
-import Heart from '../../../Assets/Icons/ic-actions-heart.svg';
-import Cart from '../../../Assets/Icons/cart.svg';
 
 const productDetail = {
    title: 'Product Name',
