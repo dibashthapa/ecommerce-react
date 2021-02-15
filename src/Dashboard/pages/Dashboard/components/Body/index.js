@@ -1,19 +1,15 @@
 import React from 'react';
-import { Grid, Typography } from '@material-ui/core';
-import { ChevronRight } from '@material-ui/icons';
+import { Grid } from '@material-ui/core';
+// import { ChevronRight } from '@material-ui/icons';
 
-import BannerSubFocus from '../../../../../App/components/BannerSubFocus/BannerSubFocus';
-import Product from '../../../../../App/components/Product/Product';
-import TextSubtitle from '../../../../../App/components/TextSubtitle/TextSubtitle';
-import { GreenLink } from '../../../../../App/components/Link';
-import MainBtn from '../../../../../App/components/MainBtn/MainBtn';
+import Product from '../../../../../App/components/Product';
 import useStyles from './index.styles.js';
 
 const Body = () => {
    const classes = useStyles();
    return (
       <Grid container className={classes.root} justify="center" spacing={2}>
-         <Grid item container xs={2} column="true" flex="true">
+         {/* <Grid item container xs={2} column="true" flex="true">
             <Grid className={classes.sideCategoryContainer} container flex="true">
                <Typography variant="h5">Category Menu</Typography>
                <div className={classes.links}>
@@ -53,9 +49,9 @@ const Body = () => {
                   More Categories
                </MainBtn>
             </Grid>
-         </Grid>
+         </Grid> */}
          <Grid item container xs={9}>
-            <Grid
+            {/* <Grid
                item
                container
                row="true"
@@ -69,24 +65,19 @@ const Body = () => {
                <Grid item xs={6}>
                   <BannerSubFocus></BannerSubFocus>
                </Grid>
-            </Grid>
-            <Grid item container row="true" flex="true" style={{ marginTop: '10px' }}>
-               <Grid item xs={4}>
+            </Grid> */}
+            <Grid
+               item
+               container
+               row="true"
+               flex="true"
+               style={{ marginTop: '10px' }}
+               spacing={3}
+            >
+               <Grid item xs={3}>
                   <Product />
                </Grid>
-               <Grid item xs={4}>
-                  <Product />
-               </Grid>
-               <Grid item xs={4}>
-                  <Product />
-               </Grid>
-               <Grid item xs={4}>
-                  <Product />
-               </Grid>
-               <Grid item xs={4}>
-                  <Product />
-               </Grid>
-               <Grid item xs={4}>
+               <Grid item xs={3}>
                   <Product />
                </Grid>
             </Grid>
