@@ -1,9 +1,8 @@
 import React from 'react';
 import TopBar from '../../../App/components/TopBar';
+import Navbar from '../Dashboard/components/Navbar';
+import Body from './components/Body';
 import Header from './components/Header';
-import Navbar from './components/Navbar';
-
-import Product from '../../../App/components/Product/Product';
 
 const Dashboard = () => {
    return (
@@ -11,7 +10,7 @@ const Dashboard = () => {
          <TopBar />
          <Header />
          <Navbar />
-         <Product />
+         <Body />
       </>
    );
 };

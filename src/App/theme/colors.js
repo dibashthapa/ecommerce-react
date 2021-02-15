@@ -1,13 +1,15 @@
 const colors = {
-  primary: {
-    light: '#C8DEB3',
-    main: '#92C064;',
+   primary: {
+      light: '#C8DEB3',
+      main: '#92C064;',
 
-    dark: '#4fb68d',
-  },
-  secondary: {
-    main: '#fff',
-  },
+      dark: '#4fb68d',
+   },
+   secondary: {
+      main: '#fff',
+      light: '#fff',
+      dark: '#fff',
+   },
 };
 
 export default colors;

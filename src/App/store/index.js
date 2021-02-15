@@ -7,14 +7,13 @@ import createRootReducer from './reducers';
 import rootSaga from './sagas';
 
 const history = createBrowserHistory();
-
 const sagaMiddleware = createSagaMiddleware();
 const routeMiddleware = routerMiddleware(history);
 const middlewares = [sagaMiddleware, routeMiddleware];
 
 const store = createStore(
-  createRootReducer(history),
-  composeWithDevTools(applyMiddleware(...middlewares))
+   createRootReducer(history),
+   composeWithDevTools(applyMiddleware(...middlewares))
 );
 
 sagaMiddleware.run(rootSaga);

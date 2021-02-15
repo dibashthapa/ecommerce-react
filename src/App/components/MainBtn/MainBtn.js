@@ -1,6 +1,5 @@
 import React from 'react';
 import { Button } from '@material-ui/core';
-
 import useStyles from './MainBtn.style';
 import theme from '../../../App/theme/theme';
 

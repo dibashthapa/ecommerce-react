@@ -54,9 +54,8 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
     bottom: 0,
     top: 0,
-    borderRadius: '0px 20px 20px 0px',
+
     alignItems: 'center',
-    backgroundColor: theme.palette.primary.dark,
   },
   iconContainer: {
     display: 'flex',
@@ -65,6 +64,15 @@ const useStyles = makeStyles((theme) => ({
   searchIcon: {
     fill: '#fff',
     height: '100%',
+<<<<<<< HEAD
+=======
+    backgroundColor: theme.palette.primary.dark,
+    position: 'absolute',
+    top: 0,
+    right: 0,
+    borderRadius: '0px 20px 20px 0px',
+    padding: '0 10px',
+>>>>>>> acb6c8e5417df5e6fcb75f495e975128db3f6e2a
   },
   inputRoot: {
     width: '100%',
@@ -82,8 +90,14 @@ const useStyles = makeStyles((theme) => ({
     borderRadius: 20,
   },
   select: {
+<<<<<<< HEAD
     color: '#fff',
     fontWeight: 'bold',
+=======
+    fontWeight: 'bold',
+    background: '#fff',
+    marginRight: theme.spacing(2),
+>>>>>>> acb6c8e5417df5e6fcb75f495e975128db3f6e2a
     [theme.breakpoints.down('xs')]: {
       width: '90%',
     },
@@ -92,9 +106,15 @@ const useStyles = makeStyles((theme) => ({
   toolbar: {
     display: 'block',
     [theme.breakpoints.down('sm')]: {
+<<<<<<< HEAD
       display: 'block',
       position: 'absolute',
       top: 0,
+=======
+      display: 'flex',
+      position: 'absolute',
+      top: 15,
+>>>>>>> acb6c8e5417df5e6fcb75f495e975128db3f6e2a
       right: 0,
       fontSize: 12,
     },
