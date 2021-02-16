@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import useStyles from './index.style';
 import eyeIcon from '../../../Assets/Icons/ic-actions-view.png';
 import MainBtn from '../MainBtn/MainBtn';
-const Product = () => {
+const Product = ({ name, price, img_url }) => {
    const classes = useStyles();
    const [hover, setHover] = useState(false);
    const handleMouseOver = () => {
@@ -15,10 +15,7 @@ const Product = () => {
          onMouseLeave={() => setHover(false)}
       >
          <div className={classes.imageWrapper}>
-            <img
-               src="https://big-skins.com/frontend/foxic-html-demo/images/skins/fashion/products/product-03-1.webp"
-               alt=""
-            />
+            <img src={img_url} alt="" />
          </div>
 
          {hover ? (
@@ -27,8 +24,8 @@ const Product = () => {
             </div>
          ) : (
             <div className={classes.infoWrapper}>
-               <p>Product Name</p>
-               <p>500$ </p>
+               <p>{name} </p>
+               <p>{price} </p>
             </div>
          )}
 

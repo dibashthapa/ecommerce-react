@@ -20,13 +20,13 @@ const Navbar = () => {
                   </span>
                </li>
                <li>
-                  Grocery{' '}
+                  Apparels{' '}
                   <span>
                      <KeyboardArrowDown />
                   </span>
                </li>
                <li>
-                  Furniture{' '}
+                  Jewelries{' '}
                   <span>
                      <KeyboardArrowDown />
                   </span>

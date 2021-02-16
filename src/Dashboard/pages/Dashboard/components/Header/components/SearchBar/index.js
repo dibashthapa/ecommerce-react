@@ -7,9 +7,9 @@ const SearchBar = () => {
    const classes = useStyles();
    const category = [
       { value: 'all', label: 'All Category' },
-      { value: 'fruits', label: 'Fruits' },
-      { value: 'meats', label: 'Meats and Fishes' },
-      { value: 'electronics', label: 'Electronics' },
+      { value: 'apparels', label: 'Apparels' },
+      { value: 'fashion', label: 'Fashion' },
+      { value: 'jewelries', label: 'Jewelries' },
    ];
 
    const [selectCategory, setSelectCategory] = useState(category[0].value);
