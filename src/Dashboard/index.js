@@ -1,9 +1,11 @@
-import { DashboardReducer, DashboardSaga } from './pages/Dashboard/store';
+import { ApparelSaga, ApparelReducer } from './pages/Apparels/store';
+import { FashionSaga, FashionReducer } from './pages/Fashion/store';
 
 export const dashboardReducer = {
-   dashboard: DashboardReducer,
+   apparels: ApparelReducer,
+   fashions: FashionReducer,
 };
 
-export const dashboardSaga = [DashboardSaga()];
+export const dashboardSaga = [ApparelSaga(), FashionSaga()];
 
 export { default as dashboardRoutes } from './config/routes';

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import useStyles, { BootstrapInput } from './index.style';
 import { Grid, InputBase, NativeSelect } from '@material-ui/core';
-import SearchIcon from '../../../../../../../Assets/Icons/ic-actions-search.png';
+import SearchIcon from '../../../../../Assets/Icons/ic-actions-search.png';
 
 const SearchBar = () => {
    const classes = useStyles();

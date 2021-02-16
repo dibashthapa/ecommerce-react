@@ -1,18 +1,8 @@
 import React from 'react';
-import {
-   AppBar,
-   Badge,
-   Grid,
-   IconButton,
-
-   // MenuItem,
-   // Select,
-   Toolbar,
-   Typography,
-} from '@material-ui/core';
+import { AppBar, Badge, Grid, IconButton, Toolbar, Typography } from '@material-ui/core';
 import { Menu as MenuIcon } from '@material-ui/icons';
-import PersonIcon from '../../../../../Assets/Icons/ic-actions-user.png';
-import ShoppingBasketIcon from '../../../../../Assets/Icons/ic-ecommerce-basket.png';
+import PersonIcon from '../../../Assets/Icons/ic-actions-user.png';
+import ShoppingBasketIcon from '../../../Assets/Icons/ic-ecommerce-basket.png';
 import useStyles from './index.style';
 import SearchBar from './components/SearchBar';
 
