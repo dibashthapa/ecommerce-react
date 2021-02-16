@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { Grid } from '@material-ui/core';
 import Product from '../../../App/components/Product';
+import Loading from '../../../App/components/Loading';
 import useStyles from './index.style.js';
 import { ApparelActions } from './store';
 import { connect } from 'react-redux';
@@ -25,11 +26,15 @@ const Apparels = (props) => {
                style={{ marginTop: '10px' }}
                spacing={3}
             >
-               {props.apparels?.map(({ _id, name, price, imgUrl }) => (
-                  <Grid item xs={3} key={_id}>
-                     <Product img_url={imgUrl} name={name} price={price} />
-                  </Grid>
-               ))}
+               {props.loading ? (
+                  <Loading open={true} />
+               ) : (
+                  props.apparels?.map(({ _id, name, price, imgUrl }) => (
+                     <Grid item xs={3} key={_id}>
+                        <Product img_url={imgUrl} name={name} price={price} />
+                     </Grid>
+                  ))
+               )}
             </Grid>
          </Grid>
       </Grid>

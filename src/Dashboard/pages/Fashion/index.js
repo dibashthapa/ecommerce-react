@@ -3,6 +3,8 @@ import { Grid } from '@material-ui/core';
 import Product from '../../../App/components/Product';
 import useStyles from './index.style.js';
 import { FashionActions } from './store';
+import Loading from '../../../App/components/Loading';
+
 import { connect } from 'react-redux';
 
 const Fashions = (props) => {
@@ -25,11 +27,15 @@ const Fashions = (props) => {
                style={{ marginTop: '10px' }}
                spacing={3}
             >
-               {props.fashions?.map(({ _id, name, price, imgUrl }) => (
-                  <Grid item xs={3} key={_id}>
-                     <Product img_url={imgUrl} name={name} price={price} />
-                  </Grid>
-               ))}
+               {props.loading ? (
+                  <Loading open={true} />
+               ) : (
+                  props.fashions?.map(({ _id, name, price, imgUrl }) => (
+                     <Grid item xs={3} key={_id}>
+                        <Product img_url={imgUrl} name={name} price={price} />
+                     </Grid>
+                  ))
+               )}
             </Grid>
          </Grid>
       </Grid>
