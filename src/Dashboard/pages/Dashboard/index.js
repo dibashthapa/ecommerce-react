@@ -11,6 +11,8 @@ const Dashboard = () => {
          <Header />
          <Navbar />
          <Body />
+         <Body />
+         <Body />
       </>
    );
 };

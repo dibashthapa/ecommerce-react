@@ -3,14 +3,13 @@ import { makeStyles } from '@material-ui/core';
 const useStyles = makeStyles((theme) => ({
    root: {
       padding: `0px ${theme.spacing(3)}px`,
-      position: 'fixed',
-      top: 0,
-      width: '100%',
-      height: '30px',
-      zIndex: 1,
-      transitionTimingFunction: 'ease-in',
-      transition: 'all 0.5s',
       '& .MuiTextField-root': {
+         top: 200,
+         zIndex: 100,
+         backgroundColor: 'red',
+         border: '100px solid black',
+         transitionTimingFunction: 'ease-in',
+         transition: 'all 0.5s',
          margin: theme.spacing(1),
          borderBottom: 'none',
       },
