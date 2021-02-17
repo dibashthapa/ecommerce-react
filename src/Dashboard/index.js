@@ -1,14 +1,7 @@
-import React from 'react';
-import TopBar from './components/TopBar';
-import Navbar from './components/Navbar';
+// import { DashboardReducer, DashboardSaga } from './pages/Dashboard/store';
 
-const Dashboard = () => {
-  return (
-    <>
-      <TopBar />
-      <Navbar />
-    </>
-  );
-};
+export const dashboardReducer = {};
 
-export default Dashboard;
+export const dashboardSaga = [];
+
+export { default as dashboardRoutes } from './config/routes';
