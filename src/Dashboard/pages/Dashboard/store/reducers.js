@@ -39,7 +39,7 @@ const reducer = (state = initialState, action) => {
 
          let value = action.name;
          let filteredValues = state.products.filter((product) => {
-            return product.name.toLowerCase().includes(value);
+            return product.name.toLowerCase().includes(value.toLowerCase());
          });
 
          let appliedFilters = state.appliedFilters;

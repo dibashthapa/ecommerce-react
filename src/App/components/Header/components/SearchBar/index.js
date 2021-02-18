@@ -18,7 +18,6 @@ const SearchBar = (props) => {
 
    const searchProduct = (e) => {
       const { value } = e.target;
-
       props.searchProduct(value);
    };
    return (
