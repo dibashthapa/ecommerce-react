@@ -10,9 +10,9 @@ class DashboardLayout extends Component {
       const { children } = this.props;
       return (
          <>
-            <Topbar />
-            <Header />
-            <Navbar />
+            {/* <Topbar /> */}
+            {/* <Header /> */}
+            {/* <Navbar /> */}
             {children}
          </>
       );
