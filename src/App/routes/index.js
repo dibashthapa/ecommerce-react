@@ -5,19 +5,14 @@ import { ConnectedRouter } from 'connected-react-router';
 
 import PrivateRoute from '../components/PrivateRoute';
 const Routes = ({ history }) => (
-  <ConnectedRouter history={history}>
-    <Switch>
-      {publicRoutes.map((route) => (
-        <Route
-          path={route.path}
-          component={route.component}
-          exact
-          key={route.path}
-        />
-      ))}
-      <Route path="/" exact component={PrivateRoute} />
-    </Switch>
-  </ConnectedRouter>
+   <ConnectedRouter history={history}>
+      <Switch>
+         {publicRoutes.map((route) => (
+            <Route path={route.path} component={route.component} exact key={route.path} />
+         ))}
+         <Route path="/" component={PrivateRoute} />
+      </Switch>
+   </ConnectedRouter>
 );
 
 export default Routes;

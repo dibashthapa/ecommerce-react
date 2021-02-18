@@ -1,76 +1,78 @@
 import React, { createContext, useContext, Component } from 'react';
 import Cookies from 'js-cookie';
 import authService from './authService';
+import Loading from '../components/Loading';
 const initialState = {
-  isUserLoggedIn: false,
-  isUserVerified: false,
-  authStatusReported: false,
-  currentUser: {},
-  loginUser: async (credentials) => {
-    try {
-      const res = await authService.signIn(credentials);
+   isUserLoggedIn: false,
+
+   isUserVerified: false,
+   authStatusReported: false,
+   currentUser: {},
+   loginUser: async (credentials) => {
+      try {
+         const res = await authService.signIn(credentials);
+         window.location.reload();
+         return res;
+      } catch (err) {
+         throw err.message;
+      }
+   },
+   fetchLoggedInUser: async () => {
+      try {
+         const res = await authService.fetchLoggedInUser();
+         return res;
+      } catch (err) {
+         throw err.message;
+      }
+   },
+   logoutUser: async () => {
+      Object.keys(Cookies.get()).forEach(function (cookie) {
+         Cookies.remove(cookie);
+      });
+      initialState.isUserLoggedIn = false;
       window.location.reload();
-      return res;
-    } catch (err) {
-      throw err.message;
-    }
-  },
-  fetchLoggedInUser: async () => {
-    try {
-      const res = await authService.fetchLoggedInUser();
-      return res;
-    } catch (err) {
-      throw err.message;
-    }
-  },
-  logoutUser: async () => {
-    Object.keys(Cookies.get()).forEach(function (cookie) {
-      Cookies.remove(cookie);
-    });
-    initialState.isUserLoggedIn = false;
-    window.location.reload();
-  },
-  setToken: (token) => {
-    Cookies.set('token', token);
-  },
-  getToken: () => {
-    return Cookies.get('token');
-  },
+   },
+   setToken: (token) => {
+      Cookies.set('token', token);
+   },
+   getToken: () => {
+      return Cookies.get('token');
+   },
 };
 
 export const AuthContext = createContext(initialState);
 
 export default class AuthProvider extends Component {
-  state = initialState;
+   state = initialState;
 
-  componentDidMount = () => {
-    const token = Cookies.get('token');
+   componentDidMount = () => {
+      const token = Cookies.get('token');
 
-    if (token) {
-      this.setState({
-        authStatusReported: true,
-        isUserLoggedIn: true,
-      });
-    } else {
-      this.setState({
-        authStatusReported: true,
-      });
-    }
-  };
+      if (token) {
+         this.setState({
+            authStatusReported: true,
+            isUserLoggedIn: true,
+         });
+      } else {
+         this.setState({
+            authStatusReported: true,
+         });
+      }
+   };
 
-  render() {
-    const { children } = this.props;
-    const { authStatusReported } = this.state;
-    return authStatusReported ? (
-      <AuthContext.Provider value={this.state}>{children}</AuthContext.Provider>
-    ) : (
-      <></>
-    );
-  }
+   render() {
+      const { children } = this.props;
+      const { authStatusReported } = this.state;
+      return authStatusReported ? (
+         <AuthContext.Provider value={this.state}>{children}</AuthContext.Provider>
+      ) : (
+         <Loading open={true} />
+      );
+   }
 }
 
 export const useAuth = () => {
-  return useContext(AuthContext);
+   return useContext(AuthContext);
 };
 
 export const AuthConsumer = AuthContext.Consumer;
