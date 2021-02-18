@@ -16,7 +16,7 @@ const Category = () => {
    const classes = useStyles();
 
    return (
-
+      <h1>sd</h1>
    )
 };
 
