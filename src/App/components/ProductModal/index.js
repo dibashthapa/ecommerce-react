@@ -26,7 +26,7 @@ const ProductModal = ({ open, handleClose, title, img, description, price }) => 
             open={open}
             onClose={handleClose}
             TransitionComponent={Transition}
-            fullWidth
+            fullScreen
          >
             <AppBar className={classes.appBar}>
                <Toolbar>
@@ -46,11 +46,13 @@ const ProductModal = ({ open, handleClose, title, img, description, price }) => 
                   </Button>
                </Toolbar>
             </AppBar>
-            <Grid container spacing={4}>
-               <Grid lg={6}>
+            <Grid container justify="center">
+               <Grid lg={4} item>
                   <img src={img} alt="" style={{ width: '100%' }} />
                </Grid>
-               <Grid lg={6}>{parser(description)}</Grid>
+               <Grid lg={4} item>
+                  {parser(description)}
+               </Grid>
             </Grid>
          </Dialog>
       </Container>
