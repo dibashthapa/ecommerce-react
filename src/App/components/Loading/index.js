@@ -1,5 +1,5 @@
 import React from 'react';
-import { Backdrop, CircularProgress } from '@material-ui/core';
+import { Backdrop } from '@material-ui/core';
 
 import useStyles from './index.style';
 const Loading = (props) => {
@@ -11,7 +11,9 @@ const Loading = (props) => {
          open={props.open}
          onClick={props.handleClose}
       >
-         <CircularProgress color="inherit" />
+         <div className="spinner-grow" role="status">
+            <span className="sr-only">Loading...</span>
+         </div>
       </Backdrop>
    );
 };

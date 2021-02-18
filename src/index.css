@@ -1,7 +1,20 @@
 body {
-  font-family: 'Poppins', sans-serif;
+   font-family: 'Poppins', sans-serif;
 }
 
 .text-end {
-  text-align: end;
+   text-align: end;
+}
+
+@keyframes spinner-grow {
+   0% {
+      -webkit-transform: scale(0);
+      transform: scale(0);
+   }
+
+   50% {
+      opacity: 1;
+      -webkit-transform: none;
+      transform: none;
+   }
 }

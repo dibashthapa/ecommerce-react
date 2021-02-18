@@ -2,8 +2,10 @@ import React, { useState } from 'react';
 import useStyles, { BootstrapInput } from './index.style';
 import { Grid, InputBase, NativeSelect } from '@material-ui/core';
 import SearchIcon from '../../../../../Assets/Icons/ic-actions-search.png';
+import { ProductActions } from '../../../../../Dashboard/pages/Dashboard/store';
+import { connect } from 'react-redux';
 
-const SearchBar = () => {
+const SearchBar = (props) => {
    const classes = useStyles();
    const category = [
       { value: 'all', label: 'All Category' },
@@ -14,6 +16,10 @@ const SearchBar = () => {
 
    const [selectCategory, setSelectCategory] = useState(category[0].value);
 
+   const searchProduct = (e) => {
+      const { value } = e.target;
+      props.searchProduct(value);
+   };
    return (
       <div>
          <div className={classes.searchBar}>
@@ -48,6 +54,7 @@ const SearchBar = () => {
                            root: classes.inputRoot,
                            input: classes.inputInput,
                         }}
+                        onKeyUp={searchProduct}
                      />
                   </div>
                </Grid>
@@ -57,4 +64,8 @@ const SearchBar = () => {
    );
 };
 
-export default SearchBar;
+const mapDispatchToProps = (dispatch) => ({
+   searchProduct: (name) => dispatch(ProductActions.searchProducts(name)),
+});
+
+export default connect(null, mapDispatchToProps)(SearchBar);
