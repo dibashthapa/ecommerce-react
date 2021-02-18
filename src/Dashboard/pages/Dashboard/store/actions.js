@@ -8,9 +8,10 @@ const actions = {
       type: actions.GET_PRODUCTS,
    }),
 
-   searchProducts: (name) => ({
+   searchProducts: (name, category) => ({
       type: actions.SEARCH_PRODUCT,
       name,
+      category,
    }),
 };
 
