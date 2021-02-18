@@ -54,7 +54,7 @@ const mapStateToProps = (state) => {
    return {
       success: state.products.success,
       loading: state.products.loading,
-      products: state.products.products,
+      products: state.products.filteredProducts,
    };
 };
 
