@@ -17,7 +17,7 @@ const Transition = React.forwardRef(function Transition(props, ref) {
    return <Slide direction="up" ref={ref} {...props} />;
 });
 
-const ProductModal = ({ open, handleClose, title, img, description, price }) => {
+const ProductModal = ({ open, handleClose, name, img, description, price }) => {
    const classes = useStyles();
 
    return (
@@ -46,12 +46,16 @@ const ProductModal = ({ open, handleClose, title, img, description, price }) => 
                   </Button>
                </Toolbar>
             </AppBar>
-            <Grid container justify="center">
-               <Grid lg={4} item>
-                  <img src={img} alt="" style={{ width: '100%' }} />
-               </Grid>
-               <Grid lg={4} item>
-                  {parser(description)}
+            <Grid container className={classes.body} justify="center">
+               <Grid container item xs={10} justify="space-evenly">
+                  <Grid lg={4} item>
+                     <img src={img} alt="" style={{ width: '100%' }} />
+                  </Grid>
+                  <Grid lg={4} item>
+                     <Typography variant='h6' className={classes.name}>{parser(name)}</Typography>
+                     <Typography className={classes.price} variant="h4" >$ {parser(price)}</Typography>
+                     {parser(description)}
+                  </Grid>
                </Grid>
             </Grid>
          </Dialog>
