@@ -22,6 +22,7 @@ const Product = ({ name, price, img_url, description }) => {
             img={img_url}
             description={description}
             price={price}
+            name={name}
          />
          <div
             className={classes.productWrapper}
@@ -37,11 +38,11 @@ const Product = ({ name, price, img_url, description }) => {
                   <MainBtn fullWidth>Buy Now</MainBtn>
                </div>
             ) : (
-               <div className={classes.infoWrapper}>
-                  <p>{name} </p>
-                  <p>{price} </p>
-               </div>
-            )}
+                  <div className={classes.infoWrapper}>
+                     <p>{name} </p>
+                     <p>{price} </p>
+                  </div>
+               )}
 
             <div className={'icons'}>
                <div className="imgWrapper">
