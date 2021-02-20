@@ -52,8 +52,12 @@ const ProductModal = ({ open, handleClose, name, img, description, price }) => {
                      <img src={img} alt="" style={{ width: '100%' }} />
                   </Grid>
                   <Grid lg={4} item>
-                     <Typography variant='h6' className={classes.name}>{parser(name)}</Typography>
-                     <Typography className={classes.price} variant="h4" >$ {parser(price)}</Typography>
+                     <Typography variant="h6" className={classes.name}>
+                        {name}
+                     </Typography>
+                     <Typography className={classes.price} variant="h4">
+                        $ {price}
+                     </Typography>
                      {parser(description)}
                   </Grid>
                </Grid>
