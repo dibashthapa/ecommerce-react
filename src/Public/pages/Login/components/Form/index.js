@@ -27,17 +27,7 @@ const Form = (props) => {
          handleLogin(values);
       },
    });
-   // const handleLogin = async (values) => {
-   //   try {
-   //     const loginRes = await context.loginUser(values);
-   //     if (loginRes.token) {
-   //       context.setToken(loginRes.token);
-   //       await context.fetchLoggedInUser();
-   //     }
-   //   } catch (err) {
-   //     console.log(err.response);
-   //   }
-   // };
+
    const handleLogin = async (values) => {
       setLoading(true);
       try {
