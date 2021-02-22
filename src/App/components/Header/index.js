@@ -22,6 +22,8 @@ const Header = () => {
    const classes = useStyles();
    const [show, handleShow] = useState(false);
    const [anchorEl, setAnchorEl] = React.useState(null);
+   const [personEl, setPersonEl] = React.useState(null);
+   const [profile, setProfile] = React.useState(false);
    const [showSearch, setShowSearch] = useState(false);
    const transitionNavbar = () => {
       window.scrollY > 100 ? handleShow(true) : handleShow(false);
@@ -37,8 +39,17 @@ const Header = () => {
       setShowSearch(true);
    };
 
+   const handleProfile = (event) => {
+      setPersonEl(event.currentTarget);
+      setProfile(true);
+   };
+
    const handleClose = () => {
       setShowSearch(false);
+   };
+
+   const handleProfileClose = () => {
+      setProfile(false);
    };
    return (
       <AppBar
@@ -94,7 +105,29 @@ const Header = () => {
                      <IconButton onClick={handleSearch}>
                         <img src={SearchIcon} alt="Search Icon" className="search-icon" />
                      </IconButton>
-                     <IconButton>
+                     <Popover
+                        open={profile}
+                        onClose={handleProfileClose}
+                        anchorOrigin={{
+                           vertical: 'bottom',
+                           horizontal: 'center',
+                        }}
+                        anchorEl={personEl}
+                        transformOrigin={{
+                           vertical: 'top',
+                           horizontal: 'center',
+                        }}
+                     >
+                        <div className={classes.profileWrapper}>
+                           <div>
+                              <IconButton>Edit Profile</IconButton>
+                           </div>
+                           <div>
+                              <IconButton>Log Out</IconButton>
+                           </div>
+                        </div>
+                     </Popover>
+                     <IconButton onClick={handleProfile}>
                         <img src={PersonIcon} alt="Person Icon" />
                      </IconButton>
                      <IconButton>

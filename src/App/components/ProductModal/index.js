@@ -1,6 +1,5 @@
 import React from 'react';
 import {
-   Button,
    Dialog,
    AppBar,
    Toolbar,
@@ -16,19 +15,27 @@ import parser from 'react-html-parser';
 const Transition = React.forwardRef(function Transition(props, ref) {
    return <Slide direction="up" ref={ref} {...props} />;
 });
-
 const ProductModal = ({ open, handleClose, name, img, description, price }) => {
    const classes = useStyles();
 
    return (
       <Container>
          <Dialog
+            fullScreen
             open={open}
             onClose={handleClose}
             TransitionComponent={Transition}
-            fullScreen
+            transitionDuration={1000}
+            classes={{
+               paperFullScreen: classes.paperFullScreen,
+            }}
          >
-            <AppBar className={classes.appBar}>
+            <AppBar
+               className={classes.appBar}
+               classes={{
+                  colorPrimary: classes.colorLight,
+               }}
+            >
                <Toolbar>
                   <IconButton
                      edge="start"
@@ -38,18 +45,12 @@ const ProductModal = ({ open, handleClose, name, img, description, price }) => {
                   >
                      <CloseIcon />
                   </IconButton>
-                  <Typography variant="h6" className={classes.title}>
-                     Sound
-                  </Typography>
-                  <Button autoFocus color="inherit" onClick={handleClose}>
-                     save
-                  </Button>
                </Toolbar>
             </AppBar>
             <Grid container className={classes.body} justify="center">
                <Grid container item xs={10} justify="space-evenly">
-                  <Grid lg={4} item>
-                     <img src={img} alt="" style={{ width: '100%' }} />
+                  <Grid lg={6} item>
+                     <img src={img} alt="" style={{ width: '100%', height: '100%' }} />
                   </Grid>
                   <Grid lg={4} item>
                      <Typography variant="h6" className={classes.name}>
