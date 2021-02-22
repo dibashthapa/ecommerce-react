@@ -1,0 +1,28 @@
+.header-top {
+   position: relative;
+   padding: 15px 0;
+   background: #fff;
+   z-index: 10;
+   font-family: 'Lato', sans-serif;
+}
+
+.header-top ul {
+   display: flex;
+   justify-content: center;
+}
+.header-top ul li {
+   list-style: none;
+   text-transform: uppercase;
+   margin-left: 50px;
+   transition: 0.2s;
+   cursor: pointer;
+   font-size: 20px;
+}
+
+.header-top ul li:hover {
+   text-decoration: underline;
+}
+
+.search-icon {
+   transform: rotate(270deg);
+}

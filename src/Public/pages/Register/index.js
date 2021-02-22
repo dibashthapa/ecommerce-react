@@ -4,9 +4,11 @@ import VisibilityIcon from '@material-ui/icons/Visibility';
 import VisibilityOffIcon from '@material-ui/icons/VisibilityOff';
 import Form from './components/Form';
 import actions from './store/actions';
+import Loading from '../../../App/components/Loading';
 import { connect } from 'react-redux';
 const Register = (props) => {
    const [showPassword, setShowPassword] = useState(false);
+   const [loading, setLoading] = useState(false);
    const [showConfirmPassword, SetshowConfirmPassword] = useState(false);
 
    const renderShowPassword = (state, setState) => (
@@ -18,23 +20,32 @@ const Register = (props) => {
    );
 
    const handleRegister = async (data) => {
+      setLoading(true);
       return new Promise((resolve, reject) => {
          props.register(data, resolve, reject);
-      }).then((res) => {
-         props.history.push('/login');
-      });
+      })
+         .then((res) => {
+            setLoading(false);
+            props.history.push('/login');
+         })
+         .catch((err) => {
+            setLoading(false);
+         });
    };
 
    return (
-      <Form
-         showPassword={showPassword}
-         renderShowPassword={renderShowPassword}
-         showConfirmPassword={showConfirmPassword}
-         setShowPassword={setShowPassword}
-         SetshowConfirmPassword={SetshowConfirmPassword}
-         history={props.history}
-         handleRegister={handleRegister}
-      />
+      <>
+         <Loading open={loading} />
+         <Form
+            showPassword={showPassword}
+            renderShowPassword={renderShowPassword}
+            showConfirmPassword={showConfirmPassword}
+            setShowPassword={setShowPassword}
+            SetshowConfirmPassword={SetshowConfirmPassword}
+            history={props.history}
+            handleRegister={handleRegister}
+         />
+      </>
    );
 };
 
