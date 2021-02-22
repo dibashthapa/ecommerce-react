@@ -59,7 +59,7 @@ const useStyles = makeStyles((theme) => ({
          width: '100%',
       },
       padding: 12,
-      border: '1px solid #D1D1D1',
+      // border: '1px solid #D1D1D1',
       borderRadius: 4,
    },
    iconContainer: {

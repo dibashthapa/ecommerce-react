@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import Header from '../../components/Header';
 import { AuthContext } from '../../auth';
-import Navbar from '../../components/Navbar';
 import Topbar from '../../components/TopBar';
 
 class DashboardLayout extends Component {
@@ -12,7 +11,6 @@ class DashboardLayout extends Component {
          <>
             <Topbar />
             <Header />
-            <Navbar />
             {children}
          </>
       );

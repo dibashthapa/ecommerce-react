@@ -5,7 +5,6 @@ import Loading from '../../../../../App/components/Loading';
 import useStyles from './index.style.js';
 import { ProductActions } from '../../store';
 import { connect } from 'react-redux';
-import { Pagination } from '@material-ui/lab';
 
 const Product = (props) => {
    const classes = useStyles();
@@ -18,6 +17,9 @@ const Product = (props) => {
 
    return (
       <Grid container className={classes.root} justify="center" spacing={2}>
+         {props.products?.length <= 0 && (
+            <img src="/image/404.png" alt="No products found" />
+         )}
          <Grid item container xs={9}>
             <Grid
                item
@@ -43,14 +45,6 @@ const Product = (props) => {
                )}
             </Grid>
          </Grid>
-         <Pagination
-            count={props.products.length}
-            page={1}
-            siblingCount={1}
-            boundaryCount={1}
-            variant="outlined"
-            shape="rounded"
-         />
       </Grid>
    );
 };
