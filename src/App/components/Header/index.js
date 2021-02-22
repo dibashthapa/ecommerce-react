@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import {
    AppBar,
    Badge,
@@ -11,17 +11,27 @@ import {
    Typography,
 } from '@material-ui/core';
 import { Menu as MenuIcon } from '@material-ui/icons';
-import PersonIcon from '../../../../../Assets/Icons/ic-actions-user.png';
-import ShoppingBasketIcon from '../../../../../Assets/Icons/ic-ecommerce-basket.png';
+import PersonIcon from '../../../Assets/Icons/ic-actions-user.png';
+import ShoppingBasketIcon from '../../../Assets/Icons/ic-ecommerce-basket.png';
 import useStyles from './index.style';
 import SearchBar from './components/SearchBar';
 
 const Header = () => {
    const classes = useStyles();
    // const [selectCategory, setSelectCategory] = useState(category[0].value);
+   const [show, handleShow] = useState(false);
 
+   const transitionNavbar = () => {
+      window.scrollY > 100
+         ? handleShow(true)
+         : handleShow(false)
+   }
+   useEffect(() => {
+      window.addEventListener('scroll', transitionNavbar)
+      return () => window.removeEventListener('scroll', transitionNavbar)
+   }, [])
    return (
-      <AppBar position="static" color="secondary" elevation={0} className={classes.root}>
+      <AppBar position='static' color="secondary" elevation={show && 2} className={show && classes.animateNavbar}>
          <Grid container alignItems="center" className={classes.container}>
             <IconButton
                edge="start"

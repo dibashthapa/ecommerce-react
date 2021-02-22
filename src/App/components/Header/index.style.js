@@ -3,10 +3,20 @@ import { makeStyles } from '@material-ui/core';
 const useStyles = makeStyles((theme) => ({
    root: {
       padding: `0px ${theme.spacing(3)}px`,
+      zIndex: 100,
+      position: 'static',
       '& .MuiTextField-root': {
          margin: theme.spacing(1),
          borderBottom: 'none',
       },
+   },
+   animateNavbar: {
+      transitionTimingFunction: 'ease-in',
+      transition: 'all 0.5s',
+      padding: theme.spacing(1),
+      position: 'fixed',
+      top: 0,
+      left: 0,
    },
    container: {
       padding: `${theme.spacing(2)}px 0`,

@@ -1,76 +1,104 @@
 import React, { createContext, useContext, Component } from 'react';
 import Cookies from 'js-cookie';
 import authService from './authService';
+import Loading from '../components/Loading';
+import Api from '../services/api';
+
 const initialState = {
-  isUserLoggedIn: false,
-  isUserVerified: false,
-  authStatusReported: false,
-  currentUser: {},
-  loginUser: async (credentials) => {
-    try {
-      const res = await authService.signIn(credentials);
+   isUserLoggedIn: false,
+
+   isUserVerified: false,
+   authStatusReported: false,
+   currentUser: {},
+   loginUser: async (credentials) => {
+      try {
+         const res = await authService.signIn(credentials);
+
+         return res;
+      } catch (err) {
+         throw err.message;
+      }
+   },
+   fetchLoggedInUser: async (token) => {
+      try {
+         const res = await authService.fetchLoggedInUser(token);
+         return res;
+      } catch (err) {
+         throw err.message;
+      }
+   },
+   logoutUser: async () => {
+      Object.keys(Cookies.get()).forEach(function (cookie) {
+         Cookies.remove(cookie);
+      });
+      initialState.isUserLoggedIn = false;
       window.location.reload();
-      return res;
-    } catch (err) {
-      throw err.message;
-    }
-  },
-  fetchLoggedInUser: async () => {
-    try {
-      const res = await authService.fetchLoggedInUser();
-      return res;
-    } catch (err) {
-      throw err.message;
-    }
-  },
-  logoutUser: async () => {
-    Object.keys(Cookies.get()).forEach(function (cookie) {
-      Cookies.remove(cookie);
-    });
-    initialState.isUserLoggedIn = false;
-    window.location.reload();
-  },
-  setToken: (token) => {
-    Cookies.set('token', token);
-  },
-  getToken: () => {
-    return Cookies.get('token');
-  },
+   },
+   setToken: (token) => {
+      Cookies.set('token', token);
+   },
+   getToken: () => {
+      return Cookies.get('token');
+   },
 };
 
 export const AuthContext = createContext(initialState);
 
 export default class AuthProvider extends Component {
-  state = initialState;
+   state = initialState;
 
-  componentDidMount = () => {
-    const token = Cookies.get('token');
-
-    if (token) {
+   componentDidMount = async () => {
       this.setState({
-        authStatusReported: true,
-        isUserLoggedIn: true,
+         setUserData: () => {
+            this.setState({
+               authStatusReported: true,
+               isUserLoggedIn: true,
+            });
+         },
       });
-    } else {
-      this.setState({
-        authStatusReported: true,
-      });
-    }
-  };
+      const token = Cookies.get('token');
+      if (token) {
+         await this.verifyToken(token);
+      } else {
+         this.setState({
+            authStatusReported: true,
+            isUserLoggedIn: false,
+         });
+      }
+   };
 
-  render() {
-    const { children } = this.props;
-    const { authStatusReported } = this.state;
-    return authStatusReported ? (
-      <AuthContext.Provider value={this.state}>{children}</AuthContext.Provider>
-    ) : (
-      <div></div>
-    );
-  }
+   verifyToken = async (token) => {
+      const api = new Api(false);
+      try {
+         const res = await api.post('auth/verify', { token });
+         const { setToken } = this.state;
+         setToken(res.token);
+         this.setState({
+            authStatusReported: true,
+            isUserLoggedIn: true,
+         });
+      } catch (err) {
+         this.setState({
+            authStatusReported: true,
+            isUserLoggedIn: false,
+         });
+         Cookies.remove('token');
+      }
+   };
+
+   render() {
+      const { children } = this.props;
+      const { authStatusReported } = this.state;
+      return authStatusReported ? (
+         <AuthContext.Provider value={this.state}>{children}</AuthContext.Provider>
+      ) : (
+         <Loading open={true} />
+      );
+   }
 }
 
 export const useAuth = () => {
-  return useContext(AuthContext);
+   return useContext(AuthContext);
 };
 
 export const AuthConsumer = AuthContext.Consumer;

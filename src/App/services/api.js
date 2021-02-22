@@ -16,6 +16,7 @@ export default class Api {
       this.axiosFunction.interceptors.request.use(
          (config) => {
             config.headers['Authorization'] = 'Bearer ' + Cookies.get('token');
+            return config;
          },
          (error) => {
             return Promise.reject(error);

@@ -1,18 +1,29 @@
 import React, { useState } from 'react';
 import useStyles, { BootstrapInput } from './index.style';
 import { Grid, InputBase, NativeSelect } from '@material-ui/core';
-import SearchIcon from '../../../../../../../Assets/Icons/ic-actions-search.png';
+import SearchIcon from '../../../../../Assets/Icons/ic-actions-search.png';
+import { ProductActions } from '../../../../../Dashboard/pages/Dashboard/store';
+import { connect } from 'react-redux';
 
-const SearchBar = () => {
+const SearchBar = (props) => {
    const classes = useStyles();
-   const category = [
-      { value: 'all', label: 'All Category' },
-      { value: 'fruits', label: 'Fruits' },
-      { value: 'meats', label: 'Meats and Fishes' },
-      { value: 'electronics', label: 'Electronics' },
+   const categories = [
+      { value: '', label: 'All Category' },
+      { value: 'apparels', label: 'Apparels' },
+      { value: 'fashion', label: 'Fashion' },
+      { value: 'jewelry', label: 'Jewelries' },
    ];
 
-   const [selectCategory, setSelectCategory] = useState(category[0].value);
+   const [category, setCategory] = useState(categories[0].value);
+
+   const searchProduct = (e) => {
+      const { value } = e.target;
+      if (category === '') {
+         props.searchProduct(value);
+      } else {
+         props.searchProduct(value, category);
+      }
+   };
 
    return (
       <div>
@@ -21,11 +32,11 @@ const SearchBar = () => {
                <Grid item lg={3}>
                   <div className={classes.selectSection}>
                      <NativeSelect
-                        value={selectCategory}
-                        onChange={(e) => setSelectCategory(e.target.value)}
+                        value={category}
+                        onChange={(e) => setCategory(e.target.value)}
                         input={<BootstrapInput />}
                      >
-                        {category.map((option) => (
+                        {categories.map((option) => (
                            <option key={option.value} value={option.value}>
                               {option.label}
                            </option>
@@ -48,6 +59,7 @@ const SearchBar = () => {
                            root: classes.inputRoot,
                            input: classes.inputInput,
                         }}
+                        onKeyUp={searchProduct}
                      />
                   </div>
                </Grid>
@@ -57,4 +69,9 @@ const SearchBar = () => {
    );
 };
 
-export default SearchBar;
+const mapDispatchToProps = (dispatch) => ({
+   searchProduct: (name, category) =>
+      dispatch(ProductActions.searchProducts(name, category)),
+});
+
+export default connect(null, mapDispatchToProps)(SearchBar);
