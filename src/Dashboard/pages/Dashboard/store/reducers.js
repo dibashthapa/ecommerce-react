@@ -38,9 +38,18 @@ const reducer = (state = initialState, action) => {
          let newState = Object.assign({}, state);
 
          let value = action.name;
-         let filteredValues = state.products.filter((product) => {
-            return product.name.toLowerCase().includes(value.toLowerCase());
-         });
+         let category = action.category;
+         let filteredValues = category
+            ? state.products
+                 .filter((product) =>
+                    product._category.toLowerCase().includes(category.toLowerCase())
+                 )
+                 .filter((product) =>
+                    product.name.toLowerCase().includes(value.toLowerCase())
+                 )
+            : state.products.filter((product) =>
+                 product.name.toLowerCase().includes(value.toLowerCase())
+              );
 
          let appliedFilters = state.appliedFilters;
 
