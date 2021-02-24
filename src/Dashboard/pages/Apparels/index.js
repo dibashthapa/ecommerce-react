@@ -31,7 +31,7 @@ const Apparels = (props) => {
                ) : (
                   props.apparels?.map(({ _id, name, price, imgUrl }) => (
                      <Grid item xs={3} key={_id}>
-                        <Product img_url={imgUrl} name={name} price={price} />
+                        <Product img_url={imgUrl} name={name} price={price} id={_id} />
                      </Grid>
                   ))
                )}

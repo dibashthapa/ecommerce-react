@@ -12,12 +12,27 @@ import {
 import CloseIcon from '@material-ui/icons/Close';
 import useStyles from './index.style';
 import parser from 'react-html-parser';
+import { ProductActions } from '../../store';
+import { connect } from 'react-redux';
 const Transition = React.forwardRef(function Transition(props, ref) {
    return <Slide direction="up" ref={ref} {...props} />;
 });
-const ProductModal = ({ open, handleClose, name, img, description, price }) => {
+const ProductModal = (props) => {
    const classes = useStyles();
+   const { open, handleClose, name, img, description, price, id } = props;
+   const addToCart = (product) => {
+      return new Promise((resolve, reject) => {
+         props.addProductToCart(product, resolve, reject);
+      })
+         .then((res) => {
+            console.log(res);
+         })
+         .catch((err) => {
+            console.log(err);
+         });
+   };
 
+   const productInfo = { name, img, description, price, id };
    return (
       <Container>
          <Dialog
@@ -59,7 +74,15 @@ const ProductModal = ({ open, handleClose, name, img, description, price }) => {
                      <Typography className={classes.price} variant="h4">
                         $ {price}
                      </Typography>
-                     {parser(description)}
+                     <div> {parser(description)}</div>
+                     <div>
+                        <button
+                           className={classes.addToCart}
+                           onClick={() => addToCart(productInfo)}
+                        >
+                           Add to Cart
+                        </button>
+                     </div>
                   </Grid>
                </Grid>
             </Grid>
@@ -68,4 +91,9 @@ const ProductModal = ({ open, handleClose, name, img, description, price }) => {
    );
 };
 
-export default ProductModal;
+const mapDispatchToProps = (dispatch) => ({
+   addProductToCart: (product, resolve, reject) =>
+      dispatch(ProductActions.addProductToCart(product, resolve, reject)),
+});
+
+export default connect(null, mapDispatchToProps)(ProductModal);

@@ -39,6 +39,7 @@ const Product = (props) => {
                            name={name}
                            price={price}
                            description={description}
+                           id={_id}
                         />
                      </Grid>
                   ))

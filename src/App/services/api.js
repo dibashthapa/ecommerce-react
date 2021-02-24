@@ -4,7 +4,7 @@ import Cookies from 'js-cookie';
 export default class Api {
    constructor(setToken = true, version = 'v1') {
       this.axiosFunction = axios.create({
-         baseURL: `https://backendecommerce12.herokuapp.com/api/${version}/`,
+         baseURL: `${process.env.REACT_APP_API_URL}/${version}/`,
       });
 
       if (setToken) {

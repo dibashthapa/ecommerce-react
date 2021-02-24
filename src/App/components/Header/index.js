@@ -4,6 +4,8 @@ import {
    Badge,
    Grid,
    IconButton,
+   Menu,
+   MenuItem,
    Popover,
 
    // MenuItem,
@@ -23,7 +25,6 @@ const Header = () => {
    const [show, handleShow] = useState(false);
    const [anchorEl, setAnchorEl] = React.useState(null);
    const [personEl, setPersonEl] = React.useState(null);
-   const [profile, setProfile] = React.useState(false);
    const [showSearch, setShowSearch] = useState(false);
    const transitionNavbar = () => {
       window.scrollY > 100 ? handleShow(true) : handleShow(false);
@@ -41,7 +42,6 @@ const Header = () => {
 
    const handleProfile = (event) => {
       setPersonEl(event.currentTarget);
-      setProfile(true);
    };
 
    const handleClose = () => {
@@ -49,7 +49,7 @@ const Header = () => {
    };
 
    const handleProfileClose = () => {
-      setProfile(false);
+      setPersonEl(null);
    };
    return (
       <AppBar
@@ -105,28 +105,25 @@ const Header = () => {
                      <IconButton onClick={handleSearch}>
                         <img src={SearchIcon} alt="Search Icon" className="search-icon" />
                      </IconButton>
-                     <Popover
-                        open={profile}
+                     <Menu
+                        anchorEl={personEl}
+                        keepMounted
+                        open={Boolean(personEl)}
                         onClose={handleProfileClose}
+                        getContentAnchorEl={null}
                         anchorOrigin={{
                            vertical: 'bottom',
                            horizontal: 'center',
                         }}
-                        anchorEl={personEl}
                         transformOrigin={{
                            vertical: 'top',
                            horizontal: 'center',
                         }}
                      >
-                        <div className={classes.profileWrapper}>
-                           <div>
-                              <IconButton>Edit Profile</IconButton>
-                           </div>
-                           <div>
-                              <IconButton>Log Out</IconButton>
-                           </div>
-                        </div>
-                     </Popover>
+                        <MenuItem onClick={handleProfileClose}>Profile</MenuItem>
+                        <MenuItem onClick={handleProfileClose}>My account</MenuItem>
+                        <MenuItem onClick={handleProfileClose}>Logout</MenuItem>
+                     </Menu>
                      <IconButton onClick={handleProfile}>
                         <img src={PersonIcon} alt="Person Icon" />
                      </IconButton>

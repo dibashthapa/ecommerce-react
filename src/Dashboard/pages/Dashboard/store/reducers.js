@@ -7,6 +7,7 @@ const initialState = {
    products: [],
    filteredProducts: [],
    appliedFilters: [],
+   cartProduct: [],
 };
 
 const reducer = (state = initialState, action) => {
@@ -15,6 +16,11 @@ const reducer = (state = initialState, action) => {
          return {
             ...state,
             loading: true,
+         };
+      case actions.ADD_TO_CART:
+         return {
+            ...state,
+            cartProduct: [...state.cartProduct, action.product],
          };
 
       case actions.GET_PRODUCTS_SUCCESS:

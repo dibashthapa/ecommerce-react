@@ -13,6 +13,14 @@ export const getProducts = takeLatest(actions.GET_PRODUCTS, function* () {
    }
 });
 
+export const addToCart = takeLatest(actions.ADD_TO_CART, function* (action) {
+   try {
+      yield call(action.resolve, { success: true });
+   } catch (error) {
+      yield call(action.reject, { error: error });
+   }
+});
+
 export default function* saga() {
-   yield all([getProducts]);
+   yield all([getProducts, addToCart]);
 }

@@ -4,8 +4,18 @@ const actions = {
    GET_PRODUCTS_FAILURE: 'GET_PRODUCTS_FAILURE',
 
    SEARCH_PRODUCT: 'SEARCH_PRODUCT',
+
+   ADD_TO_CART: 'ADD_TO_CART',
+
    getProducts: () => ({
       type: actions.GET_PRODUCTS,
+   }),
+
+   addProductToCart: (product, resolve, reject) => ({
+      type: actions.ADD_TO_CART,
+      product,
+      resolve,
+      reject,
    }),
 
    searchProducts: (name, category) => ({
