@@ -47,7 +47,7 @@ const useStyles = makeStyles((theme) => ({
       background: '#1e1e1f',
       color: '#fff',
       '&:before': {
-         content: '"+',
+         content: '"+"',
          display: 'inline-block',
          marginRight: '5px',
          verticalAlign: 0,

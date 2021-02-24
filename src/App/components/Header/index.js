@@ -7,12 +7,10 @@ import {
    Menu,
    MenuItem,
    Popover,
-
-   // MenuItem,
-   // Select,
    Toolbar,
    Typography,
 } from '@material-ui/core';
+import { useHistory } from 'react-router-dom';
 import { Menu as MenuIcon } from '@material-ui/icons';
 import PersonIcon from '../../../Assets/Icons/ic-actions-user.png';
 import ShoppingBasketIcon from '../../../Assets/Icons/ic-ecommerce-basket.png';
@@ -22,6 +20,7 @@ import useStyles from './index.style';
 import SearchBar from './components/SearchBar';
 const Header = () => {
    const classes = useStyles();
+   const history = useHistory();
    const [show, handleShow] = useState(false);
    const [anchorEl, setAnchorEl] = React.useState(null);
    const [personEl, setPersonEl] = React.useState(null);
@@ -33,6 +32,7 @@ const Header = () => {
    useEffect(() => {
       window.addEventListener('scroll', transitionNavbar);
       return () => window.removeEventListener('scroll', transitionNavbar);
+      // eslint-disable-next-line react-hooks/exhaustive-deps
    }, []);
 
    const handleSearch = (event) => {
@@ -72,20 +72,20 @@ const Header = () => {
                <Typography className={classes.logo}>Freshnesecom</Typography>
             </Grid>
 
-            <Grid item lg={8}>
+            <Grid item lg={7}>
                <div className="header-top">
                   <ul>
-                     <li>Home</li>
-                     <li>Furniture</li>
-                     <li>Jewlery</li>
-                     <li>Fashion</li>
-                     <li>Apparels</li>
+                     <li onClick={() => history.push('/')}>Home</li>
+                     <li onClick={() => history.push('/furniture')}>Furniture</li>
+                     <li onClick={() => history.push('/jewelries')}>Jewlery</li>
+                     <li onClick={() => history.push('/fashions')}>Fashion</li>
+                     <li onClick={() => history.push('/apparels')}>Apparels</li>
                   </ul>
                </div>
             </Grid>
 
-            <Grid item lg={2} className={classes.iconSection}>
-               <Grid container justify="flex-end">
+            <Grid item lg={3} className={classes.iconSection}>
+               <Grid container justify="center">
                   <Toolbar className={classes.toolbar}>
                      <Popover
                         open={showSearch}

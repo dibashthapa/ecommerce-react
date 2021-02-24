@@ -44,7 +44,6 @@ const reducer = (state = initialState, action) => {
 
       case actions.SEARCH_PRODUCT:
          let newState = Object.assign({}, state);
-
          let value = action.name;
          let category = action.category;
          let filteredValues = category
@@ -67,7 +66,6 @@ const reducer = (state = initialState, action) => {
             newState.filteredProducts = filteredValues;
          } else {
             let index = appliedFilters.indexOf(actions.SEARCH_PRODUCT);
-
             appliedFilters.splice(index, 1);
             if (appliedFilters.length === 0) {
                newState.filteredProducts = newState.products;
