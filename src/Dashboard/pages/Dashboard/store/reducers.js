@@ -20,7 +20,9 @@ const reducer = (state = initialState, action) => {
       case actions.ADD_TO_CART:
          return {
             ...state,
-            cartProduct: [...state.cartProduct, action.product],
+            cartProduct: state.cartProduct.some((p) => p.id === action.product.id)
+               ? [...state.cartProduct]
+               : [...state.cartProduct, action.product],
          };
 
       case actions.GET_PRODUCTS_SUCCESS:
