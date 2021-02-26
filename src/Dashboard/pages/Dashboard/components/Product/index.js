@@ -60,7 +60,7 @@ const mapStateToProps = (state) => {
       success: state.products.success,
       totalProduct: state.products.products,
       loading: state.products.loading,
-      products: state.products.filteredProducts.paginatedProduct,
+      products: state.products.filteredProducts,
    };
 };
 
