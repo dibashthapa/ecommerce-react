@@ -4,7 +4,6 @@ import useStyles from '../../index.style';
 import { loginSchema } from '../../loginValidation';
 import { AuthContext } from '../../../../../App/auth';
 import { useFormik } from 'formik';
-import Loading from '../../../../../App/components/Loading';
 const Form = (props) => {
    const classes = useStyles();
    const context = useContext(AuthContext);
@@ -38,7 +37,6 @@ const Form = (props) => {
    };
    return (
       <>
-         <Loading open={loading} />
          <Grid
             container
             justify="center"
@@ -97,7 +95,7 @@ const Form = (props) => {
                      </div>
 
                      <button className={classes.loginButton} type="submit">
-                        Login
+                        {loading && <i class="fa fa-spinner fa-spin"></i>} Login
                      </button>
                   </form>
                   <Typography>

@@ -4,7 +4,6 @@ import VisibilityIcon from '@material-ui/icons/Visibility';
 import VisibilityOffIcon from '@material-ui/icons/VisibilityOff';
 import Form from './components/Form';
 import actions from './store/actions';
-import Loading from '../../../App/components/Loading';
 import { connect } from 'react-redux';
 const Register = (props) => {
    const [showPassword, setShowPassword] = useState(false);
@@ -35,7 +34,6 @@ const Register = (props) => {
 
    return (
       <>
-         <Loading open={loading} />
          <Form
             showPassword={showPassword}
             renderShowPassword={renderShowPassword}
@@ -44,6 +42,7 @@ const Register = (props) => {
             SetshowConfirmPassword={SetshowConfirmPassword}
             history={props.history}
             handleRegister={handleRegister}
+            loading={loading}
          />
       </>
    );
