@@ -6,7 +6,6 @@ const initialState = {
    error: null,
    products: [],
    filteredProducts: [],
-   appliedFilters: [],
    cartProduct: [],
 };
 
@@ -57,19 +56,10 @@ const reducer = (state = initialState, action) => {
             : state.products.filter((product) =>
                  product.name.toLowerCase().includes(value.toLowerCase())
               );
-
-         let appliedFilters = state.appliedFilters;
-
          if (value) {
-            let index = appliedFilters.indexOf(actions.SEARCH_PRODUCT);
-            if (index === -1) appliedFilters.push(actions.SEARCH_PRODUCT);
             newState.filteredProducts = filteredValues;
          } else {
-            let index = appliedFilters.indexOf(actions.SEARCH_PRODUCT);
-            appliedFilters.splice(index, 1);
-            if (appliedFilters.length === 0) {
-               newState.filteredProducts = newState.products;
-            }
+            newState.filteredProducts = newState.products;
          }
          return newState;
 
