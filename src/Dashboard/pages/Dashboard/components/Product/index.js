@@ -5,7 +5,7 @@ import Loading from '../../../../../App/components/Loading';
 import useStyles from './index.style.js';
 import { ProductActions } from '../../store';
 import { connect } from 'react-redux';
-
+import Pagination from '../../../../../App/components/Pagination';
 const Product = (props) => {
    const classes = useStyles();
 
@@ -20,7 +20,7 @@ const Product = (props) => {
          {props.products?.length <= 0 && (
             <img src="/image/404.png" alt="No products found" />
          )}
-         <Grid item container xs={9}>
+         <Grid item container xs={10}>
             <Grid
                item
                container
@@ -46,19 +46,21 @@ const Product = (props) => {
                )}
             </Grid>
          </Grid>
+         <Pagination totalPage={props.totalProduct.totalPages} />
       </Grid>
    );
 };
 
 const mapDispatchToProps = (dispatch) => ({
-   getProducts: () => dispatch(ProductActions.getProducts()),
+   getProducts: () => dispatch(ProductActions.getProducts(2)),
 });
 
 const mapStateToProps = (state) => {
    return {
       success: state.products.success,
+      totalProduct: state.products.products,
       loading: state.products.loading,
-      products: state.products.filteredProducts,
+      products: state.products.filteredProducts.paginatedProduct,
    };
 };
 
