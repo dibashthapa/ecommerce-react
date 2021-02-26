@@ -48,7 +48,7 @@ const Form = (props) => {
                   <form noValidate onSubmit={formik.handleSubmit}>
                      <div className="emailSection">
                         <InputLabel className={classes.fonts} htmlFor="email">
-                           Email
+                           Email Address
                         </InputLabel>
                         <TextField
                            name="email"
