@@ -40,8 +40,9 @@ const useStyles = makeStyles((theme) => ({
    },
    imageWrapper: {
       '& img': {
-         height: 390,
+         height: '100%',
          width: '100%',
+         cursor: 'pointer'
       },
    },
    infoWrapper: {

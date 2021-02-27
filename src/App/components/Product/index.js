@@ -31,7 +31,7 @@ const Product = ({ name, price, img_url, description, id }) => {
             onMouseLeave={() => setHover(false)}
          >
             <div className={classes.imageWrapper}>
-               <img src={img_url} alt="" />
+               <img src={img_url} alt="" onClick={() => setOpen(true)} />
             </div>
 
             {hover ? (
@@ -39,11 +39,11 @@ const Product = ({ name, price, img_url, description, id }) => {
                   <MainBtn fullWidth>Buy Now</MainBtn>
                </div>
             ) : (
-               <div className={classes.infoWrapper}>
-                  <p>{name} </p>
-                  <p>{price} </p>
-               </div>
-            )}
+                  <div className={classes.infoWrapper}>
+                     <p>{name} </p>
+                     <p>{price} </p>
+                  </div>
+               )}
 
             <div className={'icons'}>
                <div className="imgWrapper">
