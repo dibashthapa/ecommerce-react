@@ -5,8 +5,9 @@ const useStyles = makeStyles((theme) => ({
       position: 'relative',
    },
    body: {
-      alignItems: 'center',
-      height: '100%',
+      marginTop: '40px',
+      overflowY: 'scroll',
+      marginBottom: '40px',
    },
    title: {
       marginLeft: theme.spacing(2),
@@ -21,8 +22,7 @@ const useStyles = makeStyles((theme) => ({
    },
    paperFullScreen: {
       width: '60%',
-      height: 500,
-
+      height: 700,
       borderRadius: '20px',
       [theme.breakpoints.down('sm')]: {
          transform: 'translateY(25%)',
@@ -50,6 +50,13 @@ const useStyles = makeStyles((theme) => ({
       outline: 'none',
       cursor: 'pointer',
    },
+   totalItem: {
+      width: 98,
+      marginLeft: 12
+   },
+   itemAction: {
+      cursor: 'pointer'
+   }
 }));
 
 export default useStyles;
