@@ -71,8 +71,10 @@ const ProductModal = (props) => {
             </AppBar>
             <Grid container className={classes.body} justify="center">
                <Grid container item xs={10} justify="space-evenly">
-                  <Grid lg={7} item>
-                     <img src={img} alt="" style={{ width: 300, height: 300 }} />
+                  <Grid lg={6} item>
+                     <img src={img} alt="" style={{ width: '100%' }} />
+                  </Grid>
+                  <Grid lg={4} item>
                      <Typography variant="h6" className={classes.name}>
                         {name}
                      </Typography>
