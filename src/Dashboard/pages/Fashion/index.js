@@ -18,7 +18,7 @@ const Fashions = (props) => {
 
    return (
       <Grid container className={classes.root} justify="center" spacing={2}>
-         <Grid item container xs={9}>
+         <Grid item lg={9}>
             <Grid
                item
                container
@@ -30,9 +30,15 @@ const Fashions = (props) => {
                {props.loading ? (
                   <Loading open={true} />
                ) : (
-                  props.fashions?.map(({ _id, name, price, imgUrl }) => (
-                     <Grid item xs={3} key={_id}>
-                        <Product img_url={imgUrl} name={name} price={price} />
+                  props.fashions?.map(({ _id, name, price, imgUrl, description }) => (
+                     <Grid item xs={12} lg={3} md={6} key={_id}>
+                        <Product
+                           img_url={imgUrl}
+                           name={name}
+                           price={price}
+                           id={_id}
+                           description={description}
+                        />
                      </Grid>
                   ))
                )}
