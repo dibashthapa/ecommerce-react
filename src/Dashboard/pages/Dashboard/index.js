@@ -7,9 +7,13 @@ import { Grid } from '@material-ui/core';
 const Dashboard = () => {
    return (
       <>
-         <Grid container spacing={2} style={{ marginTop: '10px' }}>
-            <FilterSideBar />
-            <Product />
+         <Grid container spacing={0} style={{ marginTop: '10px' }}>
+            <Grid item xs={2}>
+               <FilterSideBar />
+            </Grid>
+            <Grid item xs={10}>
+               <Product />
+            </Grid>
          </Grid>
       </>
    );
