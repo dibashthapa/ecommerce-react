@@ -7,8 +7,9 @@ const actions = {
 
    ADD_TO_CART: 'ADD_TO_CART',
 
-   getProducts: () => ({
+   getProducts: (page) => ({
       type: actions.GET_PRODUCTS,
+      page,
    }),
 
    addProductToCart: (product, resolve, reject) => ({

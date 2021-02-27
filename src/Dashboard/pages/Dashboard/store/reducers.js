@@ -6,7 +6,6 @@ const initialState = {
    error: null,
    products: [],
    filteredProducts: [],
-   appliedFilters: [],
    cartProduct: [],
 };
 
@@ -31,7 +30,7 @@ const reducer = (state = initialState, action) => {
             success: true,
             loading: false,
             products: action.response,
-            filteredProducts: action.response,
+            filteredProducts: action.response.paginatedProduct,
          };
 
       case actions.GET_PRODUCTS_FAILURE:
@@ -46,31 +45,21 @@ const reducer = (state = initialState, action) => {
          let newState = Object.assign({}, state);
          let value = action.name;
          let category = action.category;
+
          let filteredValues = category
-            ? state.products
+            ? state.products.paginatedProduct
                  .filter((product) =>
                     product._category.toLowerCase().includes(category.toLowerCase())
                  )
                  .filter((product) =>
                     product.name.toLowerCase().includes(value.toLowerCase())
                  )
-            : state.products.filter((product) =>
+            : state.products.paginatedProduct.filter((product) =>
                  product.name.toLowerCase().includes(value.toLowerCase())
               );
 
-         let appliedFilters = state.appliedFilters;
+         newState.filteredProducts = filteredValues;
 
-         if (value) {
-            let index = appliedFilters.indexOf(actions.SEARCH_PRODUCT);
-            if (index === -1) appliedFilters.push(actions.SEARCH_PRODUCT);
-            newState.filteredProducts = filteredValues;
-         } else {
-            let index = appliedFilters.indexOf(actions.SEARCH_PRODUCT);
-            appliedFilters.splice(index, 1);
-            if (appliedFilters.length === 0) {
-               newState.filteredProducts = newState.products;
-            }
-         }
          return newState;
 
       default:

@@ -7,11 +7,11 @@ import theme from './theme/theme';
 import AuthProvider from './auth';
 const App = () => (
    <ThemeProvider theme={theme}>
-      <AuthProvider>
-         <Provider store={store}>
+      <Provider store={store}>
+         <AuthProvider>
             <Routes history={history} />
-         </Provider>
-      </AuthProvider>
+         </AuthProvider>
+      </Provider>
    </ThemeProvider>
 );
 

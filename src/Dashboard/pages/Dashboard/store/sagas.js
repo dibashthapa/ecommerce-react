@@ -4,9 +4,9 @@ import actions from './actions';
 
 const api = new Api();
 
-export const getProducts = takeLatest(actions.GET_PRODUCTS, function* () {
+export const getProducts = takeLatest(actions.GET_PRODUCTS, function* (action) {
    try {
-      const data = yield call(api.get, `product/category/all?size=20`);
+      const data = yield call(api.get, `product/category/all?page=${action.page}`);
       yield put({ type: actions.GET_PRODUCTS_SUCCESS, response: data });
    } catch (error) {
       yield put({ type: actions.GET_PRODUCTS_FAILURE, error });
