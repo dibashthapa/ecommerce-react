@@ -1,6 +1,5 @@
 import React from 'react';
 import {
-   Button,
    Dialog,
    AppBar,
    Toolbar,
@@ -13,22 +12,45 @@ import {
 import CloseIcon from '@material-ui/icons/Close';
 import useStyles from './index.style';
 import parser from 'react-html-parser';
+import { ProductActions } from '../../store';
+import { connect } from 'react-redux';
 const Transition = React.forwardRef(function Transition(props, ref) {
    return <Slide direction="up" ref={ref} {...props} />;
 });
-
-const ProductModal = ({ open, handleClose, name, img, description, price }) => {
+const ProductModal = (props) => {
    const classes = useStyles();
+   const { open, handleClose, name, img, description, price, id } = props;
+   const addToCart = (product) => {
+      return new Promise((resolve, reject) => {
+         props.addProductToCart(product, resolve, reject);
+      })
+         .then((res) => {
+            console.log(res);
+         })
+         .catch((err) => {
+            console.log(err);
+         });
+   };
 
+   const productInfo = { name, img, description, price, id };
    return (
       <Container>
          <Dialog
+            fullScreen
             open={open}
             onClose={handleClose}
             TransitionComponent={Transition}
-            fullScreen
+            transitionDuration={1000}
+            classes={{
+               paperFullScreen: classes.paperFullScreen,
+            }}
          >
-            <AppBar className={classes.appBar}>
+            <AppBar
+               className={classes.appBar}
+               classes={{
+                  colorPrimary: classes.colorLight,
+               }}
+            >
                <Toolbar>
                   <IconButton
                      edge="start"
@@ -38,17 +60,11 @@ const ProductModal = ({ open, handleClose, name, img, description, price }) => {
                   >
                      <CloseIcon />
                   </IconButton>
-                  <Typography variant="h6" className={classes.title}>
-                     Sound
-                  </Typography>
-                  <Button autoFocus color="inherit" onClick={handleClose}>
-                     save
-                  </Button>
                </Toolbar>
             </AppBar>
             <Grid container className={classes.body} justify="center">
                <Grid container item xs={10} justify="space-evenly">
-                  <Grid lg={4} item>
+                  <Grid lg={6} item>
                      <img src={img} alt="" style={{ width: '100%' }} />
                   </Grid>
                   <Grid lg={4} item>
@@ -58,7 +74,15 @@ const ProductModal = ({ open, handleClose, name, img, description, price }) => {
                      <Typography className={classes.price} variant="h4">
                         $ {price}
                      </Typography>
-                     {parser(description)}
+                     <div> {parser(description)}</div>
+                     <div>
+                        <button
+                           className={classes.addToCart}
+                           onClick={() => addToCart(productInfo)}
+                        >
+                           + Add to Cart
+                        </button>
+                     </div>
                   </Grid>
                </Grid>
             </Grid>
@@ -67,4 +91,9 @@ const ProductModal = ({ open, handleClose, name, img, description, price }) => {
    );
 };
 
-export default ProductModal;
+const mapDispatchToProps = (dispatch) => ({
+   addProductToCart: (product, resolve, reject) =>
+      dispatch(ProductActions.addProductToCart(product, resolve, reject)),
+});
+
+export default connect(null, mapDispatchToProps)(ProductModal);

@@ -56,6 +56,9 @@ const useStyles = makeStyles((theme) => ({
       display: 'flex',
       justifyContent: 'end',
    },
+   profileWrapper: {
+      fontSize: 15,
+   },
 }));
 
 export default useStyles;
