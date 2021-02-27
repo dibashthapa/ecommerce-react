@@ -22,7 +22,7 @@ const Product = ({ name, price, img_url, description, id }) => {
          />
          <div className={classes.productWrapper}>
             <div className={classes.imageWrapper}>
-               <img src={img_url} alt="" />
+               <img src={img_url} alt="" style={{ height: '100%' }} />
             </div>
 
             <div className={classes.infoWrapper}>
