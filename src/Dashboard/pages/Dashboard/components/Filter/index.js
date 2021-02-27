@@ -79,7 +79,8 @@ function FilterSideBar() {
                type="number"
                variant="standard"
                label="Min"
-               InputProps={{ inputProps: { min: priceMin, max: priceMax } }}
+               // InputProps={{ inputProps: { min: priceMin, max: priceMax } }}
+               inputProps={{ min: priceMin, max: priceMax }}
             />
 
             <Input

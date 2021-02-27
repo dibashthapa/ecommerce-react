@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import {
    Dialog,
    AppBar,
@@ -8,14 +8,8 @@ import {
    Slide,
    Grid,
    Container,
-   Input,
-   InputAdornment,
 } from '@material-ui/core';
-import {
-   Close as CloseIcon,
-   Add as AddIcon,
-   Remove as RemoveIcon,
-} from '@material-ui/icons';
+import CloseIcon from '@material-ui/icons/Close';
 import useStyles from './index.style';
 import parser from 'react-html-parser';
 import { ProductActions } from '../../store';
@@ -25,7 +19,6 @@ const Transition = React.forwardRef(function Transition(props, ref) {
 });
 const ProductModal = (props) => {
    const classes = useStyles();
-   const [itemNumber, setItemNumber] = useState(1)
    const { open, handleClose, name, img, description, price, id } = props;
    const addToCart = (product) => {
       return new Promise((resolve, reject) => {
@@ -81,6 +74,7 @@ const ProductModal = (props) => {
                      <Typography className={classes.price} variant="h4">
                         $ {price}
                      </Typography>
+                     <div> {parser(description)}</div>
                      <div>
                         <button
                            className={classes.addToCart}
@@ -88,37 +82,6 @@ const ProductModal = (props) => {
                         >
                            + Add to Cart
                         </button>
-                        <Input variant='standard'
-                           className={classes.totalItem}
-                           startAdornment={
-                              < InputAdornment position="start" >
-                                 <RemoveIcon className={classes.itemAction} onClick={() => setItemNumber(itemNumber - 1)} />
-                              </InputAdornment>
-                           }
-                           endAdornment={
-                              < InputAdornment position="start" >
-                                 <AddIcon className={classes.itemAction} onClick={() => setItemNumber(itemNumber + 1)} />
-                              </InputAdornment>
-                           }
-                           value={itemNumber}
-                        />
-                     </div>
-                  </Grid>
-                  <Grid lg={5} item>
-                     {/* <Typography variant="h6" className={classes.name}>
-                        {name}
-                     </Typography>
-                     <Typography className={classes.price} variant="h4">
-                        $ {price}
-                     </Typography> */}
-                     <div> {parser(description)}</div>
-                     <div>
-                        {/* <button
-                           className={classes.addToCart}
-                           onClick={() => addToCart(productInfo)}
-                        >
-                           + Add to Cart
-                        </button> */}
                      </div>
                   </Grid>
                </Grid>
