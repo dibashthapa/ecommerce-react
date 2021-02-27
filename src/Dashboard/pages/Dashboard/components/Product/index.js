@@ -13,7 +13,6 @@ const Product = (props) => {
       props.getProducts();
 
       // eslint-disable-next-line react-hooks/exhaustive-deps
-      // <Grid container className={classes.root} justify="center">
    }, []);
 
    return (
