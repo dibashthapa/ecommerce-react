@@ -50,6 +50,13 @@ const useStyles = makeStyles((theme) => ({
       outline: 'none',
       cursor: 'pointer',
    },
+   totalItem: {
+      width: 98,
+      marginLeft: 12
+   },
+   itemAction: {
+      cursor: 'pointer'
+   }
 }));
 
 export default useStyles;
