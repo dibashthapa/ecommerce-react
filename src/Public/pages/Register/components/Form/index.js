@@ -1,6 +1,5 @@
 import React from 'react';
 import {
-   Button,
    Grid,
    Checkbox,
    FormControlLabel,
@@ -43,7 +42,7 @@ const Form = (props) => {
          container
          justify="center"
          alignItems="center"
-         className={classes.loginContainer}
+         className={classes.registerContainer}
       >
          <Grid xs={10} sm={6} lg={3} item className="loginForm">
             <Paper className={classes.paper}>
@@ -152,15 +151,9 @@ const Form = (props) => {
                      />
                   </div>
 
-                  <Button
-                     className={classes.loginButton}
-                     variant={'contained'}
-                     size={'small'}
-                     color={'primary'}
-                     type="submit"
-                  >
-                     {loading && <i class="fa fa-spinner fa-spin"></i>} Create
-                  </Button>
+                  <button className={classes.registerButton} type="submit">
+                     {loading && <i class="fa fa-spinner fa-spin"></i>} Register
+                  </button>
                </form>
                <Typography>
                   Already have an account?

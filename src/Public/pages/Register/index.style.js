@@ -4,11 +4,14 @@ const useStyles = makeStyles((theme) => ({
    root: {
       position: 'relative',
    },
-   loginContainer: {
+   registerContainer: {
       position: 'absolute',
       top: '50%',
       left: '50%',
       transform: 'translate(-50% , -50%)',
+      '& label': {
+         marginBottom: 12,
+      },
       '& .loginForm': {
          position: 'relative',
          '& .emailSection , &.passwordSection': {
@@ -16,12 +19,27 @@ const useStyles = makeStyles((theme) => ({
          },
       },
    },
-   loginButton: {
-      margin: `${theme.spacing(2)}px 0`,
-      color: 'white',
-      fontWeight: '900',
-      textTransform: 'none',
+   registerButton: {
+      border: 'none',
+      backgroundColor: 'rgb(70, 41, 211)',
+      height: 40,
+      width: '100%',
+      display: 'flex',
+      '-webkit-box-align': 'center',
+      alignItems: 'center',
+      zIndex: 5,
+      cursor: 'pointer',
+      padding: 0,
       outline: 'none',
+      marginTop: 20,
+      marginBottom: 20,
+      justifyContent: 'center',
+      color: '#fff',
+      transition: '0.2s',
+      fontWeight: '670',
+      '&:hover': {
+         transform: 'translateY(-2px)',
+      },
    },
    fonts: {
       fontWeight: 700,

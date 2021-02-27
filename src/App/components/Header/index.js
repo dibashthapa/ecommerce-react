@@ -131,7 +131,7 @@ const Header = (props) => {
                         <img src={PersonIcon} alt="Person Icon" />
                      </IconButton>
                      <IconButton onClick={() => setShowDrawer(true)}>
-                        <Badge badgeContent={props.product?.length} color="error">
+                        <Badge badgeContent={props.cartProduct?.length} color="error">
                            <img src={ShoppingBasketIcon} alt="Shopping Basket Icon" />
                         </Badge>
                      </IconButton>

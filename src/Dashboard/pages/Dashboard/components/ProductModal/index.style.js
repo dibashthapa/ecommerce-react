@@ -5,7 +5,8 @@ const useStyles = makeStyles((theme) => ({
       position: 'relative',
    },
    body: {
-      marginTop: 50,
+      alignItems: 'center',
+      height: '100%',
    },
    title: {
       marginLeft: theme.spacing(2),
@@ -20,7 +21,7 @@ const useStyles = makeStyles((theme) => ({
    },
    paperFullScreen: {
       width: '60%',
-      height: '90%',
+      height: 500,
 
       borderRadius: '20px',
       [theme.breakpoints.down('sm')]: {
@@ -46,12 +47,8 @@ const useStyles = makeStyles((theme) => ({
       textTransform: 'uppercase',
       background: '#1e1e1f',
       color: '#fff',
-      '&:before': {
-         content: '"+"',
-         display: 'inline-block',
-         marginRight: '5px',
-         verticalAlign: 0,
-      },
+      outline: 'none',
+      cursor: 'pointer',
    },
 }));
 

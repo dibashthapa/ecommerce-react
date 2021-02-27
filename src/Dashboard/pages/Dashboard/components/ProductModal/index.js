@@ -80,7 +80,7 @@ const ProductModal = (props) => {
                            className={classes.addToCart}
                            onClick={() => addToCart(productInfo)}
                         >
-                           Add to Cart
+                           + Add to Cart
                         </button>
                      </div>
                   </Grid>

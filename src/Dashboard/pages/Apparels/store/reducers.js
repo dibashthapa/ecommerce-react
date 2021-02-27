@@ -16,12 +16,12 @@ const reducer = (state = initialState, action) => {
          };
 
       case actions.GET_APPARELS_SUCCESS:
-         console.log('action');
          return {
             ...state,
             success: true,
             loading: false,
-            apparels: action.response,
+            apparels: action.response.paginatedApparel,
+            totalPages: action.response.totalPages,
          };
 
       case actions.GET_APPARELS_FAILURE:

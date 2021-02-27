@@ -20,7 +20,7 @@ const Product = (props) => {
          {!props.loading && props.products?.length <= 0 && (
             <img src="/image/404.png" alt="No products found" />
          )}
-         <Grid item container xs={10}>
+         <Grid item container lg={10}>
             <Grid
                item
                container
@@ -38,7 +38,7 @@ const Product = (props) => {
                        </Grid>
                     ))
                   : props.products?.map(({ _id, name, price, imgUrl, description }) => (
-                       <Grid item xs={3} key={_id}>
+                       <Grid item xs={12} key={_id} md={3}>
                           <AppProduct
                              img_url={imgUrl}
                              name={name}
@@ -50,13 +50,16 @@ const Product = (props) => {
                     ))}
             </Grid>
          </Grid>
-         <Pagination totalPage={props.totalProduct.totalPages} />
+         <Pagination
+            totalPage={props.totalProduct.totalPages}
+            getProducts={props.getProducts}
+         />
       </Grid>
    );
 };
 
 const mapDispatchToProps = (dispatch) => ({
-   getProducts: () => dispatch(ProductActions.getProducts(2)),
+   getProducts: (page) => dispatch(ProductActions.getProducts(page)),
 });
 
 const mapStateToProps = (state) => {
