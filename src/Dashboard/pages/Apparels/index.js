@@ -5,7 +5,6 @@ import useStyles from './index.style.js';
 import { ApparelActions } from './store';
 import { connect } from 'react-redux';
 import PaginationPage from '../../../App/components/Pagination';
-import { Skeleton } from '@material-ui/lab';
 import Loading from '../../../App/components/Loading';
 
 const Apparels = (props) => {
