@@ -5,6 +5,7 @@ import store, { history } from './store';
 import { Provider } from 'react-redux';
 import theme from './theme/theme';
 import AuthProvider from './auth';
+import '../assets/css/bootstrap.min.css';
 const App = () => (
    <ThemeProvider theme={theme}>
       <Provider store={store}>

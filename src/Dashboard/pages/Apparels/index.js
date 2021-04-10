@@ -6,6 +6,7 @@ import { ApparelActions } from './store';
 import { connect } from 'react-redux';
 import PaginationPage from '../../../App/components/Pagination';
 import { Skeleton } from '@material-ui/lab';
+import Loading from '../../../App/components/Loading';
 
 const Apparels = (props) => {
    const classes = useStyles();
@@ -31,36 +32,32 @@ const Apparels = (props) => {
                   style={{ marginTop: '10px' }}
                   spacing={3}
                >
-                  {props.loading
-                     ? Array.from(new Array(10)).map((item, index) => (
-                          <Grid item xs={3} key={index}>
-                             <Skeleton variant="rect" height={250} />
-                             <Skeleton />
-                             <Skeleton />
-                          </Grid>
-                       ))
-                     : props.apparels?.map(
-                          ({ _id, name, price, imgUrl, description }) => (
-                             <Grid item xs={12} md={6} lg={3} key={_id}>
-                                <Product
-                                   img_url={imgUrl}
-                                   name={name}
-                                   price={price}
-                                   description={description}
-                                   id={_id}
-                                />
-                             </Grid>
-                          )
-                       )}
+                  {props.loading ? (
+                     <Loading open={true} />
+                  ) : (
+                     props.apparels?.map(({ _id, name, price, imgUrl, description }) => (
+                        <Grid item xs={12} md={6} lg={3} key={_id}>
+                           <Product
+                              img_url={imgUrl}
+                              name={name}
+                              price={price}
+                              description={description}
+                              id={_id}
+                           />
+                        </Grid>
+                     ))
+                  )}
                </Grid>
             </Grid>
          </Grid>
-         <Grid container justify="center">
-            <PaginationPage
-               totalPage={props.totalPages}
-               getProducts={props.getApparels}
-            />
-         </Grid>
+         {!props.loading && (
+            <Grid container justify="center">
+               <PaginationPage
+                  totalPage={props.totalPages}
+                  getProducts={props.getApparels}
+               />
+            </Grid>
+         )}
       </>
    );
 };

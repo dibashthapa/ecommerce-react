@@ -3,12 +3,10 @@ import {
    Grid,
    Checkbox,
    FormControlLabel,
-   InputLabel,
-   Paper,
    TextField,
    Typography,
 } from '@material-ui/core';
-import useStyles from '../../index.style';
+import useStyles, { FormContainer } from '../../index.style';
 import { useFormik } from 'formik';
 import { RegisterSchema } from '../../registerValidation';
 
@@ -38,19 +36,17 @@ const Form = (props) => {
       },
    });
    return (
-      <Grid
-         container
-         justify="center"
-         alignItems="center"
-         className={classes.registerContainer}
-      >
-         <Grid xs={10} sm={6} lg={3} item className="loginForm">
-            <Paper className={classes.paper}>
+      <FormContainer>
+         <Grid
+            container
+            justify="center"
+            alignItems="center"
+            className={classes.registerContainer}
+         >
+            <Grid xs={10} sm={6} lg={3} item className={'register-inner'}>
                <form noValidate onSubmit={formik.handleSubmit} autoComplete="off">
-                  <div className="emailSection">
-                     <InputLabel className={classes.fonts} htmlFor="email">
-                        Full Name
-                     </InputLabel>
+                  <div className="form-group mb-2">
+                     <label htmlFor="fullname">Full Name</label>
                      <TextField
                         name="fullname"
                         type="text"
@@ -64,10 +60,9 @@ const Form = (props) => {
                         helperText={formik.touched.fullname && formik.errors.fullname}
                      />
                   </div>
-                  <div className="emailSection">
-                     <InputLabel className={classes.fonts} htmlFor="email">
-                        Email
-                     </InputLabel>
+                  <div className="form-group mb-2">
+                     <label htmlFor="email">Email</label>
+
                      <TextField
                         name="email"
                         type="email"
@@ -81,10 +76,8 @@ const Form = (props) => {
                         helperText={formik.touched.email && formik.errors.email}
                      />
                   </div>
-                  <div className="passwordSection">
-                     <InputLabel className={classes.fonts} htmlFor="password">
-                        Password
-                     </InputLabel>
+                  <div className="form-group mb-2">
+                     <label htmlFor="password">Password</label>
 
                      <TextField
                         name={'password'}
@@ -106,10 +99,8 @@ const Form = (props) => {
                      />
                   </div>
                   {/* Confirm passowrd */}
-                  <div className={classes.confirmPasswordSection}>
-                     <InputLabel className={classes.fonts} htmlFor="confirmPassword">
-                        Confirm Password
-                     </InputLabel>
+                  <div className={'form-group mb-2'}>
+                     <label htmlFor="confirmPassword">Confirm Password</label>
 
                      <TextField
                         name={'confirmPassword'}
@@ -135,8 +126,7 @@ const Form = (props) => {
                         }}
                      />
                   </div>
-
-                  <div className="termsSection">
+                  <div className="form-group">
                      <FormControlLabel
                         label="Accept terms and conditions"
                         control={
@@ -150,9 +140,11 @@ const Form = (props) => {
                         }
                      />
                   </div>
-
-                  <button className={classes.registerButton} type="submit">
-                     {loading && <i class="fa fa-spinner fa-spin"></i>} Register
+                  <button
+                     className={`${classes.registerButton} btn btn-primary form-control mb-2`}
+                     type="submit"
+                  >
+                     {loading && <i className="fa fa-spinner fa-spin"></i>} Register
                   </button>
                </form>
                <Typography>
@@ -164,9 +156,9 @@ const Form = (props) => {
                      Login
                   </span>
                </Typography>
-            </Paper>
+            </Grid>
          </Grid>
-      </Grid>
+      </FormContainer>
    );
 };
 

@@ -34,29 +34,15 @@ const useStyles = makeStyles((theme) => ({
       color: '#000',
    },
    addToCart: {
-      position: ' relative',
-      padding: ' 0 55px',
-      lineHeight: '46px',
-      height: '48px',
-      fontSize: '16px',
-      fontWeight: 400,
-      borderWidth: '1px',
-      borderStyle: 'solid',
-      borderRadius: '30px',
-      boxShadow: 'none',
-      textTransform: 'uppercase',
-      background: '#1e1e1f',
-      color: '#fff',
-      outline: 'none',
-      cursor: 'pointer',
+      fontWeight: 700,
    },
    totalItem: {
       width: 98,
-      marginLeft: 12
+      marginLeft: 12,
    },
    itemAction: {
-      cursor: 'pointer'
-   }
+      cursor: 'pointer',
+   },
 }));
 
 export default useStyles;

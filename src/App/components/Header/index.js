@@ -1,6 +1,5 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import {
-   AppBar,
    Badge,
    Grid,
    IconButton,
@@ -8,7 +7,6 @@ import {
    MenuItem,
    Popover,
    Toolbar,
-   Typography,
 } from '@material-ui/core';
 import { useHistory } from 'react-router-dom';
 import { Menu as MenuIcon } from '@material-ui/icons';
@@ -16,27 +14,17 @@ import PersonIcon from '../../../Assets/Icons/ic-actions-user.png';
 import ShoppingBasketIcon from '../../../Assets/Icons/ic-ecommerce-basket.png';
 import SearchIcon from '../../../Assets/Icons/ic-actions-search.png';
 import './index.css';
-import useStyles from './index.style';
+import useStyles, { HeaderContainer } from './index.style';
 import { connect } from 'react-redux';
 
 import { SearchBar, CartDrawer } from './components';
 const Header = (props) => {
    const classes = useStyles();
    const history = useHistory();
-   const [show, handleShow] = useState(false);
    const [anchorEl, setAnchorEl] = React.useState(null);
    const [personEl, setPersonEl] = React.useState(null);
    const [showSearch, setShowSearch] = useState(false);
    const [showDrawer, setShowDrawer] = useState(false);
-   const transitionNavbar = () => {
-      window.scrollY > 100 ? handleShow(true) : handleShow(false);
-   };
-
-   useEffect(() => {
-      window.addEventListener('scroll', transitionNavbar);
-      return () => window.removeEventListener('scroll', transitionNavbar);
-      // eslint-disable-next-line react-hooks/exhaustive-deps
-   }, []);
 
    const handleSearch = (event) => {
       setAnchorEl(event.currentTarget);
@@ -55,12 +43,7 @@ const Header = (props) => {
       setPersonEl(null);
    };
    return (
-      <AppBar
-         position="static"
-         color="secondary"
-         elevation={show ? 2 : 0}
-         className={show ? classes.animateNavbar : null}
-      >
+      <HeaderContainer>
          <Grid container alignItems="center" className={classes.container}>
             <IconButton
                edge="start"
@@ -71,23 +54,16 @@ const Header = (props) => {
                <MenuIcon />
             </IconButton>
 
-            <Grid item lg={2}>
-               <Typography className={classes.logo}>Freshnesecom</Typography>
+            <Grid item lg={10} className="header-top">
+               <ul>
+                  <li onClick={() => history.push('/')}>Home</li>
+                  <li onClick={() => history.push('/furniture')}>Furniture</li>
+                  <li onClick={() => history.push('/jewelries')}>Jewlery</li>
+                  <li onClick={() => history.push('/fashions')}>Fashion</li>
+                  <li onClick={() => history.push('/apparels')}>Apparels</li>
+               </ul>
             </Grid>
-
-            <Grid item lg={7}>
-               <div className="header-top">
-                  <ul>
-                     <li onClick={() => history.push('/')}>Home</li>
-                     <li onClick={() => history.push('/furniture')}>Furniture</li>
-                     <li onClick={() => history.push('/jewelries')}>Jewlery</li>
-                     <li onClick={() => history.push('/fashions')}>Fashion</li>
-                     <li onClick={() => history.push('/apparels')}>Apparels</li>
-                  </ul>
-               </div>
-            </Grid>
-
-            <Grid item lg={3} className={classes.iconSection}>
+            <Grid item lg={2} className={classes.iconSection}>
                <Grid container justify="center">
                   <Toolbar className={classes.toolbar}>
                      <Popover
@@ -139,12 +115,13 @@ const Header = (props) => {
                </Grid>
             </Grid>
          </Grid>
+
          <CartDrawer
             open={showDrawer}
             handleClose={() => setShowDrawer(false)}
             product={props.cartProduct}
          />
-      </AppBar>
+      </HeaderContainer>
    );
 };
 

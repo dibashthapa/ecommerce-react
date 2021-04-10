@@ -1,5 +1,5 @@
 import { makeStyles } from '@material-ui/core';
-
+import styled from 'styled-components';
 const useStyles = makeStyles((theme) => ({
    root: {
       padding: `0px ${theme.spacing(3)}px`,
@@ -17,9 +17,6 @@ const useStyles = makeStyles((theme) => ({
       position: 'fixed',
       top: 0,
       left: 0,
-   },
-   container: {
-      padding: `${theme.spacing(2)}px 0`,
    },
    menuButton: {
       display: 'block',
@@ -60,5 +57,12 @@ const useStyles = makeStyles((theme) => ({
       fontSize: 15,
    },
 }));
+
+export const HeaderContainer = styled.div`
+   width: 100%;
+   display: flex;
+   border-bottom: 1px solid #f8f9fa;
+   background-color: rgb(35, 35, 35);
+`;
 
 export default useStyles;

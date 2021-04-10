@@ -1,15 +1,14 @@
 import { makeStyles } from '@material-ui/core/styles';
+import styled from 'styled-components';
 
 const useStyles = makeStyles((theme) => ({
    root: {
       position: 'relative',
    },
    loginContainer: {
-      position: 'absolute',
-      top: '50%',
-      left: '50%',
-
-      transform: 'translate(-50% , -50%)',
+      height: '100%',
+      display: 'flex',
+      alignItems: 'center',
       '& label': {
          marginBottom: 12,
       },
@@ -22,7 +21,7 @@ const useStyles = makeStyles((theme) => ({
    },
    loginButton: {
       border: 'none',
-      backgroundColor: 'rgb(70, 41, 211)',
+      backgroundColor: '#2a41e8',
       height: 40,
       width: '100%',
       display: 'flex',
@@ -33,10 +32,10 @@ const useStyles = makeStyles((theme) => ({
       padding: 0,
       outline: 'none',
       marginTop: 20,
+      fontWeight: 500,
       marginBottom: 20,
       justifyContent: 'center',
       color: '#fff',
-      fontWeight: '670',
    },
    fonts: {
       color: 'black',
@@ -49,7 +48,6 @@ const useStyles = makeStyles((theme) => ({
       cursor: 'pointer',
    },
    link: {
-      textDecoration: 'underline',
       cursor: 'pointer',
       fontWeight: 'bold',
    },
@@ -59,3 +57,16 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default useStyles;
+
+export const FormContainer = styled.div`
+   background-color: #f1f2f4;
+   height: 100vh;
+   background: url('/image/loginBg.jpg');
+
+   & .login-inner {
+      padding: 40px 30px;
+      background-color: #fff;
+      border-radius: 5px;
+      border: 1px solid #e0e0e0;
+   }
+`;

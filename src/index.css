@@ -1,5 +1,22 @@
 body {
-   font-family: 'Poppins', sans-serif;
+   font-family: 'Montserrat', sans-serif;
+   margin: 0;
+   padding: 0;
+}
+
+@font-face {
+   font-family: MuseoSans;
+   src: url('./fonts/museosans500.woff2');
+}
+
+@font-face {
+   font-family: Canela-Medium;
+   src: url('./fonts/Canela-Medium.woff2');
+}
+
+@font-face {
+   font-family: Canela-Light;
+   src: url('./fonts/Canela-Light.woff2');
 }
 
 .text-end {
