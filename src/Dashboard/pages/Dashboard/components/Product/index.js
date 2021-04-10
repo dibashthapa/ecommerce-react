@@ -6,7 +6,6 @@ import { ProductActions } from '../../store';
 import { connect } from 'react-redux';
 import Pagination from '../../../../../App/components/Pagination';
 import Loading from '../../../../../App/components/Loading';
-import ImageSlider from '../../../../../App/components/ImageSlider';
 const Product = (props) => {
    const classes = useStyles();
 
@@ -18,8 +17,6 @@ const Product = (props) => {
 
    return (
       <Grid container className={classes.root} justify="center" spacing={2}>
-         <ImageSlider />
-
          <Grid
             item
             container
