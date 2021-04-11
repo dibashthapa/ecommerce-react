@@ -1,12 +1,11 @@
 import { put, call, all, takeLatest } from 'redux-saga/effects';
-import Api from '../../../../App/services/api';
+import { WocommerceApi } from '../../../../App/services/api';
 import actions from './actions';
 
-const api = new Api();
-
+const api = new WocommerceApi();
 export const getProducts = takeLatest(actions.GET_PRODUCTS, function* (action) {
    try {
-      const data = yield call(api.get, `product/category/all?page=${action.page}`);
+      const data = yield call(api.get, 'products');
       yield put({ type: actions.GET_PRODUCTS_SUCCESS, response: data });
    } catch (error) {
       yield put({ type: actions.GET_PRODUCTS_FAILURE, error });

@@ -1,5 +1,6 @@
 import axios from 'axios';
 import Cookies from 'js-cookie';
+import WooCommerceRestApi from '@woocommerce/woocommerce-rest-api';
 
 export default class Api {
    constructor(setToken = true, version = 'v1') {
@@ -61,6 +62,26 @@ export default class Api {
    delete = (url) => {
       return this.axiosFunction
          .delete(url)
+         .then((response) => response.data)
+         .catch((err) => {
+            throw err;
+         });
+   };
+}
+
+export class WocommerceApi {
+   constructor() {
+      this.api = new WooCommerceRestApi({
+         url: 'https://store.dibash.com',
+         consumerKey: 'ck_0b04d9d5e51f609e951e70714c325de261a05052',
+         consumerSecret: 'cs_d91434bb26fef0f7735b4e6360b0e3c87a5f247d',
+         version: 'wc/v3',
+      });
+   }
+
+   get = (params) => {
+      return this.api
+         .get(params)
          .then((response) => response.data)
          .catch((err) => {
             throw err;

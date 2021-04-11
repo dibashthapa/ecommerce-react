@@ -14,6 +14,7 @@ const useStyles = makeStyles((theme) => ({
          transition: '.2s',
          alignItems: 'center',
          opacity: 0,
+
          '& .imgWrapper': {
             padding: 5,
             boxShadow: ' 0 4px 4px rgb(0 0 0 / 5%)',
@@ -40,7 +41,7 @@ const useStyles = makeStyles((theme) => ({
    },
    imageWrapper: {
       '& img': {
-         height: 390,
+         height: 320,
          width: '100%',
       },
    },

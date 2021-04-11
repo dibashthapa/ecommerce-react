@@ -30,7 +30,7 @@ const reducer = (state = initialState, action) => {
             success: true,
             loading: false,
             products: action.response,
-            filteredProducts: action.response.paginatedProduct,
+            filteredProducts: action.response,
          };
 
       case actions.GET_PRODUCTS_FAILURE:

@@ -1,47 +1,31 @@
-import React, { useState } from 'react';
-import {
-   Badge,
-   Grid,
-   IconButton,
-   Menu,
-   MenuItem,
-   Popover,
-   Toolbar,
-} from '@material-ui/core';
+import React from 'react';
+import { Grid, IconButton, Toolbar } from '@material-ui/core';
 import { useHistory } from 'react-router-dom';
 import { Menu as MenuIcon } from '@material-ui/icons';
-import PersonIcon from '../../../Assets/Icons/ic-actions-user.png';
-import ShoppingBasketIcon from '../../../Assets/Icons/ic-ecommerce-basket.png';
-import SearchIcon from '../../../Assets/Icons/ic-actions-search.png';
 import './index.css';
 import useStyles, { HeaderContainer } from './index.style';
 import { connect } from 'react-redux';
 
-import { SearchBar, CartDrawer } from './components';
 const Header = (props) => {
    const classes = useStyles();
    const history = useHistory();
-   const [anchorEl, setAnchorEl] = React.useState(null);
-   const [personEl, setPersonEl] = React.useState(null);
-   const [showSearch, setShowSearch] = useState(false);
-   const [showDrawer, setShowDrawer] = useState(false);
 
-   const handleSearch = (event) => {
-      setAnchorEl(event.currentTarget);
-      setShowSearch(true);
-   };
+   // const handleSearch = (event) => {
+   //    setAnchorEl(event.currentTarget);
+   //    setShowSearch(true);
+   // };
 
-   const handleProfile = (event) => {
-      setPersonEl(event.currentTarget);
-   };
+   // const handleProfile = (event) => {
+   //    setPersonEl(event.currentTarget);
+   // };
 
-   const handleClose = () => {
-      setShowSearch(false);
-   };
+   // const handleClose = () => {
+   //    setShowSearch(false);
+   // };
 
-   const handleProfileClose = () => {
-      setPersonEl(null);
-   };
+   // const handleProfileClose = () => {
+   //    setPersonEl(null);
+   // };
    return (
       <HeaderContainer>
          <Grid container alignItems="center" className={classes.container}>
@@ -66,7 +50,7 @@ const Header = (props) => {
             <Grid item lg={2} className={classes.iconSection}>
                <Grid container justify="center">
                   <Toolbar className={classes.toolbar}>
-                     <Popover
+                     {/* <Popover
                         open={showSearch}
                         onClose={handleClose}
                         anchorOrigin={{
@@ -110,17 +94,18 @@ const Header = (props) => {
                         <Badge badgeContent={props.cartProduct?.length} color="error">
                            <img src={ShoppingBasketIcon} alt="Shopping Basket Icon" />
                         </Badge>
-                     </IconButton>
+                     </IconButton> */}
+                     <button class="btn btn-primary">Login or Signup</button>
                   </Toolbar>
                </Grid>
             </Grid>
          </Grid>
 
-         <CartDrawer
+         {/* <CartDrawer
             open={showDrawer}
             handleClose={() => setShowDrawer(false)}
             product={props.cartProduct}
-         />
+         /> */}
       </HeaderContainer>
    );
 };
