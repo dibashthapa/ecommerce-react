@@ -1,0 +1,9 @@
+version: '3.7'
+services:
+  react-prod:
+    container_name: react-prod
+    build:
+      context: .
+      dockerfile: DOCKERFILE-prod
+    ports:
+      - '1337:80'
