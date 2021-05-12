@@ -5,5 +5,7 @@ services:
     build:
       context: .
       dockerfile: DOCKERFILE-prod
+    env_file: 
+        - .local.env
     ports:
       - '1337:80'
