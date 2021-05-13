@@ -1,8 +1,11 @@
 FROM node:14-alpine as build
 WORKDIR /app
+RUN apk update && apk add bash
 ENV PATH /app/node_modules/.bin:$PATH 
 COPY package*.json ./
+
 RUN npm ci --silent 
+ENV REACT_APP_API_URL https://backendecommerce12.herokuapp.com/api
 RUN npm install react-scripts@4.0.1 -g silent 
 COPY . ./ 
 RUN npm run build 

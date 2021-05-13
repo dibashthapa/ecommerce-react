@@ -1,11 +1,11 @@
 version: '3.7'
 services:
-  react-prod:
-    container_name: react-prod
-    build:
-      context: .
-      dockerfile: DOCKERFILE-prod
-    env_file: 
-        - .local.env
-    ports:
-      - '1337:80'
+   react-prod:
+      environment:
+         - REACT_APP_API_URL="https://backendecommerce12.herokuapp.com/api"
+      build:
+         context: .
+         dockerfile: DOCKERFILE-prod
+
+      ports:
+         - '1337:80'
