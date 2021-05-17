@@ -17,15 +17,15 @@ const Fashions = (props) => {
    }, []);
 
    return (
-      <Grid container className={classes.root} justify="center" spacing={2}>
-         <Grid item lg={9}>
+      <Grid container className={classes.root} justify="center">
+         <Grid item lg={8}>
             <Grid
                item
                container
                row="true"
                flex="true"
                style={{ marginTop: '10px' }}
-               spacing={3}
+               spacing={2}
             >
                {props.loading ? (
                   <Loading open={true} />

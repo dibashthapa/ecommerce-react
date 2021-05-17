@@ -10,7 +10,13 @@ const PaginationPage = (props) => {
    };
    return (
       <div className={classes.root}>
-         <Pagination count={totalPage ? totalPage : 0} onChange={paginate} />
+         <Pagination
+            count={totalPage ? totalPage : 0}
+            onChange={paginate}
+            showFirstButton
+            showLastButton
+            shape="rounded"
+         />
       </div>
    );
 };

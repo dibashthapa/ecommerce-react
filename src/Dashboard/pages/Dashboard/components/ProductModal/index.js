@@ -77,7 +77,7 @@ const ProductModal = (props) => {
                      <div> {parser(description)}</div>
                      <div>
                         <button
-                           className={classes.addToCart}
+                           className={`btn btn-secondary ${classes.addToCart}`}
                            onClick={() => addToCart(productInfo)}
                         >
                            + Add to Cart

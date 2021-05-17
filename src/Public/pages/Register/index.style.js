@@ -1,14 +1,13 @@
 import { makeStyles } from '@material-ui/core/styles';
-
+import styled from 'styled-components';
 const useStyles = makeStyles((theme) => ({
    root: {
       position: 'relative',
    },
    registerContainer: {
-      position: 'absolute',
-      top: '50%',
-      left: '50%',
-      transform: 'translate(-50% , -50%)',
+      height: '100%',
+      display: 'flex',
+      alignItems: 'center',
       '& label': {
          marginBottom: 12,
       },
@@ -19,28 +18,7 @@ const useStyles = makeStyles((theme) => ({
          },
       },
    },
-   registerButton: {
-      border: 'none',
-      backgroundColor: 'rgb(70, 41, 211)',
-      height: 40,
-      width: '100%',
-      display: 'flex',
-      '-webkit-box-align': 'center',
-      alignItems: 'center',
-      zIndex: 5,
-      cursor: 'pointer',
-      padding: 0,
-      outline: 'none',
-      marginTop: 20,
-      marginBottom: 20,
-      justifyContent: 'center',
-      color: '#fff',
-      transition: '0.2s',
-      fontWeight: '670',
-      '&:hover': {
-         transform: 'translateY(-2px)',
-      },
-   },
+   registerButton: {},
    fonts: {
       fontWeight: 700,
       color: 'black',
@@ -52,7 +30,7 @@ const useStyles = makeStyles((theme) => ({
       cursor: 'pointer',
    },
    link: {
-      textDecoration: 'underline',
+      marginLeft: 5,
       cursor: 'pointer',
       fontWeight: 'bold',
    },
@@ -65,3 +43,16 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default useStyles;
+
+export const FormContainer = styled.div`
+   background-color: #f1f2f4;
+   height: 100vh;
+   background: url('/image/loginBg.jpg');
+
+   & .register-inner {
+      padding: 40px 30px;
+      background-color: #fff;
+      border-radius: 5px;
+      border: 1px solid #e0e0e0;
+   }
+`;
