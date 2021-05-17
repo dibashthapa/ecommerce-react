@@ -49,14 +49,16 @@ const Apparels = (props) => {
                </Grid>
             </Grid>
          </Grid>
-         {!props.loading && (
-            <Grid container justify="center">
-               <PaginationPage
-                  totalPage={props.totalPages}
-                  getProducts={props.getApparels}
-               />
-            </Grid>
-         )}
+         {!props.loading &&
+            props.apparels?.length <=
+               0(
+                  <Grid container justify="center">
+                     <PaginationPage
+                        totalPage={props.totalPages}
+                        getProducts={props.getApparels}
+                     />
+                  </Grid>
+               )}
       </>
    );
 };

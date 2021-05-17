@@ -1,15 +1,11 @@
 import React, { useEffect } from 'react';
-import { Grid } from '@material-ui/core';
 import AppProduct from '../../../../../App/components/Product';
-import useStyles from './index.style.js';
 import { ProductActions } from '../../store';
 import { connect } from 'react-redux';
 import Pagination from '../../../../../App/components/Pagination';
 import Loading from '../../../../../App/components/Loading';
-import ImageSlider from '../../../../../App/components/ImageSlider';
+import { Row, Col, Container } from 'react-bootstrap';
 const Product = (props) => {
-   const classes = useStyles();
-
    useEffect(() => {
       props.getProducts(1);
 
@@ -17,39 +13,32 @@ const Product = (props) => {
    }, []);
 
    return (
-      <Grid container className={classes.root} justify="center" spacing={2}>
-         <ImageSlider />
+      <>
+         <Container>
+            <Row>
+               {props.loading ? (
+                  <Loading open={true} />
+               ) : (
+                  props.products?.map(({ _id, name, price, imgUrl, description }) => (
+                     <Col md={3}>
+                        <AppProduct
+                           img_url={imgUrl}
+                           name={name}
+                           price={price}
+                           description={description}
+                           id={_id}
+                        />
+                     </Col>
+                  ))
+               )}
+            </Row>
 
-         <Grid
-            item
-            container
-            row="true"
-            flex="true"
-            style={{ marginTop: '10px' }}
-            spacing={3}
-         >
-            {props.loading ? (
-               <Loading open={true} />
-            ) : (
-               props.products?.map(({ _id, name, price, imgUrl, description }) => (
-                  <Grid item xs={12} key={_id} md={3}>
-                     <AppProduct
-                        img_url={imgUrl}
-                        name={name}
-                        price={price}
-                        description={description}
-                        id={_id}
-                     />
-                  </Grid>
-               ))
-            )}
-         </Grid>
-
-         <Pagination
-            totalPage={props.totalProduct.totalPages}
-            getProducts={props.getProducts}
-         />
-      </Grid>
+            <Pagination
+               totalPage={props.totalProduct.totalPages}
+               getProducts={props.getProducts}
+            />
+         </Container>
+      </>
    );
 };
 
