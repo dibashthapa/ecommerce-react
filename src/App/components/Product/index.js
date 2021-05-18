@@ -1,9 +1,7 @@
 import React, { useState } from 'react';
-import useStyles from './index.style';
 import eyeIcon from '../../../Assets/Icons/ic-actions-view.png';
 import ProductModal from '../../../Dashboard/pages/Dashboard/components/ProductModal';
 const Product = ({ name, price, img_url, description, id }) => {
-   const classes = useStyles();
    const [open, setOpen] = useState(false);
 
    const handleClose = () => {
@@ -20,7 +18,7 @@ const Product = ({ name, price, img_url, description, id }) => {
             name={name}
             id={id}
          />
-         <div className={classes.productWrapper}>
+         {/* <div className={classes.productWrapper}>
             <div className={classes.imageWrapper}>
                <img src={img_url} alt="" style={{ height: '309.28px' }} />
             </div>
@@ -36,7 +34,7 @@ const Product = ({ name, price, img_url, description, id }) => {
                   <img src={eyeIcon} alt="" onClick={() => setOpen(true)} />
                </div>
             </div>
-         </div>
+         </div> */}
       </>
    );
 };

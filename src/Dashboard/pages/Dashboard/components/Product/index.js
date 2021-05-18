@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import AppProduct from '../../../../../App/components/Product';
 import { ProductActions } from '../../store';
 import { connect } from 'react-redux';
-import Pagination from '../../../../../App/components/Pagination';
+// import Pagination from '../../../../../App/components/Pagination';
 import Loading from '../../../../../App/components/Loading';
 import { Row, Col, Container } from 'react-bootstrap';
 const Product = (props) => {
@@ -32,11 +32,11 @@ const Product = (props) => {
                   ))
                )}
             </Row>
-
+            {/* 
             <Pagination
                totalPage={props.totalProduct.totalPages}
                getProducts={props.getProducts}
-            />
+            /> */}
          </Container>
       </>
    );

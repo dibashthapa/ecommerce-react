@@ -1,6 +1,6 @@
 import Dashboard from '../pages/Dashboard';
-import Apparels from '../pages/Apparels';
-import Fashions from '../pages/Fashion';
+// import Apparels from '../pages/Apparels';
+// import Fashions from '../pages/Fashion';
 
 const routes = [
    {
@@ -8,16 +8,16 @@ const routes = [
       path: '/',
       component: Dashboard,
    },
-   {
-      name: 'apparels',
-      path: '/apparels',
-      component: Apparels,
-   },
-   {
-      name: 'Fashions',
-      path: '/fashions',
-      component: Fashions,
-   },
+   // {
+   //    name: 'apparels',
+   //    path: '/apparels',
+   //    component: Apparels,
+   // },
+   // {
+   //    name: 'Fashions',
+   //    path: '/fashions',
+   //    component: Fashions,
+   // },
 ];
 
 export default routes;

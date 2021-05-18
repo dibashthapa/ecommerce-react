@@ -4,7 +4,7 @@ import Product from '../../../App/components/Product';
 import useStyles from './index.style.js';
 import { ApparelActions } from './store';
 import { connect } from 'react-redux';
-import PaginationPage from '../../../App/components/Pagination';
+// import PaginationPage from '../../../App/components/Pagination';
 import Loading from '../../../App/components/Loading';
 
 const Apparels = (props) => {
@@ -49,7 +49,7 @@ const Apparels = (props) => {
                </Grid>
             </Grid>
          </Grid>
-         {!props.loading &&
+         {/* {!props.loading &&
             props.apparels?.length <=
                0(
                   <Grid container justify="center">
@@ -58,7 +58,7 @@ const Apparels = (props) => {
                         getProducts={props.getApparels}
                      />
                   </Grid>
-               )}
+               )} */}
       </>
    );
 };
