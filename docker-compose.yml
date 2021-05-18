@@ -1,15 +1,11 @@
-version: '3.9'
+version: '3.7'
 services:
-   reactapp:
+   react-prod:
+      environment:
+         - REACT_APP_API_URL="https://backendecommerce12.herokuapp.com/api"
       build:
          context: .
-         dockerfile: DOCKERFILE
-      env_file:
-         - .env.local
-      volumes:
-         - '.:/app'
-         - '/app/node_modules'
+         dockerfile: DOCKERFILE-prod
+
       ports:
-         - 3001:3000
-      environment:
-         - CHOKIDAR_USEPOLLING=true
+         - '1337:80'

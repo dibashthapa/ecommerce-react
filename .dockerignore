@@ -2,3 +2,4 @@ build
 .dockerignore
 DOCKERFILE
 DOCKERFILE.prod
+node_modules
